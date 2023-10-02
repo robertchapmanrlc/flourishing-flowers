@@ -1,9 +1,10 @@
+import Navbar from "./components/Navbar"
 
 function App() {
 
   return (
     <>
-      <h1 className="font-lexend">Flourishing Flowers</h1>
+      <Navbar />
     </>
   )
 }
