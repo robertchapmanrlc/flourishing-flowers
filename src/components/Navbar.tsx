@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Search, ShoppingCart, Menu, X } from "lucide-react";
 
-import { Dialog } from "@headlessui/react";
+import { Dialog, Popover } from "@headlessui/react";
 import { Link, NavLink } from "react-router-dom";
 import NavbarLink from "./navbar-link";
 
@@ -39,11 +39,20 @@ function Navbar() {
           ))}
         </ul>
         <div className="flex flex-row md:gap-x-5 gap-x-2">
-          <Search
-            size={30}
-            className="text-gray-500 hover:text-gray-800 cursor-pointer"
-          />
-          <Link to='/cart'>
+          <Popover className="relative">
+            <Popover.Button>
+              <Search
+                size={30}
+                className="text-gray-500 hover:text-gray-800 cursor-pointer"
+              />
+            </Popover.Button>
+            <Popover.Panel className="absolute z-10 mt-2 w-screen max-w-sm -translate-x-[90%] transform">
+              <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 p-3">
+                <input className="w-full rounded-md border border-gray-900/10 p-2" />
+              </div>
+            </Popover.Panel>
+          </Popover>
+          <Link to="/cart">
             <ShoppingCart
               size={30}
               className="text-gray-500 hover:text-gray-800 cursor-pointer"
