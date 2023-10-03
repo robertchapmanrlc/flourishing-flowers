@@ -3,7 +3,24 @@ import { Search, ShoppingCart, Menu, X } from "lucide-react";
 
 import { Dialog } from "@headlessui/react";
 
-const categories = ["Just Because", "Birthday", "Anniversary", "Wedding"];
+const categories = [
+  {
+    label: "Just Because",
+    route: "just-because",
+  },
+  {
+    label: "Birthday",
+    route: "birthday",
+  },
+  {
+    label: "Anniversary",
+    route: "anniversary",
+  },
+  {
+    label: "Wedding",
+    route: "wedding",
+  },
+];
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +31,7 @@ function Navbar() {
         <h2 className="font-lexend text-2xl">Flourishing Flowers</h2>
         <ul className="hidden lg:flex flex-row gap-x-5">
           {categories.map((category) => (
-            <li className="font-lexend">{category}</li>
+            <li className="font-lexend">{category.label}</li>
           ))}
         </ul>
         <div className="flex flex-row md:gap-x-5 gap-x-2">
@@ -44,7 +61,7 @@ function Navbar() {
           <div className="w-full mt-6">
             <div className="flex flex-col items-start gap-y-5">
               {categories.map((category) => (
-                <p className="w-full px-3 py-2 rounded-lg hover:bg-gray-100 text-2xl font-lexend">{category}</p>
+                <p className="w-full px-3 py-2 rounded-lg hover:bg-gray-100 text-2xl font-lexend">{category.label}</p>
               ))}
             </div>
           </div>
