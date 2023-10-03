@@ -28,5 +28,3 @@ function NavbarLink({ link }: NavbarLinkProps) {
 }
 
 export default NavbarLink;
-
-// <p className="w-full px-3 py-2 rounded-lg hover:bg-gray-100 text-2xl font-lexend"> {category.label} </p>

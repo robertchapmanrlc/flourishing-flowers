@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Search, ShoppingCart, Menu, X } from "lucide-react";
 
 import { Dialog } from "@headlessui/react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import NavbarLink from "./navbar-link";
 
 const categories = [
@@ -29,18 +29,26 @@ function Navbar() {
 
   return (
     <header>
-      <nav className="lg:px-32 md:px-16 px-4 pt-4 flex flex-row justify-between">
-        <NavLink to='/'>
+      <nav className="lg:px-32 md:px-16 px-4 pt-4 flex flex-row justify-between items-center">
+        <NavLink to="/">
           <h2 className="font-lexend text-2xl">Flourishing Flowers</h2>
         </NavLink>
         <ul className="hidden lg:flex flex-row gap-x-5 items-center">
           {categories.map((category, i) => (
-            <NavbarLink key={i} link={category}/>
+            <NavbarLink key={i} link={category} />
           ))}
         </ul>
         <div className="flex flex-row md:gap-x-5 gap-x-2">
-          <Search size={30} />
-          <ShoppingCart size={30} />
+          <Search
+            size={30}
+            className="text-gray-500 hover:text-gray-800 cursor-pointer"
+          />
+          <Link to='/cart'>
+            <ShoppingCart
+              size={30}
+              className="text-gray-500 hover:text-gray-800 cursor-pointer"
+            />
+          </Link>
           <button type="button" onClick={() => setIsOpen(true)}>
             <span className="sr-only">Open main menu</span>
             <Menu size={30} className="lg:hidden" />
@@ -65,7 +73,7 @@ function Navbar() {
           <div className="w-full mt-6">
             <ul className="flex flex-col items-start gap-y-2">
               {categories.map((category, i) => (
-                <NavbarLink key={i} link={category}/>
+                <NavbarLink key={i} link={category} />
               ))}
             </ul>
           </div>
