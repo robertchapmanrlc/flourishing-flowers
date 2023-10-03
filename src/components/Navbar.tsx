@@ -3,6 +3,7 @@ import { Search, ShoppingCart, Menu, X } from "lucide-react";
 
 import { Dialog } from "@headlessui/react";
 import { NavLink } from "react-router-dom";
+import NavbarLink from "./navbar-link";
 
 const categories = [
   {
@@ -32,9 +33,9 @@ function Navbar() {
         <NavLink to='/'>
           <h2 className="font-lexend text-2xl">Flourishing Flowers</h2>
         </NavLink>
-        <ul className="hidden lg:flex flex-row gap-x-5">
-          {categories.map((category) => (
-            <li className="font-lexend">{category.label}</li>
+        <ul className="hidden lg:flex flex-row gap-x-5 items-center">
+          {categories.map((category, i) => (
+            <NavbarLink key={i} link={category}/>
           ))}
         </ul>
         <div className="flex flex-row md:gap-x-5 gap-x-2">
@@ -62,13 +63,11 @@ function Navbar() {
             <X className="h-6 w-6" aria-hidden="true" />
           </button>
           <div className="w-full mt-6">
-            <div className="flex flex-col items-start gap-y-5">
-              {categories.map((category) => (
-                <p className="w-full px-3 py-2 rounded-lg hover:bg-gray-100 text-2xl font-lexend">
-                  {category.label}
-                </p>
+            <ul className="flex flex-col items-start gap-y-2">
+              {categories.map((category, i) => (
+                <NavbarLink key={i} link={category}/>
               ))}
-            </div>
+            </ul>
           </div>
         </Dialog.Panel>
       </Dialog>
