@@ -6,6 +6,7 @@ import Home from "./pages/home";
 import JustBecause from "./pages/just-because";
 import Anniversary from "./pages/anniversary";
 import Wedding from "./pages/wedding";
+import Cart from "./pages/cart";
 
 
 function App() {
@@ -16,10 +17,11 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/Just-Because" element={<JustBecause />} />
-          <Route path="/Birthday" element={<Birthday />} />
-          <Route path="/Anniversary" element={<Anniversary />} />
-          <Route path="/Wedding" element={<Wedding />} />
+          <Route path="/just-because" element={<JustBecause />} />
+          <Route path="/birthday" element={<Birthday />} />
+          <Route path="/anniversary" element={<Anniversary />} />
+          <Route path="/wedding" element={<Wedding />} />
+          <Route path="/cart" element={<Cart /> } />
         </Routes>
       </Router>
     </>
