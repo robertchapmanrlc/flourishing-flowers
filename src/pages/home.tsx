@@ -1,24 +1,78 @@
 import MainBillboard from "../components/main-billboard";
 import MiniBillboard from "../components/mini-billboard";
-import ProductCard from "../components/product-card";
+import ProductList from "../components/product-list";
 
 const mini_billboard_items = [
   {
     image_url: "src/assets/banners/banner-2.jpg",
-    label: "Wedding Bouquets"
+    label: "Wedding Bouquets",
   },
   {
     image_url: "src/assets/banners/banner-3.jpg",
-    label: "Blooms for Celebration"
-  }
+    label: "Blooms for Celebration",
+  },
 ];
 
-const card = {
-  image_url: 'src/assets/products/red-rose-bouquet.webp',
-  name: 'Rose Bouquet',
-  category: 'Bouquet',
-  price: '2'
-}
+const productListContent = [
+  {
+    label: "New",
+    cards: [
+      {
+        image_url: "src/assets/products/red-rose-bouquet.webp",
+        name: "Rose Bouquet",
+        category: "Bouquet",
+        price: "5",
+      },
+      {
+        image_url: "src/assets/products/red-rose-bouquet.webp",
+        name: "Rose Bouquet",
+        category: "Bouquet",
+        price: "5",
+      },
+      {
+        image_url: "src/assets/products/red-rose-bouquet.webp",
+        name: "Rose Bouquet",
+        category: "Bouquet",
+        price: "5",
+      },
+      {
+        image_url: "src/assets/products/red-rose-bouquet.webp",
+        name: "Rose Bouquet",
+        category: "Bouquet",
+        price: "5",
+      },
+    ],
+  },
+  {
+    label: "Relevant",
+    cards: [
+      {
+        image_url: "src/assets/products/red-rose-bouquet.webp",
+        name: "Rose Bouquet",
+        category: "Bouquet",
+        price: "5",
+      },
+      {
+        image_url: "src/assets/products/red-rose-bouquet.webp",
+        name: "Rose Bouquet",
+        category: "Bouquet",
+        price: "5",
+      },
+      {
+        image_url: "src/assets/products/red-rose-bouquet.webp",
+        name: "Rose Bouquet",
+        category: "Bouquet",
+        price: "5",
+      },
+      {
+        image_url: "src/assets/products/red-rose-bouquet.webp",
+        name: "Rose Bouquet",
+        category: "Bouquet",
+        price: "5",
+      },
+    ],
+  },
+];
 
 function Home() {
   return (
@@ -26,10 +80,12 @@ function Home() {
       <MainBillboard />
       <div className="w-full flex flex-row justify-between items-center gap-x-16">
         {mini_billboard_items.map((item, i) => (
-          <MiniBillboard key={i} item={item}/>
+          <MiniBillboard key={i} item={item} />
         ))}
       </div>
-      <ProductCard card={card} />
+      {productListContent.map((content, i) => (
+        <ProductList key={i} content={content} />
+      ))}
     </div>
   );
 }
