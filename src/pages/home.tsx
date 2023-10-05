@@ -1,16 +1,24 @@
 import MainBillboard from "../components/main-billboard";
 import MiniBillboard from "../components/mini-billboard";
+import ProductCard from "../components/product-card";
 
 const mini_billboard_items = [
   {
-    image_url: "src/assets/banner-2.jpg",
+    image_url: "src/assets/banners/banner-2.jpg",
     label: "Wedding Bouquets"
   },
   {
-    image_url: "src/assets/banner-3.jpg",
+    image_url: "src/assets/banners/banner-3.jpg",
     label: "Blooms for Celebration"
   }
 ];
+
+const card = {
+  image_url: 'src/assets/products/red-rose-bouquet.webp',
+  name: 'Rose Bouquet',
+  category: 'Bouquet',
+  price: '2'
+}
 
 function Home() {
   return (
@@ -21,6 +29,7 @@ function Home() {
           <MiniBillboard key={i} item={item}/>
         ))}
       </div>
+      <ProductCard card={card} />
     </div>
   );
 }
