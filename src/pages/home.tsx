@@ -76,16 +76,18 @@ const productListContent = [
 
 function Home() {
   return (
-    <div className="lg:px-32 md:px-16 px-4 lg:py-8 md:py-4 py-2 flex flex-col justify-start items-center gap-y-10">
+    <div className="lg:px-32 md:px-16 px-4 lg:py-8 md:py-4 py-2 flex flex-col justify-start items-center gap-y-4 md:gap-y-10">
       <MainBillboard />
       <div className="w-full flex flex-row justify-between items-center gap-x-16">
         {mini_billboard_items.map((item, i) => (
           <MiniBillboard key={i} item={item} />
         ))}
       </div>
-      {productListContent.map((content, i) => (
-        <ProductList key={i} content={content} />
-      ))}
+      <div className="w-full h-full flex flew-col flex-wrap justify-start items-center gap-y-4">
+        {productListContent.map((content, i) => (
+          <ProductList key={i} content={content} />
+        ))}
+      </div>
     </div>
   );
 }
