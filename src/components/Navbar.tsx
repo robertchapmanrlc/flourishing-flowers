@@ -43,7 +43,7 @@ function Navbar() {
             <Popover.Button>
               <Search
                 size={30}
-                className="text-gray-500 hover:text-gray-800 cursor-pointer"
+                className="text-gray-500 transition ease-in-out hover:text-gray-800 cursor-pointer"
               />
             </Popover.Button>
             <Popover.Panel className="absolute z-10 mt-2 w-screen max-w-sm -translate-x-[90%] transform">
@@ -55,12 +55,12 @@ function Navbar() {
           <Link to="/cart">
             <ShoppingCart
               size={30}
-              className="text-gray-500 hover:text-gray-800 cursor-pointer"
+              className="text-gray-500 transition ease-in-out hover:text-gray-800 cursor-pointer"
             />
           </Link>
           <button type="button" onClick={() => setIsOpen(true)}>
             <span className="sr-only">Open main menu</span>
-            <Menu size={30} className="lg:hidden" />
+            <Menu size={30} className="lg:hidden text-gray-500 transition ease-in-out hover:text-gray-800 cursor-pointer" />
           </button>
         </div>
       </nav>

@@ -10,7 +10,7 @@ interface ProductCardProps {
 function ProductCard({ card }: ProductCardProps) {
   return (
     <div className="group cursor-pointer">
-      <div className="aspect-h-1 aspect-w-1 w-[200px] md:w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:max-h-100 xl:max-h-140">
+      <div className="aspect-h-1 aspect-w-1 w-[200px] md:w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none transition ease-in-out group-hover:opacity-75 lg:max-h-100 xl:max-h-140">
         <img
           src={`${card.image_url}`}
           alt="Picture of flower"
