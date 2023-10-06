@@ -4,27 +4,13 @@ import { Search, ShoppingCart, Menu, X } from "lucide-react";
 import { Dialog, Popover } from "@headlessui/react";
 import { Link, NavLink } from "react-router-dom";
 import NavbarLink from "./navbar-link";
+import { Category } from "../../types";
 
-const categories = [
-  {
-    label: "Just Because",
-    route: "just-because",
-  },
-  {
-    label: "Birthday",
-    route: "birthday",
-  },
-  {
-    label: "Anniversary",
-    route: "anniversary",
-  },
-  {
-    label: "Wedding",
-    route: "wedding",
-  },
-];
+interface NavbarProps {
+  categories: Category[];
+}
 
-function Navbar() {
+function Navbar({ categories }: NavbarProps ) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (

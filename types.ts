@@ -5,3 +5,9 @@ export interface Card {
     category: string;
     price: string;
 }
+
+export interface Category {
+    route: string;
+    label: string;
+    cards: Card[];
+}

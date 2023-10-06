@@ -1,12 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/navbar"
-import Birthday from "./pages/birthday";
 import Home from "./pages/home";
-import JustBecause from "./pages/just-because";
-import Anniversary from "./pages/anniversary";
-import Wedding from "./pages/wedding";
 import Cart from "./pages/cart";
+import CategoryPage from "./pages/category-page";
 
 const products = [
   {
@@ -71,24 +68,40 @@ const products = [
   },
 ];
 
+const categories = [
+  {
+    route: "/just-because",
+    label: "Just Because",
+    cards: products,
+  },
+  {
+    route: "/birthday",
+    label: "Birthday",
+    cards: products,
+  },
+  {
+    route: "/anniversary",
+    label: "Anniversary",
+    cards: products,
+  },
+  {
+    route: "/wedding",
+    label: "Wedding",
+    cards: products,
+  },
+];
+
 function App() {
 
   return (
     <>
       <Router>
-        <Navbar />
+        <Navbar categories={categories}/>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route
-            path="/just-because"
-            element={<JustBecause cards={products} />}
-          />
-          <Route path="/birthday" element={<Birthday cards={products} />} />
-          <Route
-            path="/anniversary"
-            element={<Anniversary cards={products} />}
-          />
-          <Route path="/wedding" element={<Wedding cards={products} />} />
+          {categories.map((category) => (
+            <Route path={category.route} element={<CategoryPage category={category} />} /> 
+          ))}
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </Router>
