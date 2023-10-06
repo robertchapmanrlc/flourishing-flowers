@@ -100,7 +100,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           {categories.map((category) => (
-            <Route path={category.route} element={<CategoryPage category={category} />} /> 
+            <Route key={category.label} path={category.route} element={<CategoryPage category={category} />} /> 
           ))}
           <Route path="/cart" element={<Cart />} />
         </Routes>
