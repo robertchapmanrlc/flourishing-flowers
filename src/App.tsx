@@ -8,6 +8,68 @@ import Anniversary from "./pages/anniversary";
 import Wedding from "./pages/wedding";
 import Cart from "./pages/cart";
 
+const products = [
+  {
+    image_url: "src/assets/products/red-rose-bouquet.webp",
+    name: "Rose Bouquet",
+    category: "Bouquet",
+    price: "5",
+  },
+  {
+    image_url: "src/assets/products/red-rose-bouquet.webp",
+    name: "Rose Bouquet",
+    category: "Bouquet",
+    price: "5",
+  },
+  {
+    image_url: "src/assets/products/red-rose-bouquet.webp",
+    name: "Rose Bouquet",
+    category: "Bouquet",
+    price: "5",
+  },
+  {
+    image_url: "src/assets/products/red-rose-bouquet.webp",
+    name: "Rose Bouquet",
+    category: "Bouquet",
+    price: "5",
+  },
+  {
+    image_url: "src/assets/products/red-rose-bouquet.webp",
+    name: "Rose Bouquet",
+    category: "Bouquet",
+    price: "5",
+  },
+  {
+    image_url: "src/assets/products/red-rose-bouquet.webp",
+    name: "Rose Bouquet",
+    category: "Bouquet",
+    price: "5",
+  },
+  {
+    image_url: "src/assets/products/red-rose-bouquet.webp",
+    name: "Rose Bouquet",
+    category: "Bouquet",
+    price: "5",
+  },
+  {
+    image_url: "src/assets/products/red-rose-bouquet.webp",
+    name: "Rose Bouquet",
+    category: "Bouquet",
+    price: "5",
+  },
+  {
+    image_url: "src/assets/products/red-rose-bouquet.webp",
+    name: "Rose Bouquet",
+    category: "Bouquet",
+    price: "5",
+  },
+  {
+    image_url: "src/assets/products/red-rose-bouquet.webp",
+    name: "Rose Bouquet",
+    category: "Bouquet",
+    price: "5",
+  },
+];
 
 function App() {
 
@@ -17,15 +79,21 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/just-because" element={<JustBecause />} />
-          <Route path="/birthday" element={<Birthday />} />
-          <Route path="/anniversary" element={<Anniversary />} />
-          <Route path="/wedding" element={<Wedding />} />
-          <Route path="/cart" element={<Cart /> } />
+          <Route
+            path="/just-because"
+            element={<JustBecause cards={products} />}
+          />
+          <Route path="/birthday" element={<Birthday cards={products} />} />
+          <Route
+            path="/anniversary"
+            element={<Anniversary cards={products} />}
+          />
+          <Route path="/wedding" element={<Wedding cards={products} />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </Router>
     </>
-  )
+  );
 }
 
 export default App

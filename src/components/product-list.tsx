@@ -1,14 +1,10 @@
 import ProductCard from "./product-card";
+import { Card } from '../../types.ts'
 
 interface ProductListProps {
   content: {
     label: string;
-    cards: {
-      image_url: string;
-      name: string;
-      category: string;
-      price: string;
-    }[];
+    cards: Card[];
   };
 }
 

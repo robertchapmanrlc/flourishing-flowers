@@ -1,10 +1,7 @@
+import { Card } from "../../types";
+
 interface ProductCardProps {
-  card: {
-    image_url: string;
-    name: string;
-    category: string;
-    price: string;
-  };
+  card: Card;
 }
 
 function ProductCard({ card }: ProductCardProps) {
