@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Menu } from "@headlessui/react";
+import { Dialog, Menu } from "@headlessui/react";
 
 import { Category } from "../../types";
 import ProductCard from "../components/product-card";
-import { ChevronDownIcon } from "lucide-react";
+import { ChevronDownIcon, Filter as FilterIcon, X } from "lucide-react";
 import { cn } from "../lib/utils";
 import Filter from "../components/filter";
 
@@ -36,13 +36,13 @@ const filters = [
 ];
 
 function CategoryPage({ category }: CategoryPageProps) {
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+
   const [options, setOptions] = useState([
     { name: "Newest", href: "#", current: true },
     { name: "Price: Low to High", href: "#", current: false },
     { name: "Price: High to Low", href: "#", current: false },
   ]);
-
-  const [colorFilter, setColorFilter] = useState();
 
   const changeActive = (name: string) => {
     let newOptions = [...options];
@@ -58,6 +58,38 @@ function CategoryPage({ category }: CategoryPageProps) {
 
   return (
     <div className="lg:px-32 md:px-16 px-4 lg:py-8 md:py-4 py-2 flex flex-col justify-start items-center gap-y-4 md:gap-y-10">
+      <Dialog
+        open={mobileFiltersOpen}
+        as="div"
+        className="relative z-40 lg:hidden"
+        onClose={() => setMobileFiltersOpen(false)}
+      >
+        <div className="fixed inset-0 z-40 flex">
+          <Dialog.Panel className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl">
+            <div className="flex items-center justify-between px-4">
+              <h2 className="text-lg font-lexend font-medium text-gray-900">
+                Filters
+              </h2>
+              <button
+                type="button"
+                className="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400"
+                onClick={() => setMobileFiltersOpen(false)}
+              >
+                <span className="sr-only">Close menu</span>
+                <X />
+              </button>
+            </div>
+            {filters.map((filter, i) => (
+              <Filter
+                key={filter.name}
+                name={filter.name}
+                id={filter.id}
+                options={filters[i].options}
+              />
+            ))}
+          </Dialog.Panel>
+        </div>
+      </Dialog>
       <div className="w-full flex flex-row justify-between border-b border-gray-200 pb-6 pt-6">
         <h1 className="text-4xl font-bold font-lexend tracking-tight text-gray-900">
           {category.label} Flowers
@@ -99,13 +131,26 @@ function CategoryPage({ category }: CategoryPageProps) {
               </div>
             </Menu.Items>
           </Menu>
+          <button
+            type="button"
+            className="lg:hidden -m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-7"
+            onClick={() => setMobileFiltersOpen(true)}
+          >
+            <span className="sr-only">Filters</span>
+            <FilterIcon className="w-5 h-5" />
+          </button>
         </div>
       </div>
       <div className="pb-24 pt-6">
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
           <div className="hidden lg:block">
             {filters.map((filter, i) => (
-              <Filter key={filter.name} name={filter.name} id={filter.id} options={filters[i].options} />
+              <Filter
+                key={filter.name}
+                name={filter.name}
+                id={filter.id}
+                options={filters[i].options}
+              />
             ))}
           </div>
           <div className="col-span-3 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">

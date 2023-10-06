@@ -13,7 +13,7 @@ interface FilterProps {
 
 function Filter({id, name, options }: FilterProps) {
   return (
-    <Disclosure as="div" className="border-b border-gray-200 py-6">
+    <Disclosure as="div" className="border-t lg:border-t-0 lg:border-b border-gray-200 px-4 lg:px-4 py-6">
       {({ open }) => (
         <>
           <h3 className="-my-3 flow-root">
