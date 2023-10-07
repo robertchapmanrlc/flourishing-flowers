@@ -4,6 +4,7 @@ export interface Card {
     name: string;
     category: string;
     price: string;
+    product_id: number;
 }
 
 export interface Category {

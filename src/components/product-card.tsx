@@ -1,5 +1,6 @@
 import { Plus } from "lucide-react";
 import { Card } from "../../types";
+import { Link } from "react-router-dom";
 
 interface ProductCardProps {
   card: Card;
@@ -22,7 +23,9 @@ function ProductCard({ card }: ProductCardProps) {
       </div>
       <div className="mt-4 flex justify-between">
         <div>
-          <h3 className="font-lexend text-sm text-gray-700">{card.name}</h3>
+          <Link to={`/product/${card.product_id}`}>
+            <h3 className="font-lexend text-sm text-gray-700 hover:underline">{card.name}</h3>
+          </Link>
           <p className="font-lexend mt-1 text-sm text-gray-500">
             {card.category}
           </p>
