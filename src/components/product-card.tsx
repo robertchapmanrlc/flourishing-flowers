@@ -1,12 +1,17 @@
 import { Plus } from "lucide-react";
 import { Card } from "../../types";
 import { Link } from "react-router-dom";
+import { ShopContext } from "../contexts/shop-context";
+import { useContext } from "react";
 
 interface ProductCardProps {
   card: Card;
 }
 
 function ProductCard({ card }: ProductCardProps) {
+
+  const { addToCart } = useContext(ShopContext);
+
   return (
     <div className="group cursor-pointer">
       <div className="relative aspect-h-1 aspect-w-1 w-[200px] md:w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none transition ease-in-out group-hover:opacity-75 lg:max-h-100 xl:max-h-140">
@@ -17,7 +22,7 @@ function ProductCard({ card }: ProductCardProps) {
         />
         <div className="opacity-0 group-hover:opacity-100 transition absolute w-full px-6 bottom-5">
           <div className="flex justify-end">
-            <Plus size={25} className="bg-pink-300 rounded-full p-1 shadow-md hover:scale-110 transition" />
+            <Plus size={25} className="bg-pink-300 rounded-full p-1 shadow-md hover:scale-110 transition" onClick={() => addToCart(card.product_id - 1)} />
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import MainBillboard from "../components/main-billboard";
 import MiniBillboard from "../components/mini-billboard";
 import ProductList from "../components/product-list";
+import { products } from "../../products";
 
 const mini_billboard_items = [
   {
@@ -15,72 +16,15 @@ const mini_billboard_items = [
   },
 ];
 
+
 const productListContent = [
   {
     label: "New",
-    cards: [
-      {
-        image_url: "src/assets/products/red-rose-bouquet.webp",
-        name: "Rose Bouquet",
-        category: "Bouquet",
-        price: "5",
-        product_id: 1,
-      },
-      {
-        image_url: "src/assets/products/red-rose-bouquet.webp",
-        name: "Rose Bouquet",
-        category: "Bouquet",
-        price: "5",
-        product_id: 2,
-      },
-      {
-        image_url: "src/assets/products/red-rose-bouquet.webp",
-        name: "Rose Bouquet",
-        category: "Bouquet",
-        price: "5",
-        product_id: 3,
-      },
-      {
-        image_url: "src/assets/products/red-rose-bouquet.webp",
-        name: "Rose Bouquet",
-        category: "Bouquet",
-        price: "5",
-        product_id: 4,
-      },
-    ],
+    cards: [products[0], products[1], products[2], products[3]],
   },
   {
     label: "Relevant",
-    cards: [
-      {
-        image_url: "src/assets/products/red-rose-bouquet.webp",
-        name: "Rose Bouquet",
-        category: "Bouquet",
-        price: "5",
-        product_id: 1,
-      },
-      {
-        image_url: "src/assets/products/red-rose-bouquet.webp",
-        name: "Rose Bouquet",
-        category: "Bouquet",
-        price: "5",
-        product_id: 2,
-      },
-      {
-        image_url: "src/assets/products/red-rose-bouquet.webp",
-        name: "Rose Bouquet",
-        category: "Bouquet",
-        price: "5",
-        product_id: 3,
-      },
-      {
-        image_url: "src/assets/products/red-rose-bouquet.webp",
-        name: "Rose Bouquet",
-        category: "Bouquet",
-        price: "5",
-        product_id: 4,
-      },
-    ],
+    cards: [products[4], products[5], products[6], products[7]],
   },
 ];
 
