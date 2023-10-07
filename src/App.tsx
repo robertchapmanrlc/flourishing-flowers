@@ -5,6 +5,7 @@ import Home from "./pages/home";
 import Cart from "./pages/cart";
 import CategoryPage from "./pages/category-page";
 import ProductOverview from "./pages/product-overview";
+import ScrollToTop from "./components/scroll-to-top";
 
 const products = [
   {
@@ -97,6 +98,7 @@ function App() {
   return (
     <>
       <Router>
+        <ScrollToTop />
         <Navbar categories={categories}/>
         <Routes>
           <Route path="/" element={<Home />} />
