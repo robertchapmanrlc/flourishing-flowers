@@ -1,6 +1,36 @@
+import OrderItem from "../components/order-item";
+
+const orders = [
+  {
+    image_url: "/src/assets/products/red-rose-bouquet.webp",
+    name: "Red Rose Bouquet",
+    color: "Red",
+    quantity: "2",
+    price: "2",
+  },
+  {
+    image_url: "/src/assets/products/red-rose-bouquet.webp",
+    name: "Red Rose Bouquet",
+    color: "Red",
+    quantity: "2",
+    price: "2",
+  },
+];
+
 function Cart() {
+  const subtotal = orders.reduce(
+    (accumulator, order) =>
+      accumulator + parseFloat(order.price) * Number(order.quantity),
+    0
+  );
+
+  const taxes = 2;
+  const shipping = 5;
+  const total = subtotal + taxes + shipping;
+
+
   return (
-    <div className="w-full lg:px-32 md:px-16 px-4 lg:py-8 md:py-4 py-2 flex flex-col lg:flex-row">
+    <div className="w-full lg:px-32 md:px-16 px-4 lg:py-8 md:py-4 py-2 flex flex-col lg:flex-row lg:gap-x-5">
       <div className="w-full flex flex-col gap-y-10">
         <div className="pb-10 border-b">
           <h1 className="font-lexend text-2xl">Contact information</h1>
@@ -220,6 +250,41 @@ function Cart() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div className="w-full rounded-md">
+        <h1 className="font-lexend text-2xl">Order summary</h1>
+        <div className="w-full mt-5 flex flex-col bg-white border rounded-md">
+          {orders.map((order) => (
+            <OrderItem
+              name={order.name}
+              price={order.price}
+              color={order.color}
+              image_url={order.image_url}
+              quantity={order.quantity}
+            />
+          ))}
+          <div className="flex flex-col gap-y-5 p-4">
+            <div className="flex flex-row justify-between">
+              <p className="font-lexend">Subtotal</p>
+              <p className="font-lexend">${subtotal}</p>
+            </div>
+            <div className="flex flex-row justify-between">
+              <p className="font-lexend">Shipping</p>
+              <p className="font-lexend">$5.00</p>
+            </div>
+            <div className="flex flex-row justify-between">
+              <p className="font-lexend">Taxes</p>
+              <p className="font-lexend">$2.00</p>
+            </div>
+          </div>
+          <div className="flex flex-row justify-between p-4 border-y">
+            <p className="font-lexend">Total</p>
+            <p className="font-lexend">${total}</p>
+          </div>
+          <div className="flex justify-center p-6">
+            <button className="w-full bg-pink-500 rounded-md p-3 text-white">Confirm Order</button>
           </div>
         </div>
       </div>
