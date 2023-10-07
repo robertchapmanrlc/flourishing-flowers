@@ -4,6 +4,7 @@ import Navbar from "./components/navbar"
 import Home from "./pages/home";
 import Cart from "./pages/cart";
 import CategoryPage from "./pages/category-page";
+import ProductOverview from "./pages/product-overview";
 
 const products = [
   {
@@ -102,6 +103,7 @@ function App() {
           {categories.map((category) => (
             <Route key={category.label} path={category.route} element={<CategoryPage category={category} />} /> 
           ))}
+          <Route path="/product/:id" element={<ProductOverview /> } />
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </Router>
