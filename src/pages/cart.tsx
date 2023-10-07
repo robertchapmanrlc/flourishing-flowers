@@ -256,8 +256,9 @@ function Cart() {
       <div className="w-full rounded-md">
         <h1 className="font-lexend text-2xl">Order summary</h1>
         <div className="w-full mt-5 flex flex-col bg-white border rounded-md">
-          {orders.map((order) => (
+          {orders.map((order, i) => (
             <OrderItem
+              key={i}
               name={order.name}
               price={order.price}
               color={order.color}

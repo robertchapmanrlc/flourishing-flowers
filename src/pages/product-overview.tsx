@@ -101,7 +101,7 @@ function ProductOverview() {
           <p className="font-lexend text-xl">Type: {product.category}</p>
           <button
             className="w-full font-lexend bg-pink-500 py-2 rounded-md"
-            onClick={() => addManyToCart(product.product_id, quantity)}
+            onClick={() => addManyToCart(product.product_id - 1, quantity, selectedColor.name)}
           >
             Add to Cart
           </button>

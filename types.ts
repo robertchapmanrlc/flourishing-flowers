@@ -28,3 +28,12 @@ export interface Product {
     colors: Color[];
     description: string;
 }
+
+export interface Order {
+    name: string;
+    image_url: string;
+    price: string;
+    color: string;
+    quantity: number;
+    product_id: number
+}
