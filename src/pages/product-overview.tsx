@@ -1,24 +1,36 @@
-import { RadioGroup } from "@headlessui/react";
+import { useContext, useState } from "react";
 import { Minus, Plus } from "lucide-react";
-import { useState } from "react";
+import { RadioGroup } from "@headlessui/react";
+import { ShopContext } from "../contexts/shop-context";
 import { cn } from "../lib/utils";
-
-const colors = [
-  { name: "white", class: "bg-white", selectedClass: 'ring-gray-400' },
-  { name: "beige", class: "bg-[#f5f5dc]", selectedClass: 'ring-gray-400' },
-  { name: "blue", class: "bg-blue-700", selectedClass: 'ring-gray-700' },
-  { name: "brown", class: "bg-[#795C34]", selectedClass: 'ring-gray-700' },
-  { name: "green", class: "bg-green-600", selectedClass: 'ring-gray-700' },
-  { name: "purple", class: "bg-purple-600", selectedClass: 'ring-gray-700' },
-];
+import { Product } from "../../types";
+import { useParams } from "react-router-dom";
+import { products } from "../../products";
 
 function ProductOverview() {
 
+  const { id } = useParams();
+  const { addManyToCart } = useContext(ShopContext);
+
+  let product: Product = products[Number(id) - 1];
+
+  for (let i = 0; i < product.colors.length; i += 1) {
+    if (product.colors[i].name === "red") {
+      product.colors[i].class = "bg-red-600";
+    } else if (product.colors[i].name === "blue") {
+      product.colors[i].class = "bg-blue-700";
+    } else if (product.colors[i].name === "yellow") {
+      product.colors[i].class = "bg-yellow-300";
+    } else if (product.colors[i].name === "green") {
+      product.colors[i].class = "bg-green-600";
+    }
+  }
+  
   const [quantity, setQuantity] = useState(0);
-  const [selectedColor, setSelectedColor] = useState(colors[0]);
+  const [selectedColor, setSelectedColor] = useState(product.colors[0]);
 
   const updateQuantity = (num: number) => {
-    if (quantity === 0 && num === -1) {
+    if (quantity === 0 && num === -1 || quantity === 8 && num === 1) {
       return;
     }
     setQuantity((prevQuantity) => prevQuantity + num);
@@ -34,8 +46,8 @@ function ProductOverview() {
         />
         <div className="w-full flex flex-col items-start gap-y-5">
           <div className="w-full flex flex-col gap-y-5 border-b pb-5">
-            <h1 className="font-lexend text-4xl">Product</h1>
-            <p className="font-lexend text-2xl">Price $</p>
+            <h1 className="font-lexend text-4xl">{product.name}</h1>
+            <p className="font-lexend text-2xl">${product.price}</p>
           </div>
           <p className="font-lexend text-xl">Quantity:</p>
           <div className="w-full flex flex-row items-center gap-x-5">
@@ -59,7 +71,7 @@ function ProductOverview() {
               Choose a color
             </RadioGroup.Label>
             <div className="flex flex-wrap justify-start items-center space-x-3">
-              {colors.map((color) => (
+              {product.colors.map((color) => (
                 <RadioGroup.Option
                   key={color.name}
                   value={color}
@@ -86,19 +98,16 @@ function ProductOverview() {
               ))}
             </div>
           </RadioGroup>
-          <p className="font-lexend text-xl">Type: Product Type</p>
-          <button className="w-full font-lexend bg-pink-500 py-2 rounded-md">
+          <p className="font-lexend text-xl">Type: {product.category}</p>
+          <button
+            className="w-full font-lexend bg-pink-500 py-2 rounded-md"
+            onClick={() => addManyToCart(product.product_id, quantity)}
+          >
             Add to Cart
           </button>
         </div>
       </div>
-      <p className="font-lexend text-sm text-gray-600 mt-5">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
-        doloremque vitae culpa eaque, eum distinctio ab, totam nisi aliquid,
-        cumque eligendi! Sequi doloribus debitis velit eaque reiciendis officiis
-        iure, excepturi, sapiente repellat veritatis accusamus? Impedit fugiat
-        ratione quod corrupti velit?
-      </p>
+      <p className="font-lexend text-sm text-gray-600 mt-5">{product.description}</p>
     </div>
   );
 }

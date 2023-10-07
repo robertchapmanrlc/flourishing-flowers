@@ -13,12 +13,18 @@ export interface Category {
     cards: Card[];
 }
 
+export interface Color {
+    name: string;
+    class: string;
+    selectedClass: string;
+}
+
 export interface Product {
     name: string;
     image_url: string;
     price: string;
     category: string;
     product_id: number;
-    colors: string[];
+    colors: Color[];
     description: string;
 }
