@@ -284,7 +284,7 @@ function Cart() {
             <p className="font-lexend">${total}</p>
           </div>
           <div className="flex justify-center p-6">
-            <button className="w-full bg-pink-500 rounded-md p-3 text-white">Confirm Order</button>
+            <button className="w-full bg-pink-500 hover:bg-pink-600 rounded-md p-3 text-white">Confirm Order</button>
           </div>
         </div>
       </div>
