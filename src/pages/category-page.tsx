@@ -16,12 +16,11 @@ const filters = [
     id: "color",
     name: "Color",
     options: [
-      { value: "white", label: "White", checked: false },
-      { value: "beige", label: "Beige", checked: false },
+      { value: "red", label: "Red", checked: false },
       { value: "blue", label: "Blue", checked: false },
-      { value: "brown", label: "Brown", checked: false },
+      { value: "yellow", label: "Yellow", checked: false },
       { value: "green", label: "Green", checked: false },
-      { value: "purple", label: "Purple", checked: false },
+      { value: "white", label: "White", checked: false },
     ],
   },
   {
@@ -37,12 +36,45 @@ const filters = [
 
 function CategoryPage({ category }: CategoryPageProps) {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [typeFilters, setTypeFilters] = useState([false, false, false]);
+  const [colorFilters, setColorFilters] = useState([false, false, false, false, false]);
 
   const [options, setOptions] = useState([
     { name: "Newest", href: "#", current: true },
     { name: "Price: Low to High", href: "#", current: false },
     { name: "Price: High to Low", href: "#", current: false },
   ]);
+
+  const reduceTypes = typeFilters.reduce((acc, curr) => acc || curr, false);
+  const reduceColors = colorFilters.reduce((acc, curr) => acc || curr, false);
+  const noFiltersUsed = !reduceTypes && !reduceColors;
+  // console.log("reduceTypes: ", reduceTypes);
+  // console.log("reduceColors: ", reduceColors);
+  // console.log("noFiltersUsed: ", noFiltersUsed);
+
+  const filteredCards = category.cards.filter((card) => {
+    if (noFiltersUsed) {
+      return true;
+    } else {
+      return (
+        (card.category === "Plant" && typeFilters[0]) ||
+        (card.category === "Arrangement" && typeFilters[1]) ||
+        (card.category === "Bouquet" && typeFilters[2])
+      );
+    }
+  });
+
+  const handleFilters = (num: number, name: string) => {
+    if (name === 'Type') {
+      let types = [...typeFilters];
+      types[num] = !types[num];
+      setTypeFilters(types);
+    } else if (name === 'Color') {
+      let colors = [...colorFilters];
+      colors[num] = !colors[num];
+      setColorFilters(colors);
+    }
+  }
 
   const changeActive = (name: string) => {
     let newOptions = [...options];
@@ -84,7 +116,9 @@ function CategoryPage({ category }: CategoryPageProps) {
                 key={filter.name}
                 name={filter.name}
                 id={filter.id}
+                values={filter.name === "Type" ? typeFilters : colorFilters}
                 options={filters[i].options}
+                setFilter={handleFilters}
               />
             ))}
           </Dialog.Panel>
@@ -150,11 +184,13 @@ function CategoryPage({ category }: CategoryPageProps) {
                 name={filter.name}
                 id={filter.id}
                 options={filters[i].options}
+                setFilter={handleFilters}
+                values={filter.name === "Type" ? typeFilters : colorFilters}
               />
             ))}
           </div>
           <div className="col-span-3 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-            {category.cards.map((card, i) => (
+            {filteredCards.map((card, i) => (
               <ProductCard key={i} card={card} />
             ))}
           </div>

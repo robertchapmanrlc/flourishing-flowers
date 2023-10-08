@@ -4,14 +4,16 @@ import { MinusIcon, PlusIcon } from "lucide-react";
 interface FilterProps {
   id: string;
   name: string;
+  values: boolean[];
   options: {
     value: string;
     label: string;
     checked: boolean;
   }[];
+  setFilter: (num: number, name: string) => void;
 }
 
-function Filter({id, name, options }: FilterProps) {
+function Filter({ id, name, options, values, setFilter }: FilterProps) {
   return (
     <Disclosure as="div" className="border-t lg:border-t-0 lg:border-b border-gray-200 px-4 lg:px-4 py-6">
       {({ open }) => (
@@ -36,8 +38,9 @@ function Filter({id, name, options }: FilterProps) {
                     type="checkbox"
                     id={`filter-${id}-${i}`}
                     defaultValue={option.value}
-                    defaultChecked={option.checked}
+                    checked={values[i]}
                     className="h-4 w-4 rounded border-gray-300 accent-pink-300"
+                    onChange={() => setFilter(i, name)}
                   />
                   <label
                     htmlFor={`filter-${id}-${i}`}
