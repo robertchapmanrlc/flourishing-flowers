@@ -1,4 +1,7 @@
 import { Trash } from "lucide-react";
+import { useContext } from "react";
+
+import { ShopContext } from "../contexts/shop-context";
 
 interface OrderItemProps {
   name: string;
@@ -6,9 +9,13 @@ interface OrderItemProps {
   price: string;
   quantity: string;
   color: string;
+  product_id: number;
 }
 
-function OrderItem({ name, image_url, price, quantity, color }: OrderItemProps) {
+function OrderItem({ name, image_url, price, quantity, color, product_id }: OrderItemProps) {
+
+  const { removeFromCart } = useContext(ShopContext);
+
   return (
     <div className="w-full p-4 flex flex-row justify-between border-b">
       <div className="flex gap-x-3">
@@ -26,7 +33,7 @@ function OrderItem({ name, image_url, price, quantity, color }: OrderItemProps) 
         </div>
       </div>
       <div className="flex flex-col justify-between items-end">
-        <button>
+        <button onClick={() => removeFromCart(product_id, color)}>
           <Trash className="text-gray-500 hover:text-gray-800" />
         </button>
         <select name="quantity" defaultValue={quantity} id="quantity" className="p-1 border border-gray-900/20 rounded-md">

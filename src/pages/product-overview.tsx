@@ -38,7 +38,7 @@ function ProductOverview() {
 
   const handleAddToCart = () => {
     if (quantity !== 0) {
-      addManyToCart(product.product_id - 1, quantity, selectedColor.name);
+      addManyToCart(product.product_id, quantity, selectedColor.name);
     }
   }
 

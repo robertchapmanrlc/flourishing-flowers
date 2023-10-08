@@ -266,6 +266,7 @@ function Cart() {
                   color={order.color}
                   image_url={order.image_url}
                   quantity={String(order.quantity)}
+                  product_id={order.product_id}
                 />
               ))}
               <div className="flex flex-col gap-y-5 p-4">

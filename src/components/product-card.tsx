@@ -22,7 +22,7 @@ function ProductCard({ card }: ProductCardProps) {
         />
         <div className="opacity-0 group-hover:opacity-100 transition absolute w-full px-6 bottom-5">
           <div className="flex justify-end">
-            <Plus size={25} className="bg-pink-300 rounded-full p-1 shadow-md hover:scale-110 transition" onClick={() => addToCart(card.product_id - 1)} />
+            <Plus size={25} className="bg-pink-300 rounded-full p-1 shadow-md hover:scale-110 transition" onClick={() => addToCart(card.product_id)} />
           </div>
         </div>
       </div>

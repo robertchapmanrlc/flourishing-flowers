@@ -26,15 +26,15 @@ export const ShopContextProvider = ({ children }: ShopContextProviderProps) => {
   const [cartItems, setCartItems] = useState(initialCart);
 
   const addToCart = (product_id: number) => {
-    const prod: Product = products[product_id];
+    const prod: Product = products[product_id - 1];
     const newOrder: Order = {
       name: prod.name,
       image_url: prod.image_url,
       price: prod.price,
       color: prod.colors[0].name,
       quantity: 1,
-      product_id: prod.product_id
-    }
+      product_id: prod.product_id,
+    };
 
     let prevMap = new Map(cartItems);
 
@@ -50,13 +50,25 @@ export const ShopContextProvider = ({ children }: ShopContextProviderProps) => {
   };
 
   const removeFromCart = (product_id: number, color: string) => {
-    let newItems = [...cartItems];
+    let prevMap = new Map(cartItems);
+    let order = prevMap.get(product_id);
+
+    console.log(order);
+    console.log(prevMap);
+
+    order = order?.filter((item) => item.color !== color);
+    console.log(order);
+
+    prevMap.set(product_id, order!);
+    console.log(prevMap);
+
+
     // newItems = newItems.filter((item) => item.product_id !== product_id);
-    // setCartItems(newItems);
+    setCartItems(prevMap);
   };
 
   const addManyToCart = (product_id: number, quantity: number, color: string ) => {
-    const prod: Product = products[product_id];
+    const prod: Product = products[product_id - 1];
     const newOrder: Order = {
       name: prod.name,
       image_url: prod.image_url,
@@ -81,7 +93,7 @@ export const ShopContextProvider = ({ children }: ShopContextProviderProps) => {
 
   const contextValue = { cartItems, addToCart, removeFromCart, addManyToCart };
 
-  console.log(cartItems);
+  // console.log(cartItems);
 
   return <ShopContext.Provider value={contextValue}>
     {children}
