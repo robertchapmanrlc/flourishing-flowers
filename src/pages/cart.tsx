@@ -1,23 +1,22 @@
-import OrderItem from "../components/order-item";
 
-const orders = [
-  {
-    image_url: "/src/assets/products/red-rose-bouquet.webp",
-    name: "Red Rose Bouquet",
-    color: "Red",
-    quantity: "2",
-    price: "2",
-  },
-  {
-    image_url: "/src/assets/products/red-rose-bouquet.webp",
-    name: "Red Rose Bouquet",
-    color: "Red",
-    quantity: "2",
-    price: "2",
-  },
-];
+import { useContext } from "react";
+
+import OrderItem from "../components/order-item";
+import { ShopContext } from "../contexts/shop-context";
+import { Order } from "../../types";
 
 function Cart() {
+
+  const { cartItems } = useContext(ShopContext);
+
+  const items = cartItems.values();
+  let orders: Order[] = [];
+  
+  for (const item of items ) {
+    for (let i = 0; i < item.length; i += 1)
+      orders.push(item[i]);
+  }
+
   const subtotal = orders.reduce(
     (accumulator, order) =>
       accumulator + parseFloat(order.price) * Number(order.quantity),
@@ -263,7 +262,7 @@ function Cart() {
               price={order.price}
               color={order.color}
               image_url={order.image_url}
-              quantity={order.quantity}
+              quantity={String(order.quantity)}
             />
           ))}
           <div className="flex flex-col gap-y-5 p-4">
@@ -285,7 +284,7 @@ function Cart() {
             <p className="font-lexend">${total}</p>
           </div>
           <div className="flex justify-center p-6">
-            <button className="w-full bg-pink-500 hover:bg-pink-600 rounded-md p-3 text-white">Confirm Order</button>
+            <button className="w-full font-lexend bg-pink-500 hover:bg-pink-600 rounded-md p-3 text-white">Confirm Order</button>
           </div>
         </div>
       </div>
