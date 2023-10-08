@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Dialog, Menu } from "@headlessui/react";
 
-import { Category } from "../../types";
+import { Card, Category } from "../../types";
 import ProductCard from "../components/product-card";
 import { ChevronDownIcon, Filter as FilterIcon, X } from "lucide-react";
 import { cn } from "../lib/utils";
@@ -9,6 +9,13 @@ import Filter from "../components/filter";
 
 interface CategoryPageProps {
   category: Category;
+}
+
+function sortMin(a: Card, b: Card) {
+  return Number(a.price) - Number(b.price);
+}
+function sortMax(a: Card, b: Card) {
+  return Number(b.price) - Number(a.price);
 }
 
 const filters = [
@@ -38,7 +45,6 @@ function CategoryPage({ category }: CategoryPageProps) {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [typeFilters, setTypeFilters] = useState([false, false, false]);
   const [colorFilters, setColorFilters] = useState([false, false, false, false, false]);
-
   const [options, setOptions] = useState([
     { name: "Newest", href: "#", current: true },
     { name: "Price: Low to High", href: "#", current: false },
@@ -75,6 +81,15 @@ function CategoryPage({ category }: CategoryPageProps) {
       );
     }
   });
+
+  let sortedCards = filteredCards;
+  if (options[0].current) {
+    
+  } else if (options[1].current) {
+    sortedCards.sort(sortMin);
+  } else if (options[2].current) {
+    sortedCards.sort(sortMax);
+  }
 
   const handleFilters = (num: number, name: string) => {
     if (name === 'Type') {
@@ -202,7 +217,7 @@ function CategoryPage({ category }: CategoryPageProps) {
             ))}
           </div>
           <div className="col-span-3 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-            {filteredCards.map((card, i) => (
+            {sortedCards.map((card, i) => (
               <ProductCard key={i} card={card} />
             ))}
           </div>

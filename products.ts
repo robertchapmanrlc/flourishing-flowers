@@ -4,7 +4,7 @@ export const products = [
     image_url: "src/assets/products/red-rose-bouquet.webp",
     name: "Rose Bouquet",
     category: "Plant",
-    price: "5",
+    price: "2",
     product_id: 1,
     colors: [
       { name: "red", class: "bg-red-700", selectedClass: 'ring-gray-700' },
@@ -17,7 +17,7 @@ export const products = [
     image_url: "src/assets/products/red-rose-bouquet.webp",
     name: "Rose Bouquet",
     category: "Plant",
-    price: "5",
+    price: "4",
     product_id: 2,
     colors: [
       { name: "red", class: "bg-red-700", selectedClass: 'ring-gray-700' },
@@ -29,7 +29,7 @@ export const products = [
     image_url: "src/assets/products/red-rose-bouquet.webp",
     name: "Rose Bouquet",
     category: "Plant",
-    price: "5",
+    price: "3",
     product_id: 3,
     colors: [
       { name: "white", class: "bg-white", selectedClass: 'ring-gray-400' },
@@ -40,7 +40,7 @@ export const products = [
     image_url: "src/assets/products/red-rose-bouquet.webp",
     name: "Rose Bouquet",
     category: "Plant",
-    price: "5",
+    price: "1",
     product_id: 4,
     colors: [
       { name: "red", class: "bg-red-700", selectedClass: 'ring-gray-700' },
@@ -55,7 +55,7 @@ export const products = [
     image_url: "src/assets/products/red-rose-bouquet.webp",
     name: "Rose Bouquet",
     category: "Arrangement",
-    price: "5",
+    price: "8",
     product_id: 5,
     colors: [
       { name: "red", class: "bg-red-700", selectedClass: 'ring-gray-700' },
@@ -70,7 +70,7 @@ export const products = [
     image_url: "src/assets/products/red-rose-bouquet.webp",
     name: "Rose Bouquet",
     category: "Arrangement",
-    price: "5",
+    price: "10",
     product_id: 6,
     colors: [
       { name: "red", class: "bg-red-700", selectedClass: 'ring-gray-700' },
@@ -85,7 +85,7 @@ export const products = [
     image_url: "src/assets/products/red-rose-bouquet.webp",
     name: "Rose Bouquet",
     category: "Arrangement",
-    price: "5",
+    price: "9",
     product_id: 7,
     colors: [
       { name: "red", class: "bg-red-700", selectedClass: 'ring-gray-700' },
@@ -100,7 +100,7 @@ export const products = [
     image_url: "src/assets/products/red-rose-bouquet.webp",
     name: "Rose Bouquet",
     category: "Bouquet",
-    price: "5",
+    price: "12",
     product_id: 8,
     colors: [
       { name: "red", class: "bg-red-700", selectedClass: 'ring-gray-700' },
@@ -111,7 +111,7 @@ export const products = [
     image_url: "src/assets/products/red-rose-bouquet.webp",
     name: "Rose Bouquet",
     category: "Bouquet",
-    price: "5",
+    price: "15",
     product_id: 9,
     colors: [
       { name: "white", class: "bg-white", selectedClass: 'ring-gray-400' },
@@ -122,7 +122,7 @@ export const products = [
     image_url: "src/assets/products/red-rose-bouquet.webp",
     name: "Rose Bouquet",
     category: "Bouquet",
-    price: "5",
+    price: "13",
     product_id: 10,
     colors: [
       { name: "yellow", class: "bg-yellow-700", selectedClass: 'ring-gray-400' },
