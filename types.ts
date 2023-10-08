@@ -5,6 +5,7 @@ export interface Card {
     category: string;
     price: string;
     product_id: number;
+    colors: Color[];
 }
 
 export interface Category {

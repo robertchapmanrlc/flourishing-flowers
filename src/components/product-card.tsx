@@ -1,5 +1,5 @@
 import { Plus } from "lucide-react";
-import { Card } from "../../types";
+import { Card, Color } from "../../types";
 import { Link } from "react-router-dom";
 import { ShopContext } from "../contexts/shop-context";
 import { useContext } from "react";
@@ -11,6 +11,20 @@ interface ProductCardProps {
 function ProductCard({ card }: ProductCardProps) {
 
   const { addToCart } = useContext(ShopContext);
+
+  let colors: Color[] = card.colors;
+
+  for (let i = 0; i < colors.length; i += 1) {
+    if (colors[i].name === "red") {
+      colors[i].class = "bg-red-600";
+    } else if (colors[i].name === "blue") {
+      colors[i].class = "bg-blue-700";
+    } else if (colors[i].name === "yellow") {
+      colors[i].class = "bg-yellow-300";
+    } else if (colors[i].name === "green") {
+      colors[i].class = "bg-green-600";
+    }
+  }
 
   return (
     <div className="group cursor-pointer">
@@ -38,6 +52,11 @@ function ProductCard({ card }: ProductCardProps) {
         <p className="font-lexend text-sm font-medium text-gray-900">
           ${card.price}
         </p>
+      </div>
+      <div className="flex flex-row gap-x-2 mt-2">
+        {card.colors.map((color) => (
+          <div key={color.name} className={`w-4 h-4 ${color.class} rounded-full border border-gray-500`} /> 
+        ))}
       </div>
     </div>
   );
