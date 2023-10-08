@@ -267,6 +267,7 @@ function Cart() {
                   image_url={order.image_url}
                   quantity={String(order.quantity)}
                   product_id={order.product_id}
+                  created_at={order.created_at}
                 />
               ))}
               <div className="flex flex-col gap-y-5 p-4">

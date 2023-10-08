@@ -35,5 +35,6 @@ export interface Order {
     price: string;
     color: string;
     quantity: number;
-    product_id: number
+    product_id: number;
+    created_at: string;
 }

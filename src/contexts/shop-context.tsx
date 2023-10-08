@@ -6,7 +6,7 @@ interface ShopContextType {
   cartItems: Map<number, Order[]>;
   addToCart: (product_id: number) => void;
   addManyToCart: (product_id: number, quantity: number, color: string) => void;
-  removeFromCart: (product_id: number, color: string) => void;
+  removeFromCart: (product_id: number, created_at: string) => void;
 }
 
 const initialCart: Map<number, Order[]> = new Map();
@@ -34,6 +34,7 @@ export const ShopContextProvider = ({ children }: ShopContextProviderProps) => {
       color: prod.colors[0].name,
       quantity: 1,
       product_id: prod.product_id,
+      created_at: new Date().toLocaleString()
     };
 
     let prevMap = new Map(cartItems);
@@ -49,21 +50,13 @@ export const ShopContextProvider = ({ children }: ShopContextProviderProps) => {
     setCartItems(prevMap);
   };
 
-  const removeFromCart = (product_id: number, color: string) => {
+  const removeFromCart = (product_id: number, created_at: string) => {
     let prevMap = new Map(cartItems);
     let order = prevMap.get(product_id);
 
-    console.log(order);
-    console.log(prevMap);
-
-    order = order?.filter((item) => item.color !== color);
-    console.log(order);
-
+    order = order?.filter((item) => item.created_at !== created_at);
     prevMap.set(product_id, order!);
-    console.log(prevMap);
 
-
-    // newItems = newItems.filter((item) => item.product_id !== product_id);
     setCartItems(prevMap);
   };
 
@@ -76,6 +69,7 @@ export const ShopContextProvider = ({ children }: ShopContextProviderProps) => {
       color: color,
       quantity: quantity,
       product_id: prod.product_id,
+      created_at: new Date().toLocaleString()
     };
 
     let prevMap = new Map(cartItems);
@@ -93,7 +87,6 @@ export const ShopContextProvider = ({ children }: ShopContextProviderProps) => {
 
   const contextValue = { cartItems, addToCart, removeFromCart, addManyToCart };
 
-  // console.log(cartItems);
 
   return <ShopContext.Provider value={contextValue}>
     {children}
