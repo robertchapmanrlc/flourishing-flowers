@@ -47,19 +47,31 @@ function CategoryPage({ category }: CategoryPageProps) {
 
   const reduceTypes = typeFilters.reduce((acc, curr) => acc || curr, false);
   const reduceColors = colorFilters.reduce((acc, curr) => acc || curr, false);
-  const noFiltersUsed = !reduceTypes && !reduceColors;
-  // console.log("reduceTypes: ", reduceTypes);
-  // console.log("reduceColors: ", reduceColors);
-  // console.log("noFiltersUsed: ", noFiltersUsed);
 
   const filteredCards = category.cards.filter((card) => {
-    if (noFiltersUsed) {
+    if (!reduceTypes) {
       return true;
     } else {
       return (
         (card.category === "Plant" && typeFilters[0]) ||
         (card.category === "Arrangement" && typeFilters[1]) ||
         (card.category === "Bouquet" && typeFilters[2])
+      );
+    }
+  }).filter((card) => {
+    if (!reduceColors) {
+      return true;
+    } else {
+      return (
+        (colorFilters[0] &&
+          card.colors.some((color) => color.name === "red")) ||
+        (colorFilters[1] &&
+          card.colors.some((color) => color.name === "blue")) ||
+        (colorFilters[2] &&
+          card.colors.some((color) => color.name === "yellow")) ||
+        (colorFilters[3] &&
+          card.colors.some((color) => color.name === "green")) ||
+        (colorFilters[4] && card.colors.some((color) => color.name === "white"))
       );
     }
   });
