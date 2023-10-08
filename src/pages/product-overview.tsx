@@ -36,6 +36,12 @@ function ProductOverview() {
     setQuantity((prevQuantity) => prevQuantity + num);
   }
 
+  const handleAddToCart = () => {
+    if (quantity !== 0) {
+      addManyToCart(product.product_id - 1, quantity, selectedColor.name);
+    }
+  }
+
   return (
     <div className="w-full lg:px-32 md:px-16 px-4 lg:py-8 md:py-4 py-2">
       <div className="w-full flex flex-col md:flex-row md:justify-between lg:gap-x-16 md:gap-x-8 gap-y-8 md:gap-y-0">
@@ -101,7 +107,7 @@ function ProductOverview() {
           <p className="font-lexend text-xl">Type: {product.category}</p>
           <button
             className="w-full font-lexend bg-pink-500 py-2 rounded-md"
-            onClick={() => addManyToCart(product.product_id - 1, quantity, selectedColor.name)}
+            onClick={() => handleAddToCart()}
           >
             Add to Cart
           </button>
