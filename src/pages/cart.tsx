@@ -45,11 +45,7 @@ function Cart() {
 
   const { register, handleSubmit, formState: { errors } } = form;
 
-  const onSubmit = () => {
-    console.log("Got submission");
-  }
-
-  const { cartItems } = useContext(ShopContext);
+  const { cartItems, length, emptyCart } = useContext(ShopContext);
 
   const items = cartItems.values();
   let orders: Order[] = [];
@@ -68,12 +64,17 @@ function Cart() {
   const shipping = 5;
   const total = subtotal + taxes + shipping;
 
+  const onSubmit = () => {
+    console.log("Got submission");
+    emptyCart();
+  };
+
   return (
     <form
       className="w-full lg:px-32 md:px-16 px-4 lg:py-8 md:py-4 py-2 flex flex-col lg:flex-row lg:gap-x-5"
       onSubmit={handleSubmit(onSubmit)}
     >
-      {orders.length > 0 ? (
+      {length > 0 ? (
         <>
           <div className="w-full flex flex-col gap-y-10">
             <div className="pb-10 border-b">

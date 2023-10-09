@@ -8,6 +8,7 @@ interface ShopContextType {
   addManyToCart: (product_id: number, quantity: number, color: string) => void;
   removeFromCart: (product_id: number, created_at: string) => void;
   changeQuantity: (product_id: number, created_at: string, newQuantity: number) => void;
+  emptyCart: () => void;
   length: number;
 }
 
@@ -19,6 +20,7 @@ export const ShopContext = createContext<ShopContextType>({
   removeFromCart: () => { },
   addManyToCart: () => { },
   changeQuantity: () => { },
+  emptyCart: () => { },
   length: 0
 });
 
@@ -68,6 +70,11 @@ export const ShopContextProvider = ({ children }: ShopContextProviderProps) => {
 
   };
 
+  const emptyCart = () => {
+    setCartItems(new Map());
+    setLength(0);
+  }
+
   const addManyToCart = (product_id: number, quantity: number, color: string ) => {
     const prod: Product = products[product_id - 1];
     const newOrder: Order = {
@@ -101,10 +108,9 @@ export const ShopContextProvider = ({ children }: ShopContextProviderProps) => {
     prevMap.get(product_id)!.filter((item) => item.created_at === created_at)[0].quantity = newQuantity;
     console.log(prevMap);
     setCartItems(prevMap);
-    
   };
 
-  const contextValue = { cartItems, addToCart, removeFromCart, addManyToCart, changeQuantity, length };
+  const contextValue = { cartItems, addToCart, removeFromCart, emptyCart, addManyToCart, changeQuantity, length };
 
 
   return <ShopContext.Provider value={contextValue}>
