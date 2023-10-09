@@ -64,7 +64,7 @@ export const ShopContextProvider = ({ children }: ShopContextProviderProps) => {
     prevMap.set(product_id, order!);
 
     setCartItems(prevMap);
-    setLength((prevLength) => prevLength - quantity);
+    setLength((prevLength) => prevLength - 1);
 
   };
 
@@ -91,7 +91,7 @@ export const ShopContextProvider = ({ children }: ShopContextProviderProps) => {
     }
 
     setCartItems(prevMap);
-    setLength((prevLength) => prevLength + quantity);
+    setLength((prevLength) => prevLength + 1);
 
   };
 
