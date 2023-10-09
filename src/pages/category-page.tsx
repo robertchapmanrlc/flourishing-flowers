@@ -18,6 +18,10 @@ function sortMax(a: Card, b: Card) {
   return Number(b.price) - Number(a.price);
 }
 
+function sortDates(a: Card, b: Card) {
+  return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+}
+
 const filters = [
   {
     id: "color",
@@ -84,7 +88,7 @@ function CategoryPage({ category }: CategoryPageProps) {
 
   let sortedCards = filteredCards;
   if (options[0].current) {
-    
+    sortedCards.sort(sortDates);
   } else if (options[1].current) {
     sortedCards.sort(sortMin);
   } else if (options[2].current) {

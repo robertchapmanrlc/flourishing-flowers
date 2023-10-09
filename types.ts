@@ -6,6 +6,7 @@ export interface Card {
     price: string;
     product_id: number;
     colors: Color[];
+    created_at: string;
 }
 
 export interface Category {
@@ -28,6 +29,7 @@ export interface Product {
     product_id: number;
     colors: Color[];
     description: string;
+    created_at: string;
 }
 
 export interface Order {

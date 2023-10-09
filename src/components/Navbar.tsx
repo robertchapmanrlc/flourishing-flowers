@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Search, ShoppingCart, Menu, X } from "lucide-react";
+import { ShoppingCart, Menu, X } from "lucide-react";
 
-import { Dialog, Popover } from "@headlessui/react";
+import { Dialog } from "@headlessui/react";
 import { Link, NavLink } from "react-router-dom";
 import NavbarLink from "./navbar-link";
 import { Category } from "../../types";
