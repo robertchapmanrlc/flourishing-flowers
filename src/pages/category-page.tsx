@@ -37,7 +37,13 @@ const filters = [
 function CategoryPage({ category }: CategoryPageProps) {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [typeFilters, setTypeFilters] = useState([false, false, false]);
-  const [colorFilters, setColorFilters] = useState([false, false, false, false, false]);
+  const [colorFilters, setColorFilters] = useState([
+    false,
+    false,
+    false,
+    false,
+    false,
+  ]);
   const [options, setOptions] = useState([
     { name: "Newest", href: "#", current: true },
     { name: "Price: Low to High", href: "#", current: false },
@@ -47,33 +53,36 @@ function CategoryPage({ category }: CategoryPageProps) {
   const reduceTypes = typeFilters.reduce((acc, curr) => acc || curr, false);
   const reduceColors = colorFilters.reduce((acc, curr) => acc || curr, false);
 
-  const filteredCards = category.cards.filter((card) => {
-    if (!reduceTypes) {
-      return true;
-    } else {
-      return (
-        (card.category === "Plant" && typeFilters[0]) ||
-        (card.category === "Arrangement" && typeFilters[1]) ||
-        (card.category === "Bouquet" && typeFilters[2])
-      );
-    }
-  }).filter((card) => {
-    if (!reduceColors) {
-      return true;
-    } else {
-      return (
-        (colorFilters[0] &&
-          card.colors.some((color) => color.name === "red")) ||
-        (colorFilters[1] &&
-          card.colors.some((color) => color.name === "blue")) ||
-        (colorFilters[2] &&
-          card.colors.some((color) => color.name === "yellow")) ||
-        (colorFilters[3] &&
-          card.colors.some((color) => color.name === "green")) ||
-        (colorFilters[4] && card.colors.some((color) => color.name === "white"))
-      );
-    }
-  });
+  const filteredCards = category.cards
+    .filter((card) => {
+      if (!reduceTypes) {
+        return true;
+      } else {
+        return (
+          (card.category === "Plant" && typeFilters[0]) ||
+          (card.category === "Arrangement" && typeFilters[1]) ||
+          (card.category === "Bouquet" && typeFilters[2])
+        );
+      }
+    })
+    .filter((card) => {
+      if (!reduceColors) {
+        return true;
+      } else {
+        return (
+          (colorFilters[0] &&
+            card.colors.some((color) => color.name === "red")) ||
+          (colorFilters[1] &&
+            card.colors.some((color) => color.name === "blue")) ||
+          (colorFilters[2] &&
+            card.colors.some((color) => color.name === "yellow")) ||
+          (colorFilters[3] &&
+            card.colors.some((color) => color.name === "green")) ||
+          (colorFilters[4] &&
+            card.colors.some((color) => color.name === "white"))
+        );
+      }
+    });
 
   let sortedCards = filteredCards;
   if (options[0].current) {
@@ -85,16 +94,16 @@ function CategoryPage({ category }: CategoryPageProps) {
   }
 
   const handleFilters = (num: number, name: string) => {
-    if (name === 'Type') {
+    if (name === "Type") {
       let types = [...typeFilters];
       types[num] = !types[num];
       setTypeFilters(types);
-    } else if (name === 'Color') {
+    } else if (name === "Color") {
       let colors = [...colorFilters];
       colors[num] = !colors[num];
       setColorFilters(colors);
     }
-  }
+  };
 
   const changeActive = (name: string) => {
     let newOptions = [...options];
@@ -209,10 +218,18 @@ function CategoryPage({ category }: CategoryPageProps) {
               />
             ))}
           </div>
-          <div className="col-span-3 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-            {sortedCards.map((card, i) => (
-              <ProductCard key={i} card={card} />
-            ))}
+          <div className="col-span-3">
+            <div className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+              {sortedCards.length > 0 ? (
+                sortedCards.map((card, i) => (
+                  <ProductCard key={i} card={card} />
+                ))
+              ) : (
+                <p className="text-center font-lexend">
+                  No products found with the filters
+                </p>
+              )}
+            </div>
           </div>
         </div>
       </div>
