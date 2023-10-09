@@ -15,7 +15,11 @@ interface OrderItemProps {
 
 function OrderItem({ name, image_url, price, quantity, color, product_id, created_at }: OrderItemProps) {
 
-  const { removeFromCart } = useContext(ShopContext);
+  const { removeFromCart, changeQuantity } = useContext(ShopContext);
+
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    changeQuantity(product_id, created_at, Number(e.target.value));
+  };
 
   return (
     <div className="w-full p-4 flex flex-row justify-between border-b">
@@ -37,7 +41,7 @@ function OrderItem({ name, image_url, price, quantity, color, product_id, create
         <button onClick={() => removeFromCart(product_id, created_at, Number(quantity))}>
           <Trash className="text-gray-500 hover:text-gray-800" />
         </button>
-        <select name="quantity" defaultValue={quantity} id="quantity" className="p-1 border border-gray-900/20 rounded-md">
+        <select name="quantity" defaultValue={quantity} id="quantity" className="p-1 border border-gray-900/20 rounded-md" onChange={handleChange}>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
