@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { ShoppingCart, Menu, X } from "lucide-react";
-
-import { Dialog } from "@headlessui/react";
 import { Link, NavLink } from "react-router-dom";
+import { Dialog } from "@headlessui/react";
+
 import NavbarLink from "./navbar-link";
 import { Category } from "../../types";
+import { ShopContext } from "../contexts/shop-context";
 
 interface NavbarProps {
   categories: Category[];
@@ -12,6 +13,8 @@ interface NavbarProps {
 
 function Navbar({ categories }: NavbarProps ) {
   const [isOpen, setIsOpen] = useState(false);
+
+  const { length } = useContext(ShopContext);
 
   return (
     <header>
@@ -26,14 +29,17 @@ function Navbar({ categories }: NavbarProps ) {
         </ul>
         <div className="flex flex-row md:gap-x-5 gap-x-2">
           <Link to="/cart">
-            <ShoppingCart
-              size={30}
-              className="text-gray-500 transition ease-in-out hover:text-gray-800 cursor-pointer"
-            />
+            <div className="w-full flex flex-row gap-x-2 items-center px-3 py-1.5 rounded-lg bg-pink-300 hover:scale-110 transition ease-in-out">
+              <ShoppingCart size={30} className="text-white cursor-pointer" />
+              <p className="font-lexend text-white">{length}</p>
+            </div>
           </Link>
           <button type="button" onClick={() => setIsOpen(true)}>
             <span className="sr-only">Open main menu</span>
-            <Menu size={30} className="lg:hidden text-gray-500 transition ease-in-out hover:text-gray-800 cursor-pointer" />
+            <Menu
+              size={30}
+              className="lg:hidden text-gray-500 transition ease-in-out hover:text-gray-800 cursor-pointer"
+            />
           </button>
         </div>
       </nav>

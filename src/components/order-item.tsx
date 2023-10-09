@@ -34,7 +34,7 @@ function OrderItem({ name, image_url, price, quantity, color, product_id, create
         </div>
       </div>
       <div className="flex flex-col justify-between items-end">
-        <button onClick={() => removeFromCart(product_id, created_at)}>
+        <button onClick={() => removeFromCart(product_id, created_at, Number(quantity))}>
           <Trash className="text-gray-500 hover:text-gray-800" />
         </button>
         <select name="quantity" defaultValue={quantity} id="quantity" className="p-1 border border-gray-900/20 rounded-md">

@@ -13,8 +13,9 @@ function Cart() {
   const items = cartItems.values();
   let orders: Order[] = [];
   
-  for (const item of items ) {
-    for (let i = 0; i < item.length; i += 1)
+  for (const item of items) {
+    console.log(item);
+    for (let i = 0; i < item?.length; i += 1)
       orders.push(item[i]);
   }
 

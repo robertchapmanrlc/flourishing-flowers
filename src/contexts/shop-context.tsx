@@ -6,7 +6,8 @@ interface ShopContextType {
   cartItems: Map<number, Order[]>;
   addToCart: (product_id: number) => void;
   addManyToCart: (product_id: number, quantity: number, color: string) => void;
-  removeFromCart: (product_id: number, created_at: string) => void;
+  removeFromCart: (product_id: number, created_at: string, quantity: number) => void;
+  length: number;
 }
 
 const initialCart: Map<number, Order[]> = new Map();
@@ -15,7 +16,8 @@ export const ShopContext = createContext<ShopContextType>({
   cartItems: initialCart,
   addToCart: () => {},
   removeFromCart: () => { },
-  addManyToCart: () => {}
+  addManyToCart: () => { },
+  length: 0
 });
 
 interface ShopContextProviderProps {
@@ -24,6 +26,7 @@ interface ShopContextProviderProps {
 
 export const ShopContextProvider = ({ children }: ShopContextProviderProps) => {
   const [cartItems, setCartItems] = useState(initialCart);
+  const [length, setLength] = useState(0);
 
   const addToCart = (product_id: number) => {
     const prod: Product = products[product_id - 1];
@@ -48,9 +51,10 @@ export const ShopContextProvider = ({ children }: ShopContextProviderProps) => {
     }
 
     setCartItems(prevMap);
+    setLength((prevLength) => prevLength + 1);
   };
 
-  const removeFromCart = (product_id: number, created_at: string) => {
+  const removeFromCart = (product_id: number, created_at: string, quantity: number) => {
     let prevMap = new Map(cartItems);
     let order = prevMap.get(product_id);
 
@@ -58,6 +62,8 @@ export const ShopContextProvider = ({ children }: ShopContextProviderProps) => {
     prevMap.set(product_id, order!);
 
     setCartItems(prevMap);
+    setLength((prevLength) => prevLength - quantity);
+
   };
 
   const addManyToCart = (product_id: number, quantity: number, color: string ) => {
@@ -83,9 +89,11 @@ export const ShopContextProvider = ({ children }: ShopContextProviderProps) => {
     }
 
     setCartItems(prevMap);
+    setLength((prevLength) => prevLength + quantity);
+
   };
 
-  const contextValue = { cartItems, addToCart, removeFromCart, addManyToCart };
+  const contextValue = { cartItems, addToCart, removeFromCart, addManyToCart, length };
 
 
   return <ShopContext.Provider value={contextValue}>
