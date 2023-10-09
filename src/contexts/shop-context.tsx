@@ -6,7 +6,7 @@ interface ShopContextType {
   cartItems: Map<number, Order[]>;
   addToCart: (product_id: number) => void;
   addManyToCart: (product_id: number, quantity: number, color: string) => void;
-  removeFromCart: (product_id: number, created_at: string, quantity: number) => void;
+  removeFromCart: (product_id: number, created_at: string) => void;
   changeQuantity: (product_id: number, created_at: string, newQuantity: number) => void;
   length: number;
 }
@@ -56,7 +56,7 @@ export const ShopContextProvider = ({ children }: ShopContextProviderProps) => {
     setLength((prevLength) => prevLength + 1);
   };
 
-  const removeFromCart = (product_id: number, created_at: string, quantity: number) => {
+  const removeFromCart = (product_id: number, created_at: string) => {
     let prevMap = new Map(cartItems);
     let order = prevMap.get(product_id);
 

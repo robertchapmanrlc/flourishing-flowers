@@ -78,19 +78,21 @@ function Cart() {
           <div className="w-full flex flex-col gap-y-10">
             <div className="pb-10 border-b">
               <h1 className="font-lexend text-2xl">Contact information</h1>
-              <div className="mt-4 rounded-md shadow-sm">
+              <div className="mt-4">
                 <label
                   htmlFor="email"
                   className="block text-sm font-lexend text-gray-900 pb-2"
                 >
                   Email address
                 </label>
-                <input
-                  type="text"
-                  id="email"
-                  className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
-                  {...register("email", { required: "Email is required" })}
-                />
+                <div className="rounded-md shadow-sm">
+                  <input
+                    type="text"
+                    id="email"
+                    className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
+                    {...register("email", { required: "Email is required" })}
+                  />
+                </div>
                 {errors.email && "email is required"}
               </div>
             </div>
@@ -98,38 +100,42 @@ function Cart() {
               <div className="flex flex-col gap-y-4">
                 <h1 className="font-lexend text-2xl">Shipping information</h1>
                 <div className="flex flex-row gap-x-4">
-                  <div className="w-full rounded-md shadow-sm">
+                  <div className="w-full">
                     <label
                       htmlFor="first name"
                       className="block text-sm font-lexend text-gray-900 pb-2"
                     >
                       First name
                     </label>
-                    <input
-                      type="text"
-                      id="first name"
-                      className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
-                      {...register("firstName", {
-                        required: "First name is required",
-                      })}
-                    />
+                    <div className="rounded-md shadow-sm">
+                      <input
+                        type="text"
+                        id="first name"
+                        className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
+                        {...register("firstName", {
+                          required: "First name is required",
+                        })}
+                      />
+                    </div>
                     {errors.firstName && "first name is required"}
                   </div>
-                  <div className="w-full rounded-md shadow-sm">
+                  <div className="w-full">
                     <label
                       htmlFor="last name"
                       className="block text-sm font-lexend text-gray-900 pb-2"
                     >
                       Last name
                     </label>
-                    <input
-                      type="text"
-                      id="last name"
-                      className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
-                      {...register("lastName", {
-                        required: "Last name is required",
-                      })}
-                    />
+                    <div className="rounded-md shadow-sm">
+                      <input
+                        type="text"
+                        id="last name"
+                        className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
+                        {...register("lastName", {
+                          required: "Last name is required",
+                        })}
+                      />
+                    </div>
                     {errors.lastName && "last name is required"}
                   </div>
                 </div>
@@ -140,14 +146,16 @@ function Cart() {
                   >
                     Address
                   </label>
-                  <input
-                    type="text"
-                    id="address"
-                    className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
-                    {...register("address", {
-                      required: "Address is required",
-                    })}
-                  />
+                  <div className="rounded-md shadow-sm">
+                    <input
+                      type="text"
+                      id="address"
+                      className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
+                      {...register("address", {
+                        required: "Address is required",
+                      })}
+                    />
+                  </div>
                   {errors.address && "address is required"}
                 </div>
                 <div>
@@ -157,82 +165,92 @@ function Cart() {
                   >
                     Apartment, suite, etc.
                   </label>
-                  <input
-                    type="text"
-                    id="apartment"
-                    className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
-                    {...register("apartment", {
-                      required: false,
-                    })}
-                  />
+                  <div className="rounded-md shadow-sm">
+                    <input
+                      type="text"
+                      id="apartment"
+                      className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
+                      {...register("apartment", {
+                        required: false,
+                      })}
+                    />
+                  </div>
                 </div>
                 <div className="flex flex-row gap-x-4">
-                  <div className="w-full rounded-md shadow-sm">
+                  <div className="w-full">
                     <label
                       htmlFor="city"
                       className="block text-sm font-lexend text-gray-900 pb-2"
                     >
                       City
                     </label>
-                    <input
-                      type="text"
-                      id="city"
-                      className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
-                      {...register("city", { required: "City is required" })}
-                    />
+                    <div className="rounded-md shadow-sm">
+                      <input
+                        type="text"
+                        id="city"
+                        className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
+                        {...register("city", { required: "City is required" })}
+                      />
+                    </div>
                     {errors.city && "city is required"}
                   </div>
-                  <div className="w-full rounded-md shadow-sm">
+                  <div className="w-full">
                     <label
                       htmlFor="country"
                       className="block text-sm font-lexend text-gray-900 pb-2"
                     >
                       Country
                     </label>
-                    <input
-                      type="text"
-                      id="country"
-                      className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
-                      {...register("country", {
-                        required: "Country is required",
-                      })}
-                    />
+                    <div className="rounded-md shadow-sm">
+                      <input
+                        type="text"
+                        id="country"
+                        className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
+                        {...register("country", {
+                          required: "Country is required",
+                        })}
+                      />
+                    </div>
                     {errors.country && "country is required"}
                   </div>
                 </div>
                 <div className="flex flex-row gap-x-4">
-                  <div className="w-full rounded-md shadow-sm">
+                  <div className="w-full">
                     <label
                       htmlFor="state/province"
                       className="block text-sm font-lexend text-gray-900 pb-2"
                     >
                       State / Province
                     </label>
-                    <input
-                      type="text"
-                      id="state/province"
-                      className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
-                      {...register("stateOrProvince", {
-                        required: "State / Province is required",
-                      })}
-                    />
+                    <div className="rounded-md shadow-sm">
+                      <input
+                        type="text"
+                        id="state/province"
+                        className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
+                        {...register("stateOrProvince", {
+                          required: "State / Province is required",
+                        })}
+                      />
+                    </div>
                     {errors.stateOrProvince && "State / Province is required"}
                   </div>
-                  <div className="w-full rounded-md shadow-sm">
+                  <div className="w-full">
                     <label
                       htmlFor="postal code"
                       className="block text-sm font-lexend text-gray-900 pb-2"
                     >
                       Postal Code
                     </label>
-                    <input
-                      type="text"
-                      id="postal code"
-                      className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
-                      {...register("postalCode", {
-                        required: "Postal Code is required",
-                      })}
-                    />
+                    <div className="rounded-md shadow-sm">
+                      <input
+                        type="text"
+                        id="postal code"
+                        className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
+                        {...register("postalCode", {
+                          required: "Postal Code is required",
+                        })}
+                      />
+                    </div>
                     {errors.postalCode && "Postal Code is required"}
                   </div>
                 </div>
@@ -243,14 +261,16 @@ function Cart() {
                   >
                     Phone
                   </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
-                    {...register("phone", {
-                      required: "Phone number is required",
-                    })}
-                  />
+                  <div className="rounded-md shadow-sm">
+                    <input
+                      type="tel"
+                      id="phone"
+                      className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
+                      {...register("phone", {
+                        required: "Phone number is required",
+                      })}
+                    />
+                  </div>
                   {errors.phone && "Phone number is required"}
                 </div>
               </div>
@@ -259,73 +279,81 @@ function Cart() {
               <h1 className="font-lexend text-2xl">Payment details</h1>
               <div className="flex flex-col gap-y-4">
                 <div>
-                  <div className="mt-4 rounded-md shadow-sm">
+                  <div className="mt-4">
                     <label
                       htmlFor="card name"
                       className="block text-sm font-lexend text-gray-900 pb-2"
                     >
                       Name on card
                     </label>
-                    <input
-                      type="text"
-                      id="card name"
-                      className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
-                      {...register("nameOnCard", {
-                        required: "Card Name is required",
-                      })}
-                    />
+                    <div className="rounded-md shadow-sm">
+                      <input
+                        type="text"
+                        id="card name"
+                        className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
+                        {...register("nameOnCard", {
+                          required: "Card Name is required",
+                        })}
+                      />
+                    </div>
                     {errors.nameOnCard && "Card Name is required"}
                   </div>
-                  <div className="mt-4 rounded-md shadow-sm">
+                  <div className="mt-4">
                     <label
                       htmlFor="card number"
                       className="block text-sm font-lexend text-gray-900 pb-2"
                     >
                       Card number
                     </label>
-                    <input
-                      type="text"
-                      id="card number"
-                      className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
-                      {...register("cardNumber", {
-                        required: "Card Number is required",
-                      })}
-                    />
+                    <div className="rounded-md shadow-sm">
+                      <input
+                        type="text"
+                        id="card number"
+                        className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
+                        {...register("cardNumber", {
+                          required: "Card Number is required",
+                        })}
+                      />
+                    </div>
                     {errors.cardNumber && "Card Number is required"}
                   </div>
                   <div className="flex flex-row gap-x-4">
-                    <div className="mt-4 w-[90%] rounded-md shadow-sm">
+                    <div className="mt-4 w-[90%]">
                       <label
                         htmlFor="expiration date"
                         className="block text-sm font-lexend text-gray-900 pb-2"
                       >
                         Expiration date {`(MM/YY)`}
                       </label>
-                      <input
-                        type="text"
-                        id="expiration date"
-                        className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
-                        {...register("expirationDate", {
-                          required: "Email is required",
-                        })}
-                      />
+                      <div className="rounded-md shadow-sm">
+                        <input
+                          type="text"
+                          id="expiration date"
+                          className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
+                          {...register("expirationDate", {
+                            required: "Email is required",
+                          })}
+                        />
+                      </div>
                       {errors.expirationDate && "Expiration Date is required"}
                     </div>
-                    <div className="mt-4 rounded-md shadow-sm">
+                    <div className="mt-4">
                       <label
                         htmlFor="cvc"
                         className="block text-sm font-lexend text-gray-900 pb-2"
                       >
                         CVC
                       </label>
-                      <input
-                        type="text"
-                        id="cvc"
-                        className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
-                        {...register("cvc", {
-                          required: "CVC is required",
-                        })}
-                      />
+                      <div className="rounded-md shadow-sm">
+                        <input
+                          type="text"
+                          id="cvc"
+                          className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
+                          {...register("cvc", {
+                            required: "CVC is required",
+                          })}
+                        />
+                      </div>
                       {errors.cvc && "CVC is required"}
                     </div>
                   </div>
