@@ -94,7 +94,11 @@ function Cart() {
                     {...register("email", { required: "Email is required" })}
                   />
                 </div>
-                {errors.email && "email is required"}
+                {errors.email && (
+                  <p className="mt-2 font-lexend text-red-500">
+                    Email is required
+                  </p>
+                )}
               </div>
             </div>
             <div className="pb-10 border-b">
@@ -118,7 +122,11 @@ function Cart() {
                         })}
                       />
                     </div>
-                    {errors.firstName && "first name is required"}
+                    {errors.firstName && (
+                      <p className="mt-2 font-lexend text-red-500">
+                        First name is required
+                      </p>
+                    )}
                   </div>
                   <div className="w-full">
                     <label
@@ -137,7 +145,11 @@ function Cart() {
                         })}
                       />
                     </div>
-                    {errors.lastName && "last name is required"}
+                    {errors.lastName && (
+                      <p className="mt-2 font-lexend text-red-500">
+                        Last name is required
+                      </p>
+                    )}
                   </div>
                 </div>
                 <div>
@@ -157,7 +169,11 @@ function Cart() {
                       })}
                     />
                   </div>
-                  {errors.address && "address is required"}
+                  {errors.address && (
+                    <p className="mt-2 font-lexend text-red-500">
+                      Address is required
+                    </p>
+                  )}
                 </div>
                 <div>
                   <label
@@ -193,7 +209,11 @@ function Cart() {
                         {...register("city", { required: "City is required" })}
                       />
                     </div>
-                    {errors.city && "city is required"}
+                    {errors.city && (
+                      <p className="mt-2 font-lexend text-red-500">
+                        City is required
+                      </p>
+                    )}
                   </div>
                   <div className="w-full">
                     <label
@@ -212,7 +232,11 @@ function Cart() {
                         })}
                       />
                     </div>
-                    {errors.country && "country is required"}
+                    {errors.country && (
+                      <p className="mt-2 font-lexend text-red-500">
+                        Country is required
+                      </p>
+                    )}
                   </div>
                 </div>
                 <div className="flex flex-row gap-x-4">
@@ -233,7 +257,11 @@ function Cart() {
                         })}
                       />
                     </div>
-                    {errors.stateOrProvince && "State / Province is required"}
+                    {errors.stateOrProvince && (
+                      <p className="mt-2 font-lexend text-red-500">
+                        State / Province is required
+                      </p>
+                    )}
                   </div>
                   <div className="w-full">
                     <label
@@ -252,7 +280,11 @@ function Cart() {
                         })}
                       />
                     </div>
-                    {errors.postalCode && "Postal Code is required"}
+                    {errors.postalCode && (
+                      <p className="mt-2 font-lexend text-red-500">
+                        Postal Code is required
+                      </p>
+                    )}
                   </div>
                 </div>
                 <div>
@@ -272,7 +304,11 @@ function Cart() {
                       })}
                     />
                   </div>
-                  {errors.phone && "Phone number is required"}
+                  {errors.phone && (
+                    <p className="mt-2 font-lexend text-red-500">
+                      Phone number is required
+                    </p>
+                  )}
                 </div>
               </div>
             </div>
@@ -297,7 +333,11 @@ function Cart() {
                         })}
                       />
                     </div>
-                    {errors.nameOnCard && "Card Name is required"}
+                    {errors.nameOnCard && (
+                      <p className="mt-2 font-lexend text-red-500">
+                        Card Name is required
+                      </p>
+                    )}
                   </div>
                   <div className="mt-4">
                     <label
@@ -316,7 +356,11 @@ function Cart() {
                         })}
                       />
                     </div>
-                    {errors.cardNumber && "Card Number is required"}
+                    {errors.cardNumber && (
+                      <p className="mt-2 font-lexend text-red-500">
+                        Card Number is required
+                      </p>
+                    )}
                   </div>
                   <div className="flex flex-row gap-x-4">
                     <div className="mt-4 w-[90%]">
@@ -336,7 +380,11 @@ function Cart() {
                           })}
                         />
                       </div>
-                      {errors.expirationDate && "Expiration Date is required"}
+                      {errors.expirationDate && (
+                        <p className="mt-2 font-lexend text-red-500">
+                          Expiration Date is required
+                        </p>
+                      )}
                     </div>
                     <div className="mt-4">
                       <label
@@ -355,7 +403,11 @@ function Cart() {
                           })}
                         />
                       </div>
-                      {errors.cvc && "CVC is required"}
+                      {errors.cvc && (
+                        <p className="mt-2 font-lexend text-red-500">
+                          CVC is required
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>
