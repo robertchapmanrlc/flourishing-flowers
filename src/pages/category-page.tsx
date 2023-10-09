@@ -1,25 +1,14 @@
 import { useState } from "react";
 import { Dialog, Menu } from "@headlessui/react";
 
-import { Card, Category } from "../../types";
+import { Category } from "../../types";
 import ProductCard from "../components/product-card";
 import { ChevronDownIcon, Filter as FilterIcon, X } from "lucide-react";
-import { cn } from "../lib/utils";
+import { cn, sortDates, sortMax, sortMin } from "../lib/utils";
 import Filter from "../components/filter";
 
 interface CategoryPageProps {
   category: Category;
-}
-
-function sortMin(a: Card, b: Card) {
-  return Number(a.price) - Number(b.price);
-}
-function sortMax(a: Card, b: Card) {
-  return Number(b.price) - Number(a.price);
-}
-
-function sortDates(a: Card, b: Card) {
-  return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
 }
 
 const filters = [

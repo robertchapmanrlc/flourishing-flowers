@@ -2,6 +2,7 @@ import MainBillboard from "../components/main-billboard";
 import MiniBillboard from "../components/mini-billboard";
 import ProductList from "../components/product-list";
 import { products } from "../../products";
+import { sortProducts } from "../lib/utils";
 
 const mini_billboard_items = [
   {
@@ -16,11 +17,12 @@ const mini_billboard_items = [
   },
 ];
 
+const newestProducts = products.sort(sortProducts);
 
 const productListContent = [
   {
     label: "New",
-    cards: [products[0], products[1], products[2], products[3]],
+    cards: [newestProducts[0], newestProducts[1], newestProducts[2], newestProducts[3]],
   },
   {
     label: "Relevant",
