@@ -17,7 +17,7 @@ const mini_billboard_items = [
   },
 ];
 
-const newestProducts = products.sort(sortProducts);
+const newestProducts = [...products].sort(sortProducts);
 
 const productListContent = [
   {
