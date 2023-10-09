@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useLayoutEffect, useState } from "react";
 import { Order, Product } from "../../types";
 import { products } from "../../products";
 
@@ -32,6 +32,26 @@ export const ShopContextProvider = ({ children }: ShopContextProviderProps) => {
   const [cartItems, setCartItems] = useState(initialCart);
   const [length, setLength] = useState(0);
 
+
+  useLayoutEffect(() => {
+    if (localStorage.getItem('cartItems')) {
+      const localMap = localStorage.getItem("cartItems");
+      const deserializedObject = JSON.parse(localMap!);
+    
+      const deserializedMap: Map<string, Order[]> = new Map(Object.entries(deserializedObject));
+      const cartItemMap: Map<number, Order[]> = new Map();
+      let len = 0;
+
+      for (const key of deserializedMap.keys()) {
+        cartItemMap.set(Number(key), deserializedMap.get(key)!);
+        len += deserializedMap.get(key)?.length!;
+      }
+
+      setCartItems(cartItemMap);
+      setLength(len);
+    }
+  },[]);
+
   const addToCart = (product_id: number) => {
     const prod: Product = products[product_id - 1];
     const newOrder: Order = {
@@ -54,6 +74,9 @@ export const ShopContextProvider = ({ children }: ShopContextProviderProps) => {
       prevMap.set(product_id, prevList!);
     }
 
+    const mapObj = Object.fromEntries(prevMap);
+    const serializedMap = JSON.stringify(mapObj);
+    localStorage.setItem("cartItems", serializedMap);
     setCartItems(prevMap);
     setLength((prevLength) => prevLength + 1);
   };
@@ -65,12 +88,16 @@ export const ShopContextProvider = ({ children }: ShopContextProviderProps) => {
     order = order?.filter((item) => item.created_at !== created_at);
     prevMap.set(product_id, order!);
 
+    const mapObj = Object.fromEntries(prevMap);
+    const serializedMap = JSON.stringify(mapObj);
+    localStorage.setItem("cartItems", serializedMap);
     setCartItems(prevMap);
     setLength((prevLength) => prevLength - 1);
 
   };
 
   const emptyCart = () => {
+    localStorage.setItem("cartItems", JSON.stringify({}));
     setCartItems(new Map());
     setLength(0);
   }
@@ -97,6 +124,9 @@ export const ShopContextProvider = ({ children }: ShopContextProviderProps) => {
       prevMap.set(product_id, prevList!);
     }
 
+    const mapObj = Object.fromEntries(prevMap);
+    const serializedMap = JSON.stringify(mapObj);
+    localStorage.setItem("cartItems", serializedMap);
     setCartItems(prevMap);
     setLength((prevLength) => prevLength + 1);
 
@@ -104,9 +134,10 @@ export const ShopContextProvider = ({ children }: ShopContextProviderProps) => {
 
   const changeQuantity = (product_id: number, created_at: string, newQuantity: number) => {
     let prevMap = new Map(cartItems);
-    console.log(prevMap);
     prevMap.get(product_id)!.filter((item) => item.created_at === created_at)[0].quantity = newQuantity;
-    console.log(prevMap);
+    const mapObj = Object.fromEntries(prevMap);
+    const serializedMap = JSON.stringify(mapObj);
+    localStorage.setItem("cartItems", serializedMap);
     setCartItems(prevMap);
   };
 
