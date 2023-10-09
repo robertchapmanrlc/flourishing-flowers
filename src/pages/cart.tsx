@@ -91,6 +91,7 @@ function Cart() {
                   className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
                   {...register("email", { required: "Email is required" })}
                 />
+                {errors.email && "email is required"}
               </div>
             </div>
             <div className="pb-10 border-b">
@@ -112,6 +113,7 @@ function Cart() {
                         required: "First name is required",
                       })}
                     />
+                    {errors.firstName && "first name is required"}
                   </div>
                   <div className="w-full rounded-md shadow-sm">
                     <label
@@ -128,6 +130,7 @@ function Cart() {
                         required: "Last name is required",
                       })}
                     />
+                    {errors.lastName && "last name is required"}
                   </div>
                 </div>
                 <div>
@@ -145,6 +148,7 @@ function Cart() {
                       required: "Address is required",
                     })}
                   />
+                  {errors.address && "address is required"}
                 </div>
                 <div>
                   <label
@@ -176,6 +180,7 @@ function Cart() {
                       className="w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 ring-1 ring-inset ring-pink-300 focus:ring-2 focus:ring-inset focus:ring-pink-500 focus:outline-none"
                       {...register("city", { required: "City is required" })}
                     />
+                    {errors.city && "city is required"}
                   </div>
                   <div className="w-full rounded-md shadow-sm">
                     <label
@@ -192,6 +197,7 @@ function Cart() {
                         required: "Country is required",
                       })}
                     />
+                    {errors.country && "country is required"}
                   </div>
                 </div>
                 <div className="flex flex-row gap-x-4">
@@ -210,6 +216,7 @@ function Cart() {
                         required: "State / Province is required",
                       })}
                     />
+                    {errors.stateOrProvince && "State / Province is required"}
                   </div>
                   <div className="w-full rounded-md shadow-sm">
                     <label
@@ -226,6 +233,7 @@ function Cart() {
                         required: "Postal Code is required",
                       })}
                     />
+                    {errors.postalCode && "Postal Code is required"}
                   </div>
                 </div>
                 <div>
@@ -243,6 +251,7 @@ function Cart() {
                       required: "Phone number is required",
                     })}
                   />
+                  {errors.phone && "Phone number is required"}
                 </div>
               </div>
             </div>
@@ -265,6 +274,7 @@ function Cart() {
                         required: "Card Name is required",
                       })}
                     />
+                    {errors.nameOnCard && "Card Name is required"}
                   </div>
                   <div className="mt-4 rounded-md shadow-sm">
                     <label
@@ -281,6 +291,7 @@ function Cart() {
                         required: "Card Number is required",
                       })}
                     />
+                    {errors.cardNumber && "Card Number is required"}
                   </div>
                   <div className="flex flex-row gap-x-4">
                     <div className="mt-4 w-[90%] rounded-md shadow-sm">
@@ -298,6 +309,7 @@ function Cart() {
                           required: "Email is required",
                         })}
                       />
+                      {errors.expirationDate && "Expiration Date is required"}
                     </div>
                     <div className="mt-4 rounded-md shadow-sm">
                       <label
@@ -314,6 +326,7 @@ function Cart() {
                           required: "CVC is required",
                         })}
                       />
+                      {errors.cvc && "CVC is required"}
                     </div>
                   </div>
                 </div>
