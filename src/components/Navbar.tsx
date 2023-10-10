@@ -1,7 +1,7 @@
-import { useState, useContext } from "react";
+import { useState, useContext, Fragment } from "react";
 import { ShoppingCart, Menu, X } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
-import { Dialog } from "@headlessui/react";
+import { Dialog, Transition } from "@headlessui/react";
 import { motion } from "framer-motion";
 
 import NavbarLink from "./navbar-link";
@@ -18,8 +18,8 @@ const container = {
     opacity: 1,
     scale: 1,
     transition: {
-      duration: 0.1,
-      delayChildren: 0.1,
+      duration: 0.4,
+      delayChildren: 0.4,
       staggerChildren: 0.08,
     },
   },
@@ -33,7 +33,7 @@ const item = {
   },
 };
 
-function Navbar({ categories }: NavbarProps ) {
+function Navbar({ categories }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const { length } = useContext(ShopContext);
@@ -82,40 +82,65 @@ function Navbar({ categories }: NavbarProps ) {
           </button>
         </motion.div>
       </nav>
-      <Dialog
-        as="div"
-        className="lg:hidden"
-        open={isOpen}
-        onClose={() => setIsOpen(false)}
+      <Transition.Root
+        as={Fragment}
+        show={isOpen}
       >
-        <Dialog.Panel className="flex flex-col items-end fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-          <button
-            type="button"
-            className="w-[2.875rem] -m-2.5 rounded-md p-2.5 text-gray-700"
-            onClick={() => setIsOpen(false)}
+        <Dialog
+          as="div"
+          className="relative z-40 lg:hidden"
+          onClose={setIsOpen}
+        >
+          <Transition.Child
+            as={Fragment}
+            enter="transition-opacity ease-linear duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="transition-opacity ease-linear duration-300"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
           >
-            <span className="sr-only">Close menu</span>
-            <X className="h-6 w-6" aria-hidden="true" />
-          </button>
-          <div className="w-full mt-6">
-            <motion.ul
-              variants={container}
-              initial="hidden"
-              animate="visible"
-              className="flex flex-col items-start gap-y-2"
+            <div className="fixed inset-0 bg-black bg-opacity-25" />
+          </Transition.Child>
+
+          <div className="fixed inset-0 z-40 flex">
+            <Transition.Child
+              as={Fragment}
+              enter="transition ease-in-out duration-700 transform"
+              enterFrom="translate-x-full"
+              enterTo="translate-x-0"
+              leave="transition ease-in-out duration-700 transform"
+              leaveFrom="translate-x-0"
+              leaveTo="translate-x-full"
             >
-              {categories.map((category, i) => (
-                <motion.div
-                  variants={item}
-                  className="w-full"
+              <Dialog.Panel className="flex flex-col items-end fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                <button
+                  type="button"
+                  className="w-[2.875rem] -m-2.5 rounded-md p-2.5 text-gray-700"
+                  onClick={() => setIsOpen(false)}
                 >
-                  <NavbarLink key={i} link={category} />
-                </motion.div>
-              ))}
-            </motion.ul>
+                  <span className="sr-only">Close menu</span>
+                  <X className="h-6 w-6" aria-hidden="true" />
+                </button>
+                <div className="w-full mt-6">
+                  <motion.ul
+                    variants={container}
+                    initial="hidden"
+                    animate="visible"
+                    className="flex flex-col items-start gap-y-2"
+                  >
+                    {categories.map((category, i) => (
+                      <motion.div variants={item} className="w-full">
+                        <NavbarLink key={i} link={category} />
+                      </motion.div>
+                    ))}
+                  </motion.ul>
+                </div>
+              </Dialog.Panel>
+            </Transition.Child>
           </div>
-        </Dialog.Panel>
-      </Dialog>
+        </Dialog>
+      </Transition.Root>
     </header>
   );
 }
