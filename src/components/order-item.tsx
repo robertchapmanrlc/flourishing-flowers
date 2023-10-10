@@ -2,6 +2,7 @@ import { Trash } from "lucide-react";
 import { useContext } from "react";
 
 import { ShopContext } from "../contexts/shop-context";
+import { Link } from "react-router-dom";
 
 interface OrderItemProps {
   name: string;
@@ -31,7 +32,9 @@ function OrderItem({ name, image_url, price, quantity, color, product_id, create
         />
         <div className="flex flex-col justify-between">
           <div className="flex flex-col justify-start">
-            <p className="font-lexend text-gray-900/80">{name}</p>
+            <Link to={`/product/${product_id}`}>
+              <p className="font-lexend text-gray-900/80 hover:underline cursor-pointer">{name}</p>
+            </Link>
             <p className="font-lexend text-gray-900/50">{color}</p>
           </div>
           <p className="font-lexend">${price}</p>
