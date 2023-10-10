@@ -38,6 +38,10 @@ function Navbar({ categories }: NavbarProps) {
 
   const { length } = useContext(ShopContext);
 
+  const handleRoute = () => {
+    setIsOpen(false);
+  }
+
   return (
     <header>
       <nav className="lg:px-32 md:px-16 px-4 pt-4 flex flex-row justify-between items-center">
@@ -58,7 +62,7 @@ function Navbar({ categories }: NavbarProps) {
           className="hidden lg:flex flex-row gap-x-5 items-center"
         >
           {categories.map((category, i) => (
-            <NavbarLink key={i} link={category} />
+            <NavbarLink key={i} link={category} handleRoute={handleRoute} />
           ))}
         </motion.ul>
         <motion.div
@@ -131,7 +135,7 @@ function Navbar({ categories }: NavbarProps) {
                   >
                     {categories.map((category, i) => (
                       <motion.div variants={item} className="w-full">
-                        <NavbarLink key={i} link={category} />
+                        <NavbarLink key={i} link={category} handleRoute={handleRoute} />
                       </motion.div>
                     ))}
                   </motion.ul>
