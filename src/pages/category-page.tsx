@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { Dialog, Menu } from "@headlessui/react";
+import { Fragment, useState } from "react";
+import { Dialog, Menu, Transition } from "@headlessui/react";
+import { motion } from "framer-motion";
 
 import { Category } from "../../types";
 import ProductCard from "../components/product-card";
@@ -10,6 +11,27 @@ import Filter from "../components/filter";
 interface CategoryPageProps {
   category: Category;
 }
+
+const container = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.4,
+      delayChildren: 0.4,
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const item = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+};
 
 const filters = [
   {
@@ -119,40 +141,73 @@ function CategoryPage({ category }: CategoryPageProps) {
 
   return (
     <div className="lg:px-32 md:px-16 px-4 lg:py-8 md:py-4 py-2 flex flex-col justify-start items-center gap-y-4 md:gap-y-10">
-      <Dialog
-        open={mobileFiltersOpen}
-        as="div"
-        className="relative z-40 lg:hidden"
-        onClose={() => setMobileFiltersOpen(false)}
-      >
-        <div className="fixed inset-0 z-40 flex">
-          <Dialog.Panel className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl">
-            <div className="flex items-center justify-between px-4">
-              <h2 className="text-lg font-lexend font-medium text-gray-900">
-                Filters
-              </h2>
-              <button
-                type="button"
-                className="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400"
-                onClick={() => setMobileFiltersOpen(false)}
-              >
-                <span className="sr-only">Close menu</span>
-                <X />
-              </button>
-            </div>
-            {filters.map((filter, i) => (
-              <Filter
-                key={filter.name}
-                name={filter.name}
-                id={filter.id}
-                values={filter.name === "Type" ? typeFilters : colorFilters}
-                options={filters[i].options}
-                setFilter={handleFilters}
-              />
-            ))}
-          </Dialog.Panel>
-        </div>
-      </Dialog>
+      <Transition.Root as={Fragment} show={mobileFiltersOpen}>
+        <Dialog
+          as="div"
+          className="relative z-40 lg:hidden"
+          onClose={setMobileFiltersOpen}
+        >
+          <Transition.Child
+            as={Fragment}
+            enter="transition-opacity ease-linear duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="transition-opacity ease-linear duration-300"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-black bg-opacity-25" />
+          </Transition.Child>
+
+          <div className="fixed inset-0 z-40 flex">
+            <Transition.Child
+              as={Fragment}
+              enter="transition ease-in-out duration-700 transform"
+              enterFrom="translate-x-full"
+              enterTo="translate-x-0"
+              leave="transition ease-in-out duration-700 transform"
+              leaveFrom="translate-x-0"
+              leaveTo="translate-x-full"
+            >
+              <Dialog.Panel className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl">
+                <div className="flex items-center justify-between px-4">
+                  <h2 className="text-lg font-lexend font-medium text-gray-900">
+                    Filters
+                  </h2>
+                  <button
+                    type="button"
+                    className="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400"
+                    onClick={() => setMobileFiltersOpen(false)}
+                  >
+                    <span className="sr-only">Close menu</span>
+                    <X />
+                  </button>
+                </div>
+                <motion.div
+                  variants={container}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  {filters.map((filter, i) => (
+                    <motion.div variants={item}>
+                      <Filter
+                        key={filter.name}
+                        name={filter.name}
+                        id={filter.id}
+                        values={
+                          filter.name === "Type" ? typeFilters : colorFilters
+                        }
+                        options={filters[i].options}
+                        setFilter={handleFilters}
+                      />
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </Dialog.Panel>
+            </Transition.Child>
+          </div>
+        </Dialog>
+      </Transition.Root>
       <div className="w-full flex flex-row justify-between border-b border-gray-200 pb-6 pt-6">
         <h1 className="text-4xl font-bold font-lexend tracking-tight text-gray-900">
           {category.label} Flowers
@@ -206,7 +261,12 @@ function CategoryPage({ category }: CategoryPageProps) {
       </div>
       <div className="pb-24 pt-6">
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
-          <div className="hidden lg:block">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="hidden lg:block"
+          >
             {filters.map((filter, i) => (
               <Filter
                 key={filter.name}
@@ -217,9 +277,14 @@ function CategoryPage({ category }: CategoryPageProps) {
                 values={filter.name === "Type" ? typeFilters : colorFilters}
               />
             ))}
-          </div>
+          </motion.div>
           <div className="col-span-3">
-            <div className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3, delay: 0.6 }}
+              className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8"
+            >
               {sortedCards.length > 0 ? (
                 sortedCards.map((card, i) => (
                   <ProductCard key={i} card={card} />
@@ -229,7 +294,7 @@ function CategoryPage({ category }: CategoryPageProps) {
                   No products found with the filters
                 </p>
               )}
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
