@@ -1,4 +1,5 @@
 import toast from "react-hot-toast";
+import { motion } from "framer-motion";
 import { Minus, Plus } from "lucide-react";
 import { useParams } from "react-router-dom";
 import { useContext, useState } from "react";
@@ -47,12 +48,20 @@ function ProductOverview() {
   return (
     <div className="w-full lg:px-32 md:px-16 px-4 lg:py-8 md:py-4 py-2">
       <div className="w-full flex flex-col md:flex-row md:justify-between lg:gap-x-16 md:gap-x-8 gap-y-8 md:gap-y-0">
-        <img
+        <motion.img
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
           src="/src/assets/products/red-rose-bouquet.webp"
           alt="Picture of product"
           className="border-2 rounded-md md:max-h-[500px]"
         />
-        <div className="w-full flex flex-col items-start gap-y-5">
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="w-full flex flex-col items-start gap-y-5"
+        >
           <div className="w-full flex flex-col gap-y-5 border-b pb-5">
             <h1 className="font-lexend text-4xl">{product.name}</h1>
             <p className="font-lexend text-2xl">${product.price}</p>
@@ -113,11 +122,16 @@ function ProductOverview() {
           >
             Add to Cart
           </button>
-        </div>
+        </motion.div>
       </div>
-      <p className="font-lexend text-sm text-gray-600 mt-5">
+      <motion.p
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.7 }}
+        className="font-lexend text-sm text-gray-600 mt-5"
+      >
         {product.description}
-      </p>
+      </motion.p>
     </div>
   );
 }
