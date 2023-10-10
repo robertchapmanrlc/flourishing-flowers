@@ -1,8 +1,10 @@
-import { Plus } from "lucide-react";
-import { Card, Color } from "../../types";
-import { Link } from "react-router-dom";
-import { ShopContext } from "../contexts/shop-context";
 import { useContext } from "react";
+import { Plus } from "lucide-react";
+import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
+
+import { ShopContext } from "../contexts/shop-context";
+import { Card, Color } from "../../types";
 
 interface ProductCardProps {
   card: Card;
@@ -11,6 +13,11 @@ interface ProductCardProps {
 function ProductCard({ card }: ProductCardProps) {
 
   const { addToCart } = useContext(ShopContext);
+
+  const handleAddItem = () => {
+    toast.success('Item added to cart');
+    addToCart(card.product_id);
+  }
 
   let colors: Color[] = card.colors;
 
@@ -38,7 +45,7 @@ function ProductCard({ card }: ProductCardProps) {
         </Link>
         <div className="opacity-0 group-hover:opacity-100 transition absolute w-full px-6 bottom-5">
           <div className="flex justify-end">
-            <Plus size={25} className="bg-pink-300 rounded-full p-1 shadow-md hover:scale-110 transition" onClick={() => addToCart(card.product_id)} />
+            <Plus size={25} className="bg-pink-300 rounded-full p-1 shadow-md hover:scale-110 transition" onClick={handleAddItem} />
           </div>
         </div>
       </div>

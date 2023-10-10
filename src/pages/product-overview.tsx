@@ -1,14 +1,15 @@
-import { useContext, useState } from "react";
+import toast from "react-hot-toast";
 import { Minus, Plus } from "lucide-react";
+import { useParams } from "react-router-dom";
+import { useContext, useState } from "react";
 import { RadioGroup } from "@headlessui/react";
+
 import { ShopContext } from "../contexts/shop-context";
 import { cn } from "../lib/utils";
 import { Product } from "../../types";
-import { useParams } from "react-router-dom";
 import { products } from "../../products";
 
 function ProductOverview() {
-
   const { id } = useParams();
   const { addManyToCart } = useContext(ShopContext);
 
@@ -25,22 +26,23 @@ function ProductOverview() {
       product.colors[i].class = "bg-green-600";
     }
   }
-  
+
   const [quantity, setQuantity] = useState(0);
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
 
   const updateQuantity = (num: number) => {
-    if (quantity === 0 && num === -1 || quantity === 8 && num === 1) {
+    if ((quantity === 0 && num === -1) || (quantity === 8 && num === 1)) {
       return;
     }
     setQuantity((prevQuantity) => prevQuantity + num);
-  }
+  };
 
   const handleAddToCart = () => {
     if (quantity !== 0) {
+      toast.success("Item(s) added to cart");
       addManyToCart(product.product_id, quantity, selectedColor.name);
     }
-  }
+  };
 
   return (
     <div className="w-full lg:px-32 md:px-16 px-4 lg:py-8 md:py-4 py-2">
@@ -113,9 +115,11 @@ function ProductOverview() {
           </button>
         </div>
       </div>
-      <p className="font-lexend text-sm text-gray-600 mt-5">{product.description}</p>
+      <p className="font-lexend text-sm text-gray-600 mt-5">
+        {product.description}
+      </p>
     </div>
   );
 }
 
-export default ProductOverview
+export default ProductOverview;

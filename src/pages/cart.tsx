@@ -5,6 +5,7 @@ import { ShoppingCart } from "lucide-react";
 import OrderItem from "../components/order-item";
 import { ShopContext } from "../contexts/shop-context";
 import { Order } from "../../types";
+import toast from "react-hot-toast";
 
 type FormValues = {
   email: string;
@@ -66,6 +67,7 @@ function Cart() {
 
   const onSubmit = () => {
     console.log("Got submission");
+    toast.success("Purchase Successful");
     emptyCart();
   };
 

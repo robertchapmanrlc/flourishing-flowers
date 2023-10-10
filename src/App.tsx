@@ -8,6 +8,7 @@ import ProductOverview from "./pages/product-overview";
 import ScrollToTop from "./components/scroll-to-top";
 import { ShopContextProvider } from "./contexts/shop-context";
 import { products } from '../products.ts'
+import { Toaster } from "react-hot-toast";
 
 const categories = [
   {
@@ -39,6 +40,7 @@ function App() {
       <ShopContextProvider>
         <Router>
           <ScrollToTop />
+          <Toaster />
           <Navbar categories={categories}/>
           <Routes>
             <Route path="/" element={<Home />} />
