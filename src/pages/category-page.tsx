@@ -213,7 +213,7 @@ function CategoryPage({ category }: CategoryPageProps) {
         </Dialog>
       </Transition.Root>
       <div className="w-full flex flex-row justify-between border-b border-gray-200 pb-6 pt-6">
-        <h1 className="text-4xl font-bold font-lexend tracking-tight text-gray-900">
+        <h1 className="text-2xl sm:text-4xl font-bold font-lexend tracking-tight text-gray-900">
           {category.label} Flowers
         </h1>
         <div className="flex items-center">
