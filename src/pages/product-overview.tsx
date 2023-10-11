@@ -56,7 +56,7 @@ function ProductOverview() {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          src={`/src/assets/products/${selectedColor.name}-${flower}-${product.category.toLowerCase()}.png`}
+          src={`/products/${selectedColor.name}-${flower}-${product.category.toLowerCase()}.png`}
           alt="Picture of product"
           className="border-2 rounded-md"
         />

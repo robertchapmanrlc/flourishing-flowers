@@ -8,12 +8,12 @@ import { sortProducts } from "../lib/utils";
 
 const mini_billboard_items = [
   {
-    image_url: "src/assets/banners/banner-2.jpg",
+    image_url: "/banners/banner-2.jpg",
     label: "Wedding Bouquets",
     route: '/wedding'
   },
   {
-    image_url: "src/assets/banners/banner-3.jpg",
+    image_url: "/banners/banner-3.jpg",
     label: "For the Anniversary",
     route: '/anniversary'
   },

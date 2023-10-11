@@ -1,7 +1,7 @@
 
 export const products = [
   {
-    image_url: "/src/assets/products/red-rose-plant.png",
+    image_url: "/products/red-rose-plant.png",
     name: "Rose",
     category: "Plant",
     price: "5",
@@ -16,7 +16,7 @@ export const products = [
     created_at: 'Tue Feb 14 2023 12:49:22 GMT-0500 (Central Daylight Time)'
   },
   {
-    image_url: "src/assets/products/yellow-sunflower-plant.png",
+    image_url: "/products/yellow-sunflower-plant.png",
     name: "Sunflower",
     category: "Plant",
     price: "4",
@@ -28,7 +28,7 @@ export const products = [
     created_at: 'Mon Aug 10 2023 9:00:00 GMT-0500 (Central Daylight Time)'
   },
   {
-    image_url: "src/assets/products/blue-hydrangea-plant.png",
+    image_url: "/products/blue-hydrangea-plant.png",
     name: "Hydrangea",
     category: "Plant",
     price: "5",
@@ -42,7 +42,7 @@ export const products = [
     created_at: 'Sat Apr 12 2023 20:30:00 GMT-0500 (Central Daylight Time)'
   },
   {
-    image_url: "src/assets/products/white-daisy-plant.png",
+    image_url: "/products/white-daisy-plant.png",
     name: "Daisy",
     category: "Plant",
     price: "3",
@@ -55,7 +55,7 @@ export const products = [
     created_at: 'Sun Oct 08 2023 18:49:22 GMT-0500 (Central Daylight Time)'
   },
   {
-    image_url: "src/assets/products/red-rose-bouquet.png",
+    image_url: "/products/red-rose-bouquet.png",
     name: "Rose Bouquet",
     category: "Bouquet",
     price: "25",
@@ -68,7 +68,7 @@ export const products = [
     created_at: 'Tue Oct 02 2023 18:49:22 GMT-0500 (Central Daylight Time)'
   },
   {
-    image_url: "src/assets/products/white-orchid-bouquet.png",
+    image_url: "/products/white-orchid-bouquet.png",
     name: "Orchid Bouquet",
     category: "Bouquet",
     price: "20",
@@ -80,7 +80,7 @@ export const products = [
     created_at: 'Sun Jan 21 2023 18:49:22 GMT-0500 (Central Daylight Time)'
   },
   {
-    image_url: "src/assets/products/yellow-tulip-arrangement.png",
+    image_url: "/products/yellow-tulip-arrangement.png",
     name: "Tulip Arrangement",
     category: "Arrangement",
     price: "8",
@@ -94,7 +94,7 @@ export const products = [
     created_at: 'Wed Sep 25 2023 15:45:00 GMT-0500 (Central Daylight Time)'
   },
   {
-    image_url: "src/assets/products/pink-lily-arrangement.png",
+    image_url: "/products/pink-lily-arrangement.png",
     name: "Lily Arrangement",
     category: "Arrangement",
     price: "10",
