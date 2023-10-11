@@ -27,18 +27,20 @@ export const products = [
     description: "Nature's vibrant masterpiece that brings the warmth of the sun right into your life. These iconic flowers are a symbol of joy, positivity, and endless possibilities, making them the perfect addition to any occasion",
     created_at: 'Mon Aug 10 2023 9:00:00 GMT-0500 (Central Daylight Time)'
   },
-  // {
-  //   image_url: "src/assets/products/pink-rose.png",
-  //   name: "Rose Bouquet",
-  //   category: "Plant",
-  //   price: "3",
-  //   product_id: 3,
-  //   colors: [
-  //     { name: "white", class: "bg-white", selectedClass: 'ring-gray-400' },
-  //   ],
-  //   description: 'This is a beautiful flower you can buy',
-  //   created_at: 'Sat Apr 12 2023 20:30:00 GMT-0500 (Central Daylight Time)'
-  // },
+  {
+    image_url: "src/assets/products/blue-hydrangea.png",
+    name: "Hydrangea",
+    category: "Plant",
+    price: "5",
+    product_id: 3,
+    colors: [
+      { name: "blue", class: "bg-blue-700", selectedClass: 'ring-gray-400' },
+      { name: "pink", class: "bg-pink-300", selectedClass: 'ring-gray-400' },
+      { name: "white", class: "bg-white", selectedClass: 'ring-gray-400' },
+    ],
+    description: "These enchanting blooms are the epitome of grace and charm, making them a beloved choice for any occasion. From weddings to heartfelt celebrations, hydrangeas are the perfect floral companions for life's special moments",
+    created_at: 'Sat Apr 12 2023 20:30:00 GMT-0500 (Central Daylight Time)'
+  },
   // {
   //   image_url: "src/assets/products/white-rose.png",
   //   name: "Rose Bouquet",
