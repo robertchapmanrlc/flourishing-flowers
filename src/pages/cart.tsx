@@ -425,7 +425,7 @@ function Cart() {
                   name={order.name}
                   price={order.price}
                   color={order.color}
-                  image_url={`/src/assets/products/${order.color}-${order.name.toLowerCase()}.png`}
+                  image_url={`/src/assets/products/${order.color}-${order.name.toLowerCase()}-${order.category.toLowerCase()}.png`}
                   quantity={String(order.quantity)}
                   product_id={order.product_id}
                   created_at={order.created_at}

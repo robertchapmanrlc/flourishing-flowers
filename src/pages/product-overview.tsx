@@ -47,6 +47,8 @@ function ProductOverview() {
     }
   };
 
+  const flower = product.name.split(' ')[0].toLowerCase();
+
   return (
     <div className="w-full lg:px-32 md:px-16 px-4 lg:py-8 md:py-4 py-2">
       <div className="w-full flex flex-col md:flex-row md:justify-between lg:gap-x-16 md:gap-x-8 gap-y-8 md:gap-y-0">
@@ -54,7 +56,7 @@ function ProductOverview() {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          src={`/src/assets/products/${selectedColor.name}-${product.name.toLowerCase()}.png`}
+          src={`/src/assets/products/${selectedColor.name}-${flower}-${product.category.toLowerCase()}.png`}
           alt="Picture of product"
           className="border-2 rounded-md"
         />

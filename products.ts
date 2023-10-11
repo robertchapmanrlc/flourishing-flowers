@@ -1,7 +1,7 @@
 
 export const products = [
   {
-    image_url: "/src/assets/products/red-rose.png",
+    image_url: "/src/assets/products/red-rose-plant.png",
     name: "Rose",
     category: "Plant",
     price: "5",
@@ -16,7 +16,7 @@ export const products = [
     created_at: 'Tue Feb 14 2023 12:49:22 GMT-0500 (Central Daylight Time)'
   },
   {
-    image_url: "src/assets/products/yellow-sunflower.png",
+    image_url: "src/assets/products/yellow-sunflower-plant.png",
     name: "Sunflower",
     category: "Plant",
     price: "4",
@@ -28,7 +28,7 @@ export const products = [
     created_at: 'Mon Aug 10 2023 9:00:00 GMT-0500 (Central Daylight Time)'
   },
   {
-    image_url: "src/assets/products/blue-hydrangea.png",
+    image_url: "src/assets/products/blue-hydrangea-plant.png",
     name: "Hydrangea",
     category: "Plant",
     price: "5",
@@ -42,7 +42,7 @@ export const products = [
     created_at: 'Sat Apr 12 2023 20:30:00 GMT-0500 (Central Daylight Time)'
   },
   {
-    image_url: "src/assets/products/white-daisy.png",
+    image_url: "src/assets/products/white-daisy-plant.png",
     name: "Daisy",
     category: "Plant",
     price: "3",
@@ -53,6 +53,31 @@ export const products = [
     ],
     description: "Step into the world of daisies, where simplicity and joy come together in a beautiful symphony of nature. These charming, unpretentious flowers are a true embodiment of purity and cheerfulness, making them a perfect choice for brightening any occasion",
     created_at: 'Sun Oct 08 2023 18:49:22 GMT-0500 (Central Daylight Time)'
+  },
+  {
+    image_url: "src/assets/products/red-rose-bouquet.png",
+    name: "Rose Bouquet",
+    category: "Bouquet",
+    price: "25",
+    product_id: 5,
+    colors: [
+      { name: "red", class: "bg-red-700", selectedClass: 'ring-gray-400' },
+      { name: "white", class: "bg-white", selectedClass: 'ring-gray-400' },
+    ],
+    description: "Your wedding day is a celebration of love, a day that's meant to be unforgettable. Our Rose Wedding Bouquet, featuring the classic and romantic rose, is the perfect choice to add an extra touch of elegance and sentiment to this cherished occasion",
+    created_at: 'Tue Oct 02 2023 18:49:22 GMT-0500 (Central Daylight Time)'
+  },
+  {
+    image_url: "src/assets/products/white-orchid-bouquet.png",
+    name: "Orchid Bouquet",
+    category: "Bouquet",
+    price: "20",
+    product_id: 6,
+    colors: [
+      { name: "white", class: "bg-white", selectedClass: 'ring-gray-400' },
+    ],
+    description: "A wedding is a celebration of love and the beginning of a beautiful journey. What better way to express this love than with our exquisite Orchid Wedding Bouquet? Orchids, with their ethereal beauty, delicate elegance, and enduring symbolism, make for the perfect choice to grace your special day",
+    created_at: 'Sun Jan 21 2023 18:49:22 GMT-0500 (Central Daylight Time)'
   },
   // {
   //   image_url: "src/assets/products/red-rose-bouquet.webp",
@@ -113,29 +138,5 @@ export const products = [
   //   ],
   //   description: 'This is a beautiful flower you can buy',
   //   created_at: 'Wed Apr 08 2023 18:49:22 GMT-0500 (Central Daylight Time)'
-  // },
-  // {
-  //   image_url: "src/assets/products/red-rose-bouquet.webp",
-  //   name: "Rose Bouquet",
-  //   category: "Bouquet",
-  //   price: "15",
-  //   product_id: 9,
-  //   colors: [
-  //     { name: "white", class: "bg-white", selectedClass: 'ring-gray-400' },
-  //   ],
-  //   description: 'This is a beautiful flower you can buy',
-  //   created_at: 'Tue Oct 02 2023 18:49:22 GMT-0500 (Central Daylight Time)'
-  // },
-  // {
-  //   image_url: "src/assets/products/red-rose-bouquet.webp",
-  //   name: "Rose Bouquet",
-  //   category: "Bouquet",
-  //   price: "13",
-  //   product_id: 10,
-  //   colors: [
-  //     { name: "yellow", class: "bg-yellow-700", selectedClass: 'ring-gray-400' },
-  //   ],
-  //   description: 'This is a beautiful flower you can buy',
-  //   created_at: 'Sun Jan 21 2023 18:49:22 GMT-0500 (Central Daylight Time)'
   // },
 ];

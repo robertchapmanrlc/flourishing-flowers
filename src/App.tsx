@@ -29,7 +29,7 @@ const categories = [
   {
     route: "/wedding",
     label: "Wedding",
-    cards: [products[0], products[2]],
+    cards: [products[0], products[2], products[4], products[5]],
   },
 ];
 

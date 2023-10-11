@@ -60,6 +60,7 @@ export const ShopContextProvider = ({ children }: ShopContextProviderProps) => {
       price: prod.price,
       color: prod.colors[0].name,
       quantity: 1,
+      category: prod.category,
       product_id: prod.product_id,
       created_at: new Date().toLocaleString()
     };
@@ -109,6 +110,7 @@ export const ShopContextProvider = ({ children }: ShopContextProviderProps) => {
       image_url: prod.image_url,
       price: prod.price,
       color: color,
+      category: prod.category,
       quantity: quantity,
       product_id: prod.product_id,
       created_at: new Date().toLocaleString()
