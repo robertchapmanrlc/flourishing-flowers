@@ -19,12 +19,12 @@ const categories = [
   {
     route: "/birthday",
     label: "Birthday",
-    cards: [products[0]],
+    cards: [products[0], products[6], products[7]],
   },
   {
     route: "/anniversary",
     label: "Anniversary",
-    cards: [products[0], products[3]],
+    cards: [products[0], products[3], products[6], products[7]],
   },
   {
     route: "/wedding",
