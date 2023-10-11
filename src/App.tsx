@@ -14,7 +14,7 @@ const categories = [
   {
     route: "/just-because",
     label: "Just Because",
-    cards: [products[0], products[1], products[2]],
+    cards: [products[0], products[1], products[2], products[3]],
   },
   {
     route: "/birthday",
@@ -24,7 +24,7 @@ const categories = [
   {
     route: "/anniversary",
     label: "Anniversary",
-    cards: [products[0]],
+    cards: [products[0], products[3]],
   },
   {
     route: "/wedding",

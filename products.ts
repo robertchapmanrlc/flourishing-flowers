@@ -41,22 +41,19 @@ export const products = [
     description: "These enchanting blooms are the epitome of grace and charm, making them a beloved choice for any occasion. From weddings to heartfelt celebrations, hydrangeas are the perfect floral companions for life's special moments",
     created_at: 'Sat Apr 12 2023 20:30:00 GMT-0500 (Central Daylight Time)'
   },
-  // {
-  //   image_url: "src/assets/products/white-rose.png",
-  //   name: "Rose Bouquet",
-  //   category: "Plant",
-  //   price: "1",
-  //   product_id: 4,
-  //   colors: [
-  //     { name: "red", class: "bg-red-700", selectedClass: 'ring-gray-700' },
-  //     { name: "blue", class: "bg-blue-700", selectedClass: 'ring-gray-700' },
-  //     { name: "yellow", class: "bg-yellow-700", selectedClass: 'ring-gray-400' },
-  //     { name: "green", class: "bg-green-600", selectedClass: 'ring-gray-700' },
-  //     { name: "white", class: "bg-white", selectedClass: 'ring-gray-400' },
-  //   ],
-  //   description: 'This is a beautiful flower you can buy',
-  //   created_at: 'Sun Oct 08 2023 18:49:22 GMT-0500 (Central Daylight Time)'
-  // },
+  {
+    image_url: "src/assets/products/white-daisy.png",
+    name: "Daisy",
+    category: "Plant",
+    price: "3",
+    product_id: 4,
+    colors: [
+      { name: "white", class: "bg-white", selectedClass: 'ring-gray-400' },
+      { name: "pink", class: "bg-pink-300", selectedClass: 'ring-gray-700' },
+    ],
+    description: "Step into the world of daisies, where simplicity and joy come together in a beautiful symphony of nature. These charming, unpretentious flowers are a true embodiment of purity and cheerfulness, making them a perfect choice for brightening any occasion",
+    created_at: 'Sun Oct 08 2023 18:49:22 GMT-0500 (Central Daylight Time)'
+  },
   // {
   //   image_url: "src/assets/products/red-rose-bouquet.webp",
   //   name: "Rose Bouquet",
