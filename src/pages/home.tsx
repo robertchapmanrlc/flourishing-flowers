@@ -24,11 +24,11 @@ const newestProducts = [...products].sort(sortProducts);
 const productListContent = [
   {
     label: "New",
-    cards: [newestProducts[0]],
+    cards: [newestProducts[0], newestProducts[1]],
   },
   {
     label: "Relevant",
-    cards: [products[0]],
+    cards: [products[0], products[1]],
   },
 ];
 

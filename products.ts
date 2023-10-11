@@ -12,22 +12,21 @@ export const products = [
       { name: "pink", class: "bg-pink-300", selectedClass: 'ring-gray-400' },
       { name: "white", class: "bg-white", selectedClass: 'ring-gray-400' },
     ],
-    description: 'The timeless symbol of love, our classic red roses are rich, passionate, and irresistible. Express your deepest affection with these velvety petals and elegant long stems.',
+    description: "The timeless symbol of love, our classic red roses are rich, passionate, and irresistible. Express your deepest affection with these velvety petals and elegant long stems. \n The vibrant yellow rose signifies joy, friendship, and the warmth of the sun. Send them to spread happiness and positivity. \n Soft and delicate, pink roses radiate affection and gratitude. Choose them to show your appreciation and admiration. \n Pure and enchanting, white roses represent purity and new beginnings. They\'re a superb choice for weddings and expressions of admiration",
     created_at: 'Tue Feb 14 2023 12:49:22 GMT-0500 (Central Daylight Time)'
   },
-  // {
-  //   image_url: "src/assets/products/yellow-rose.png",
-  //   name: "Rose Bouquet",
-  //   category: "Plant",
-  //   price: "4",
-  //   product_id: 2,
-  //   colors: [
-  //     { name: "red", class: "bg-red-700", selectedClass: 'ring-gray-700' },
-  //     { name: "green", class: "bg-green-600", selectedClass: 'ring-gray-700' },
-  //   ],
-  //   description: 'This is a beautiful flower you can buy',
-  //   created_at: 'Mon Aug 10 2023 9:00:00 GMT-0500 (Central Daylight Time)'
-  // },
+  {
+    image_url: "src/assets/products/yellow-sunflower.png",
+    name: "Sunflower",
+    category: "Plant",
+    price: "4",
+    product_id: 2,
+    colors: [
+      { name: "yellow", class: "bg-yellow-700", selectedClass: 'ring-gray-700' },
+    ],
+    description: "Nature's vibrant masterpiece that brings the warmth of the sun right into your life. These iconic flowers are a symbol of joy, positivity, and endless possibilities, making them the perfect addition to any occasion",
+    created_at: 'Mon Aug 10 2023 9:00:00 GMT-0500 (Central Daylight Time)'
+  },
   // {
   //   image_url: "src/assets/products/pink-rose.png",
   //   name: "Rose Bouquet",
