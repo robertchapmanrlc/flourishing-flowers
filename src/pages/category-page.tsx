@@ -43,6 +43,7 @@ const filters = [
       { value: "yellow", label: "Yellow", checked: false },
       { value: "green", label: "Green", checked: false },
       { value: "white", label: "White", checked: false },
+      { value: "pink", label: "Pink", checked: false },
     ],
   },
   {
@@ -65,6 +66,7 @@ function CategoryPage({ category }: CategoryPageProps) {
     false,
     false,
     false,
+    false
   ]);
   const [options, setOptions] = useState([
     { name: "Newest", href: "#", current: true },
@@ -101,7 +103,9 @@ function CategoryPage({ category }: CategoryPageProps) {
           (colorFilters[3] &&
             card.colors.some((color) => color.name === "green")) ||
           (colorFilters[4] &&
-            card.colors.some((color) => color.name === "white"))
+            card.colors.some((color) => color.name === "white")) ||
+          (colorFilters[5] &&
+            card.colors.some((color) => color.name === "pink"))
         );
       }
     });

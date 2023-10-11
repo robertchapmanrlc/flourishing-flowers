@@ -30,7 +30,9 @@ function ProductCard({ card }: ProductCardProps) {
       colors[i].class = "bg-yellow-300";
     } else if (colors[i].name === "green") {
       colors[i].class = "bg-green-600";
-    }
+    } else if (colors[i].name === "pink") {
+      colors[i].class = "bg-pink-300";
+    } 
   }
 
   return (
@@ -40,7 +42,7 @@ function ProductCard({ card }: ProductCardProps) {
           <img
             src={`${card.image_url}`}
             alt="Picture of flower"
-            className="object-cover object-center lg:h-full lg:w-full"
+            className="object-cover object-center md:h-full md:w-full"
           />
         </Link>
         <div className="opacity-0 group-hover:opacity-100 transition absolute w-full px-6 bottom-5">

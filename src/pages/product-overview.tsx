@@ -25,6 +25,8 @@ function ProductOverview() {
       product.colors[i].class = "bg-yellow-300";
     } else if (product.colors[i].name === "green") {
       product.colors[i].class = "bg-green-600";
+    } else if (product.colors[i].name === "pink") {
+      product.colors[i].class = "bg-pink-300";
     }
   }
 
@@ -52,9 +54,9 @@ function ProductOverview() {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          src="/src/assets/products/red-rose-bouquet.webp"
+          src={`/src/assets/products/${selectedColor.name}-${product.name.toLowerCase()}.png`}
           alt="Picture of product"
-          className="border-2 rounded-md md:max-h-[500px]"
+          className="border-2 rounded-md"
         />
         <motion.div
           initial={{ opacity: 0, x: 50 }}

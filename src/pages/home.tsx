@@ -24,11 +24,11 @@ const newestProducts = [...products].sort(sortProducts);
 const productListContent = [
   {
     label: "New",
-    cards: [newestProducts[0], newestProducts[1], newestProducts[2], newestProducts[3]],
+    cards: [newestProducts[0]],
   },
   {
     label: "Relevant",
-    cards: [products[4], products[5], products[6], products[7]],
+    cards: [products[0]],
   },
 ];
 
@@ -46,7 +46,7 @@ function Home() {
           <MiniBillboard key={i} item={item} />
         ))}
       </motion.div>
-      <div className="w-full h-full flex flew-col flex-wrap justify-start items-center gap-y-4">
+      <div className="w-full h-full flex flew-col flex-wrap justify-start items-center gap-y-8">
         {productListContent.map((content, i) => (
           <ProductList key={i} content={content} />
         ))}
