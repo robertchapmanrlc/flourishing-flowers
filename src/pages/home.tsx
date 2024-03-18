@@ -4,7 +4,7 @@ import MainBillboard from "../components/main-billboard";
 import MiniBillboard from "../components/mini-billboard";
 import ProductList from "../components/product-list";
 import { products } from "../../products";
-import { sortProducts } from "../lib/utils";
+import { sortProducts } from "../utilities/utils";
 
 const mini_billboard_items = [
   {
