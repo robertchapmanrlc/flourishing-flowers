@@ -5,7 +5,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { motion } from "framer-motion";
 
 import NavbarLink from "./navbar-link";
-import { Category } from "../../types";
+import { Category } from "../types/types";
 import { ShopContext } from "../contexts/shop-context";
 
 interface NavbarProps {

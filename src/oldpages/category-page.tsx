@@ -2,10 +2,10 @@ import { Fragment, useState } from "react";
 import { Dialog, Menu, Transition } from "@headlessui/react";
 import { motion } from "framer-motion";
 
-import { Category } from "../../types";
+import { Category } from "../types/types";
 import ProductCard from "../components/product-card";
 import { ChevronDownIcon, Filter as FilterIcon, X } from "lucide-react";
-import { cn, sortDates, sortMax, sortMin } from "../lib/utils";
+import { cn, sortDates, sortMax, sortMin } from "../utilities/utils";
 import Filter from "../components/filter";
 
 interface CategoryPageProps {

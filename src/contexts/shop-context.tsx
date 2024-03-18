@@ -1,5 +1,5 @@
 import { createContext, useLayoutEffect, useState } from "react";
-import { Order, Product } from "../../types";
+import { Order, Product } from "../types/types";
 import { products } from "../../products";
 
 interface ShopContextType {

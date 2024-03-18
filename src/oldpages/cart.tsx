@@ -4,7 +4,7 @@ import { ShoppingCart } from "lucide-react";
 
 import OrderItem from "../components/order-item";
 import { ShopContext } from "../contexts/shop-context";
-import { Order } from "../../types";
+import { Order } from "../types/types";
 import toast from "react-hot-toast";
 
 type FormValues = {

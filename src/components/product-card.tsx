@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
 import { ShopContext } from "../contexts/shop-context";
-import { Card, Color } from "../../types";
+import { Card, Color } from "../types/types";
 
 interface ProductCardProps {
   card: Card;

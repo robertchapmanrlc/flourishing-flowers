@@ -6,8 +6,8 @@ import { useContext, useState } from "react";
 import { RadioGroup } from "@headlessui/react";
 
 import { ShopContext } from "../contexts/shop-context";
-import { cn } from "../lib/utils";
-import { Product } from "../../types";
+import { cn } from "../utilities/utils";
+import { Product } from "../types/types";
 import { products } from "../../products";
 
 function ProductOverview() {
