@@ -1,5 +1,5 @@
 import ProductCard from "./product-card";
-import { Card } from '../../types.ts'
+import { Card } from '../types/types'
 
 interface ProductListProps {
   content: {
