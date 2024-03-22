@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import "./index.css";
+import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: "Flourishing Flowers",
@@ -15,7 +16,10 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <body>{children}</body>
+      <body>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
