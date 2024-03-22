@@ -2,20 +2,26 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav>
-      <h1>Flourishing Flowers</h1>
-      <ul>
+    <nav className="w-full flex justify-between items-center p-4">
+      <h1 className="text-4xl">Flourishing Flowers</h1>
+      <ul className="w-64 flex justify-between">
         <li>
-          <Link href="/">Home</Link>
+          <Link href="/" className="text-xl">
+            Home
+          </Link>
         </li>
         <li>
-          <Link href="/shop">Shop</Link>
+          <Link href="/shop" className="text-xl">
+            Shop
+          </Link>
         </li>
         <li>
-          <Link href="/about">About Us</Link>
+          <Link href="/about" className="text-xl">
+            About Us
+          </Link>
         </li>
       </ul>
-      <ul>
+      <ul className="flex">
         <li>
           <Link href="/search">Search</Link>
         </li>
