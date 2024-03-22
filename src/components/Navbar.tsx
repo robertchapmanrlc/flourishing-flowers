@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Navbar() {
@@ -21,15 +22,31 @@ export default function Navbar() {
           </Link>
         </li>
       </ul>
-      <ul className="flex">
+      <ul className=" w-24 flex justify-between">
         <li>
-          <Link href="/search">Search</Link>
+          <Link href="/search">
+            <Image
+              src={"/magnifier.svg"}
+              width={20}
+              height={20}
+              alt="Magnifying glass"
+            />
+          </Link>
         </li>
         <li>
-          <Link href="/shopping-cart">Shopping Cart</Link>
+          <Link href="/shopping-cart">
+            <Image
+              src={"/bag-shopping.svg"}
+              width={20}
+              height={20}
+              alt="Shopping Cart Icon"
+            />
+          </Link>
         </li>
         <li>
-          <Link href="/account">Account</Link>
+          <Link href="/account">
+            <Image src={"/user.svg"} width={20} height={20} alt="User Icon" />
+          </Link>
         </li>
       </ul>
     </nav>
