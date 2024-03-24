@@ -8,6 +8,11 @@ module.exports = {
         playball: ["var(--font-playball)"],
         pokova: ["var(--font-podkova)"],
       },
+      colors: {
+        primary: "#f787e3",
+        secondary: "#e56dfd",
+        accent: "#fc45e7",
+      },
     },
   },
   plugins: [],

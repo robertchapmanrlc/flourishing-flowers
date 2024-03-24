@@ -10,7 +10,9 @@ export default function Main() {
           <h5 className="text-center font-pokova text-2xl text-black/50">
             Discover the most exquisite blooms for nearly every occasion.
           </h5>
-          <button className="">Shop Now</button>
+          <button className="mt-5 bg-primary py-2 px-4 rounded-lg text-white font-pokova text-3xl">
+            Shop Now
+          </button>
         </div>
       </div>
     </main>
