@@ -61,6 +61,20 @@ export default function Main() {
           Shop all
         </button>
       </section>
+      <section
+        className="w-full h-96 bg-center bg-cover"
+        style={{ backgroundImage: `url(/Banner2.webp)` }}
+      >
+        <div className="h-full pl-36 relative flex flex-col items-start justify-center">
+          <h2 className="font-pokova text-6xl">Make It Magical</h2>
+          <h5 className="text-center font-pokova text-2xl text-black/50">
+            Anniversaries can be special with these flowers.
+          </h5>
+          <button className="mt-5 bg-primary py-2 px-4 rounded-lg text-white font-pokova text-3xl">
+            Shop Now
+          </button>
+        </div>
+      </section>
     </main>
   );
 }
