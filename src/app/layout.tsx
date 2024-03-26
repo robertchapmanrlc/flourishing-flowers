@@ -16,6 +16,7 @@ const podkova = Podkova({
 
 import "./index.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "Flourishing Flowers",
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
