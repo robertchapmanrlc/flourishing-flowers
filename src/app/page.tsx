@@ -4,7 +4,7 @@ export default function Main() {
   return (
     <main className="w-full flex flex-col items-center">
       <section
-        className="w-full h-96 bg-center bg-cover"
+        className="w-full h-[600px] bg-center bg-cover"
         style={{ backgroundImage: `url(/Banner1.webp)` }}
       >
         <div className="h-full relative flex flex-col items-center justify-center">
@@ -62,7 +62,7 @@ export default function Main() {
         </button>
       </section>
       <section
-        className="w-full h-96 bg-center bg-cover"
+        className="w-full h-[600px] bg-center bg-cover"
         style={{ backgroundImage: `url(/Banner2.webp)` }}
       >
         <div className="h-full pl-36 relative flex flex-col items-start justify-center">
