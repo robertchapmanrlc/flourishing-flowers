@@ -3,7 +3,6 @@ import Image from "next/image";
 import { getAllProducts } from "actions/get-products";
 
 export default async function Main() {
-
   const products = await getAllProducts();
 
   return (
@@ -24,16 +23,22 @@ export default async function Main() {
       </section>
       <section className="w-full py-10 flex flex-col items-center justify-center gap-y-10">
         <h3 className="font-pokova text-4xl">Best Sellers</h3>
-        <div className="w-full flex justify-center gap-x-16">
+        <div className="w-full px-10 flex justify-center gap-x-16">
           {products.map((product) => (
-            <div key={product.id} className="flex flex-col items-center">
+            <div
+              key={product.id}
+              className="flex flex-col items-center justify-center"
+            >
               <Image
                 src={product.imageUrl}
-                width={400}
-                height={500}
+                width={300}
+                height={375}
                 alt={product.name}
               />
-              <h5 className="font-pokova text-2xl">{product.name}</h5>
+              <div className="w-full px-5 flex flex-row justify-between items-center">
+                <h5 className="font-pokova text-xl">{product.name}</h5>
+                <h5 className="font-pokova text-xl">${product.price}</h5>
+              </div>
             </div>
           ))}
         </div>
