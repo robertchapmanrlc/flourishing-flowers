@@ -8,7 +8,8 @@
     "start": "next start",
     "build": "next build",
     "lint": "next lint",
-    "test": "npx playwright test"
+    "test": "npx playwright test",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
