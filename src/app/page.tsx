@@ -1,6 +1,10 @@
 import Image from "next/image";
 
-export default function Main() {
+import { getAllProducts } from "actions/get-products";
+
+export default async function Main() {
+  const products = await getAllProducts();
+
   return (
     <main className="w-full flex flex-col items-center">
       <section
@@ -19,43 +23,24 @@ export default function Main() {
       </section>
       <section className="w-full py-10 flex flex-col items-center justify-center gap-y-10">
         <h3 className="font-pokova text-4xl">Best Sellers</h3>
-        <div className="w-full flex justify-center gap-x-16">
-          <div className="flex flex-col items-center">
-            <Image
-              src="/products/pink-daisy-plant.png"
-              alt="Pink Daisy Plant"
-              width={250}
-              height={250}
-            />
-            <h5 className="font-pokova text-2xl">Birthdays</h5>
-          </div>
-          <div className="flex flex-col items-center">
-            <Image
-              src="/products/red-rose-bouquet.webp"
-              alt="Red Rose Bouquet"
-              width={250}
-              height={250}
-            />
-            <h5 className="font-pokova text-2xl">Weddings</h5>
-          </div>
-          <div className="flex flex-col items-center">
-            <Image
-              src="/products/yellow-rose-plant.png"
-              alt="Yellow Rose Plant"
-              width={250}
-              height={250}
-            />
-            <h5 className="font-pokova text-2xl">Get Well</h5>
-          </div>
-          <div className="flex flex-col items-center">
-            <Image
-              src="/products/pink-rose-plant.png"
-              alt="Pink Rose Plant"
-              width={250}
-              height={250}
-            />
-            <h5 className="font-pokova text-2xl">Housewarming</h5>
-          </div>
+        <div className="w-full px-10 flex justify-center gap-x-16">
+          {products.map((product) => (
+            <div
+              key={product.id}
+              className="flex flex-col items-center justify-center"
+            >
+              <Image
+                src={product.imageUrl}
+                width={300}
+                height={375}
+                alt={product.name}
+              />
+              <div className="w-full px-5 flex flex-row justify-between items-center">
+                <h5 className="font-pokova text-xl">{product.name}</h5>
+                <h5 className="font-pokova text-xl">${product.price}</h5>
+              </div>
+            </div>
+          ))}
         </div>
         <button className="mt-5 bg-primary py-2 px-4 rounded-lg text-white font-pokova text-3xl">
           Shop all
