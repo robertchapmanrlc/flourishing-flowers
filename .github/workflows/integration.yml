@@ -1,5 +1,6 @@
 name: Test Merge Changes
-
+env:
+  DATABASE_URL: ${{ secrets.DATABASE_URL }}
 on:
   pull_request:
     branches:
