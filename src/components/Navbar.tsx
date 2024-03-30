@@ -33,7 +33,7 @@ export default function Navbar() {
           </Link>
         </li>
       </ul>
-      <ul className="w-28 flex justify-between">
+      <ul className="w-40 md:w-28 flex justify-between">
         <li>
           <Link href="/search">
             <Image
@@ -59,6 +59,13 @@ export default function Navbar() {
             <Image src={"/user.svg"} width={25} height={25} alt="User Icon" />
           </Link>
         </li>
+        <Image
+          src={"/menu.svg"}
+          width={25}
+          height={25}
+          alt="Menu Icon"
+          className="md:hidden cursor-pointer"
+        />
       </ul>
     </nav>
   );
