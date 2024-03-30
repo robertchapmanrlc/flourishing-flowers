@@ -4,8 +4,10 @@ import Link from "next/link";
 export default function Navbar() {
   return (
     <nav className="w-full flex justify-between items-center p-4">
-      <h1 className="text-4xl font-playball">Flourishing Flowers</h1>
-      <ul className="w-64 flex justify-between">
+      <h1 className="text-2xl md:text-4xl font-playball">
+        Flourishing Flowers
+      </h1>
+      <ul className="hidden w-64 md:flex justify-between">
         <li>
           <Link
             href="/"
