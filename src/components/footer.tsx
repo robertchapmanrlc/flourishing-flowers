@@ -4,9 +4,9 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="w-full h-80 flex items-center justify-between bg-secondary">
-      <div className="w-[50%] h-full pl-24 flex flex-col items-start justify-center gap-y-5">
+      <div className="w-[50%] h-[25%] pl-24 flex flex-col items-start gap-y-5">
         <h3 className="font-playball text-5xl">Flourishing Flowers</h3>
-        <button className="bg-primary rounded-md px-3 py-1 font-pokova text-2xl text-white">
+        <button className="bg-primary rounded-md px-3 py-1 font-pokova text-xl hover:text-2xl transition-all text-white">
           Contact Us
         </button>
       </div>
