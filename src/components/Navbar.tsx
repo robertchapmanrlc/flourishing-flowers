@@ -7,17 +7,26 @@ export default function Navbar() {
       <h1 className="text-4xl font-playball">Flourishing Flowers</h1>
       <ul className="w-64 flex justify-between">
         <li>
-          <Link href="/" className="text-2xl font-pokova">
+          <Link
+            href="/"
+            className="text-2xl font-pokova hover:text-primary transition-colors"
+          >
             Home
           </Link>
         </li>
         <li>
-          <Link href="/shop" className="text-2xl font-pokova">
+          <Link
+            href="/shop"
+            className="text-2xl font-pokova hover:text-primary transition-colors"
+          >
             Shop
           </Link>
         </li>
         <li>
-          <Link href="/about" className="text-2xl font-pokova">
+          <Link
+            href="/about"
+            className="text-2xl font-pokova hover:text-primary transition-colors"
+          >
             About Us
           </Link>
         </li>
