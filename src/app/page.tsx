@@ -8,15 +8,15 @@ export default async function Main() {
   return (
     <main className="w-full flex flex-col items-center">
       <section
-        className="w-full h-[600px] bg-center bg-cover"
+        className="w-full h-[600px] flex flex-col justify-center items-center bg-center bg-cover"
         style={{ backgroundImage: `url(/Banner1.webp)` }}
       >
-        <div className="h-full relative flex flex-col items-center justify-center">
+        <div className="h-[200px] relative flex flex-col items-center">
           <h2 className="font-pokova text-6xl">Flowers</h2>
           <h5 className="text-center font-pokova text-2xl text-black/50">
             Discover the most exquisite blooms for nearly every occasion.
           </h5>
-          <button className="mt-5 bg-primary py-2 px-4 rounded-lg text-white font-pokova text-3xl">
+          <button className="mt-5 bg-primary py-2 px-4 rounded-lg text-white font-pokova text-xl hover:text-2xl transition-all">
             Shop Now
           </button>
         </div>
@@ -42,28 +42,30 @@ export default async function Main() {
             </div>
           ))}
         </div>
-        <button className="mt-5 bg-primary py-2 px-4 rounded-lg text-white font-pokova text-3xl">
-          Shop all
-        </button>
+        <div className="h-12">
+          <button className="bg-primary py-2 px-4 rounded-lg text-white font-pokova text-xl hover:text-2xl transition-all">
+            Shop all
+          </button>
+        </div>
       </section>
       <section
-        className="w-full h-[600px] bg-center bg-cover"
+        className="w-full h-[600px] flex items-center bg-center bg-cover"
         style={{ backgroundImage: `url(/Banner2.webp)` }}
       >
-        <div className="h-full pl-36 relative flex flex-col items-start justify-center">
+        <div className="h-[150px] pl-36 relative flex flex-col items-start">
           <h2 className="font-pokova text-6xl">Make It Magical</h2>
           <h5 className="text-center font-pokova text-2xl text-black/50">
             Anniversaries can be special with these flowers.
           </h5>
-          <button className="mt-5 bg-primary py-2 px-4 rounded-lg text-white font-pokova text-3xl">
+          <button className="mt-5 bg-primary py-2 px-4 rounded-lg text-white font-pokova text-xl hover:text-2xl transition-all">
             Shop Now
           </button>
         </div>
       </section>
       <section className="w-full py-10 flex flex-col items-center justify-center gap-y-10">
-        <div className="w-full px-16 flex justify-between items-center">
+        <div className="w-full h-14 px-16 flex justify-between items-center">
           <h3 className="font-pokova text-4xl">Shop by Occasion</h3>
-          <button className="mt-5 bg-primary py-2 px-4 rounded-lg text-white font-pokova text-3xl">
+          <button className="bg-primary py-2 px-4 rounded-lg text-white font-pokova text-xl hover:text-2xl transition-all">
             Browse all occasions
           </button>
         </div>
