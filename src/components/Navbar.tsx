@@ -87,7 +87,7 @@ export default function Navbar() {
         open={isOpen}
         onClose={() => setIsOpen(false)}
       >
-        <Dialog.Panel className="w-full sm:max-w-sm fixed inset-y-0 right-0 z-10 bg-white">
+        <Dialog.Panel className="w-full sm:max-w-sm px-6 py-6 flex flex-col items-end fixed inset-y-0 right-0 z-10 bg-white">
           <button type="button" onClick={() => setIsOpen(false)}>
             <span className="sr-only">Close main menu</span>
             <Image
@@ -98,6 +98,32 @@ export default function Navbar() {
               className="cursor-pointer"
             />
           </button>
+          <ul className="w-full mt-6 flex flex-col items-start gap-y-5">
+            <li>
+              <Link
+                href="/"
+                className="text-2xl font-pokova hover:text-primary transition-colors"
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/shop"
+                className="text-2xl font-pokova hover:text-primary transition-colors"
+              >
+                Shop
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/about"
+                className="text-2xl font-pokova hover:text-primary transition-colors"
+              >
+                About Us
+              </Link>
+            </li>
+          </ul>
         </Dialog.Panel>
       </Dialog>
     </header>
