@@ -1,5 +1,6 @@
 "use client";
 
+import { Dialog } from "@headlessui/react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -66,20 +67,39 @@ export default function Navbar() {
               <Image src={"/user.svg"} width={25} height={25} alt="User Icon" />
             </Link>
           </li>
-          <li>
-            <button onClick={() => setIsOpen(true)}>
+          <li className="md:hidden">
+            <button type="button" onClick={() => setIsOpen(true)}>
               <span className="sr-only">Open main menu</span>
               <Image
                 src={"/menu.svg"}
                 width={25}
                 height={25}
                 alt="Menu Icon"
-                className="md:hidden cursor-pointer"
+                className="cursor-pointer"
               />
             </button>
           </li>
         </ul>
       </nav>
+      <Dialog
+        as="div"
+        className="md:hidden"
+        open={isOpen}
+        onClose={() => setIsOpen(false)}
+      >
+        <Dialog.Panel className="w-full sm:max-w-sm fixed inset-y-0 right-0 z-10 bg-white">
+          <button type="button" onClick={() => setIsOpen(false)}>
+            <span className="sr-only">Close main menu</span>
+            <Image
+              src={"/X.svg"}
+              width={25}
+              height={25}
+              alt="X Icon"
+              className="cursor-pointer"
+            />
+          </button>
+        </Dialog.Panel>
+      </Dialog>
     </header>
   );
 }
