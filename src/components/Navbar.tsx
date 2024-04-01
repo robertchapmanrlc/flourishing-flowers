@@ -1,7 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
+import { useState } from "react";
+
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <header>
       <nav className="w-full flex justify-between items-center p-4">
@@ -61,7 +67,7 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <button>
+            <button onClick={() => setIsOpen(true)}>
               <span className="sr-only">Open main menu</span>
               <Image
                 src={"/menu.svg"}
