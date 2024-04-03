@@ -71,13 +71,15 @@ export default async function Main() {
         </div>
       </section>
       <section className="w-full py-10 flex flex-col items-center justify-center">
-        <div className="w-full h-14 px-16 flex justify-between items-center">
-          <h3 className="font-pokova text-4xl">Shop by Occasion</h3>
+        <div className="w-full h-14 px-4 md:px-8 lg:px-16 flex justify-between items-center">
+          <h3 className="font-pokova text-2xl md:text-4xl lg:text-4xl">
+            Shop by Occasion
+          </h3>
           <button className="bg-primary py-1 px-2 sm:py-2 sm:px-4 rounded-lg text-white font-pokova text-xs sm:text-base hover:text-base sm:hover:text-lg lg:text-xl lg:hover:text-2xl transition-all">
             Browse all occasions
           </button>
         </div>
-        <div className="w-full flex justify-center gap-x-12">
+        <div className="w-full grid grid-rows-2 grid-cols-2 lg:flex lg:justify-center lg:gap-x-12">
           <div className="flex flex-col items-center">
             <Image
               src="https://i.ibb.co/PFG0FvX/pink-daisy-plant.webp"
