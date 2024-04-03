@@ -12,11 +12,13 @@ export default async function Main() {
         style={{ backgroundImage: `url(/Banner1.webp)` }}
       >
         <div className="h-[200px] relative flex flex-col items-center">
-          <h2 className="font-pokova text-6xl">Flowers</h2>
-          <h5 className="text-center font-pokova text-2xl text-black/50">
+          <h2 className="font-pokova text-4xl sm:text-5xl lg:text-6xl">
+            Flowers
+          </h2>
+          <h5 className="text-center font-pokova text-xs sm:text-base lg:text-2xl text-black/50">
             Discover the most exquisite blooms for nearly every occasion.
           </h5>
-          <button className="mt-5 bg-primary py-2 px-4 rounded-lg text-white font-pokova text-xl hover:text-2xl transition-all">
+          <button className="mt-5 bg-primary py-1 px-2 sm:py-2 sm:px-4 rounded-lg text-white font-pokova text-xs sm:text-base hover:text-base sm:hover:text-lg lg:text-xl lg:hover:text-2xl transition-all">
             Shop Now
           </button>
         </div>
@@ -36,8 +38,12 @@ export default async function Main() {
                 alt={product.name}
               />
               <div className="w-full px-5 flex flex-row justify-between items-center">
-                <h5 className="font-pokova text-sm sm:text-lg lg:text-xl">{product.name}</h5>
-                <h5 className="font-pokova text-sm sm:text-lg lg:text-xl">${product.price}</h5>
+                <h5 className="font-pokova text-sm sm:text-lg lg:text-xl">
+                  {product.name}
+                </h5>
+                <h5 className="font-pokova text-sm sm:text-lg lg:text-xl">
+                  ${product.price}
+                </h5>
               </div>
             </div>
           ))}
