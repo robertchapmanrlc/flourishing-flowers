@@ -23,7 +23,7 @@ export default async function Main() {
       </section>
       <section className="w-full py-10 flex flex-col items-center justify-center gap-y-10">
         <h3 className="font-pokova text-4xl">Best Sellers</h3>
-        <div className="w-full px-10 flex justify-center gap-x-16">
+        <div className="w-full lg:px-10 grid grid-rows-2 grid-cols-2 lg:flex lg:justify-center gap-x-16">
           {products.map((product) => (
             <div
               key={product.id}
@@ -36,8 +36,8 @@ export default async function Main() {
                 alt={product.name}
               />
               <div className="w-full px-5 flex flex-row justify-between items-center">
-                <h5 className="font-pokova text-xl">{product.name}</h5>
-                <h5 className="font-pokova text-xl">${product.price}</h5>
+                <h5 className="font-pokova text-sm sm:text-lg lg:text-xl">{product.name}</h5>
+                <h5 className="font-pokova text-sm sm:text-lg lg:text-xl">${product.price}</h5>
               </div>
             </div>
           ))}
