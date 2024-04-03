@@ -18,7 +18,7 @@ export default async function Main() {
           <h5 className="text-center font-pokova text-xs sm:text-base lg:text-2xl text-black/50">
             Discover the most exquisite blooms for nearly every occasion.
           </h5>
-          <button className="mt-5 bg-primary py-1 px-2 sm:py-2 sm:px-4 rounded-lg text-white font-pokova text-xs sm:text-base hover:text-base sm:hover:text-lg lg:text-xl lg:hover:text-2xl transition-all">
+          <button className="mt-5 bg-primary py-1 px-2 sm:py-2 sm:px-4 rounded-md lg:rounded-lg text-white font-pokova text-xs sm:text-base hover:text-base sm:hover:text-lg lg:text-xl lg:hover:text-2xl transition-all">
             Shop Now
           </button>
         </div>
@@ -49,7 +49,7 @@ export default async function Main() {
           ))}
         </div>
         <div className="h-12">
-          <button className="bg-primary py-1 px-2 sm:py-2 sm:px-4 rounded-lg text-white font-pokova text-xs sm:text-base hover:text-base sm:hover:text-lg lg:text-xl lg:hover:text-2xl transition-all">
+          <button className="bg-primary py-1 px-2 sm:py-2 sm:px-4 rounded-md lg:rounded-lg text-white font-pokova text-xs sm:text-base hover:text-base sm:hover:text-lg lg:text-xl lg:hover:text-2xl transition-all">
             Shop all
           </button>
         </div>
@@ -65,7 +65,7 @@ export default async function Main() {
           <h5 className="text-center font-pokova text-base sm:text-xl lg:text-2xl text-black/50">
             Anniversaries can be special with these flowers.
           </h5>
-          <button className="mt-5 bg-primary py-1 px-2 sm:py-2 sm:px-4 rounded-lg text-white font-pokova text-xs sm:text-base hover:text-base sm:hover:text-lg lg:text-xl lg:hover:text-2xl transition-all">
+          <button className="mt-5 bg-primary py-1 px-2 sm:py-2 sm:px-4 rounded-md lg:rounded-lg text-white font-pokova text-xs sm:text-base hover:text-base sm:hover:text-lg lg:text-xl lg:hover:text-2xl transition-all">
             Shop Now
           </button>
         </div>
@@ -75,7 +75,7 @@ export default async function Main() {
           <h3 className="font-pokova text-2xl md:text-4xl lg:text-4xl">
             Shop by Occasion
           </h3>
-          <button className="bg-primary py-1 px-2 sm:py-2 sm:px-4 rounded-lg text-white font-pokova text-xs sm:text-base hover:text-base sm:hover:text-lg lg:text-xl lg:hover:text-2xl transition-all">
+          <button className="bg-primary py-1 px-2 sm:py-2 sm:px-4 rounded-md lg:rounded-lg text-white font-pokova text-xs sm:text-base hover:text-base sm:hover:text-lg lg:text-xl lg:hover:text-2xl transition-all">
             Browse all occasions
           </button>
         </div>
