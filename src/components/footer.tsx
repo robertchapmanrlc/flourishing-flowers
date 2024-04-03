@@ -3,12 +3,12 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="w-full h-60 md:h-80 px-8 py-4 flex flex-col md:flex-row items-center justify-center bg-secondary">
+    <footer className="w-full h-60 md:h-80 px-4 sm:px-8 py-4 flex flex-col md:flex-row items-center justify-center bg-secondary">
       <div className="w-full md:w-[50%] h-[25%] flex md:flex-col items-start justify-between gap-y-5">
-        <h3 className="font-playball text-3xl md:text-4xl lg:text-6xl">
+        <h3 className="font-playball text-2xl sm:text-3xl md:text-4xl lg:text-6xl">
           Flourishing Flowers
         </h3>
-        <button className="bg-primary rounded-md px-3 py-1 font-pokova text-xl hover:text-2xl transition-all text-white">
+        <button className="bg-primary rounded-md px-3 py-1 font-pokova text-lg hover:text-xl transition-all text-white">
           Contact Us
         </button>
       </div>
