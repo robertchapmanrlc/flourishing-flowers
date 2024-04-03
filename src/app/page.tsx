@@ -58,9 +58,11 @@ export default async function Main() {
         className="w-full h-[600px] flex items-center bg-center bg-cover"
         style={{ backgroundImage: `url(/Banner2.webp)` }}
       >
-        <div className="h-[150px] pl-36 relative flex flex-col items-start">
-          <h2 className="font-pokova text-6xl">Make It Magical</h2>
-          <h5 className="text-center font-pokova text-2xl text-black/50">
+        <div className="h-[150px] pl-8 md:pl-16 lg:pl-36 relative flex flex-col items-start">
+          <h2 className="font-pokova text-4xl sm:text-5xl lg:text-6xl">
+            Make It Magical
+          </h2>
+          <h5 className="text-center font-pokova text-base sm:text-xl lg:text-2xl text-black/50">
             Anniversaries can be special with these flowers.
           </h5>
           <button className="mt-5 bg-primary py-1 px-2 sm:py-2 sm:px-4 rounded-lg text-white font-pokova text-xs sm:text-base hover:text-base sm:hover:text-lg lg:text-xl lg:hover:text-2xl transition-all">
