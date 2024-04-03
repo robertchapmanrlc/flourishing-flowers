@@ -49,7 +49,7 @@ export default async function Main() {
           ))}
         </div>
         <div className="h-12">
-          <button className="bg-primary py-2 px-4 rounded-lg text-white font-pokova text-xl hover:text-2xl transition-all">
+          <button className="bg-primary py-1 px-2 sm:py-2 sm:px-4 rounded-lg text-white font-pokova text-xs sm:text-base hover:text-base sm:hover:text-lg lg:text-xl lg:hover:text-2xl transition-all">
             Shop all
           </button>
         </div>
@@ -63,7 +63,7 @@ export default async function Main() {
           <h5 className="text-center font-pokova text-2xl text-black/50">
             Anniversaries can be special with these flowers.
           </h5>
-          <button className="mt-5 bg-primary py-2 px-4 rounded-lg text-white font-pokova text-xl hover:text-2xl transition-all">
+          <button className="mt-5 bg-primary py-1 px-2 sm:py-2 sm:px-4 rounded-lg text-white font-pokova text-xs sm:text-base hover:text-base sm:hover:text-lg lg:text-xl lg:hover:text-2xl transition-all">
             Shop Now
           </button>
         </div>
@@ -71,7 +71,7 @@ export default async function Main() {
       <section className="w-full py-10 flex flex-col items-center justify-center">
         <div className="w-full h-14 px-16 flex justify-between items-center">
           <h3 className="font-pokova text-4xl">Shop by Occasion</h3>
-          <button className="bg-primary py-2 px-4 rounded-lg text-white font-pokova text-xl hover:text-2xl transition-all">
+          <button className="bg-primary py-1 px-2 sm:py-2 sm:px-4 rounded-lg text-white font-pokova text-xs sm:text-base hover:text-base sm:hover:text-lg lg:text-xl lg:hover:text-2xl transition-all">
             Browse all occasions
           </button>
         </div>
