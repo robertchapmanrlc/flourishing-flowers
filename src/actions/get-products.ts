@@ -8,7 +8,7 @@ export async function getAllProducts() {
 export async function getProduct(productName: string) {
   const product = await database.product.findFirst({
     where: {
-      name: productName
+      urlName: productName
     }
   });
   return product;
