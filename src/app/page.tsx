@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { getAllProducts } from "actions/get-products";
+import Link from "next/link";
 
 export default async function Main() {
   const products = await getAllProducts();
@@ -27,7 +28,8 @@ export default async function Main() {
         <h3 className="font-pokova text-4xl">Best Sellers</h3>
         <div className="w-full lg:px-10 grid grid-rows-2 grid-cols-2 lg:flex lg:justify-center gap-x-16">
           {products.map((product) => (
-            <div
+            <Link
+              href={`/product/${product.name}`}
               key={product.id}
               className="flex flex-col items-center justify-center"
             >
@@ -45,7 +47,7 @@ export default async function Main() {
                   ${product.price}
                 </h5>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
         <div className="h-12">

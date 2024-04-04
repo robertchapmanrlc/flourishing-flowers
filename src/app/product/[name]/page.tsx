@@ -3,9 +3,10 @@ export default async function Product({
 }: {
   params: { name: string };
 }) {
+  const product = params.name;
   return (
     <main>
-      <h1>Product Page for {params.name}</h1>
+      <h1>Product Page for {product}</h1>
     </main>
   );
 }
