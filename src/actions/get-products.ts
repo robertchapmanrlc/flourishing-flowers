@@ -9,6 +9,9 @@ export async function getProduct(productName: string) {
   const product = await database.product.findFirst({
     where: {
       urlName: productName
+    },
+    include: {
+      colors: true
     }
   });
   return product;

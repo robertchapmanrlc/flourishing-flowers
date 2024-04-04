@@ -20,7 +20,9 @@ export default async function Product({
       <div className="w-full flex flex-col-reverse mb-5 gap-y-5">
         <div className="w-full flex flex-col gap-y-2">
           <h1 className="font-pokova text-3xl">{product.name}</h1>
-          <h3 className=" font-pokova text-xl">${product.price}</h3>
+          <h3 className="font-pokova text-xl">${product.price}</h3>
+          <h3 className="font-pokova font-bold text-xl">Colors:</h3>
+          {product.colors.map((color) => (<p key={color.id}>{color.name}</p>))}
         </div>
         <Image
           className="border-2 rounded-md"
