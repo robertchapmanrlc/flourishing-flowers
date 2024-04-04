@@ -91,7 +91,7 @@ export default function Navbar() {
           <button type="button" onClick={() => setIsOpen(false)}>
             <span className="sr-only">Close main menu</span>
             <Image
-              src={"/X.svg"}
+              src={"/x.svg"}
               width={25}
               height={25}
               alt="X Icon"
@@ -99,7 +99,7 @@ export default function Navbar() {
             />
           </button>
           <ul className="w-full mt-6 flex flex-col items-start gap-y-5">
-            <li>
+            <li onClick={() => setIsOpen(false)}>
               <Link
                 href="/"
                 className="text-2xl font-pokova hover:text-primary transition-colors"
@@ -107,7 +107,7 @@ export default function Navbar() {
                 Home
               </Link>
             </li>
-            <li>
+            <li onClick={() => setIsOpen(false)}>
               <Link
                 href="/shop"
                 className="text-2xl font-pokova hover:text-primary transition-colors"
@@ -115,7 +115,7 @@ export default function Navbar() {
                 Shop
               </Link>
             </li>
-            <li>
+            <li onClick={() => setIsOpen(false)}>
               <Link
                 href="/about"
                 className="text-2xl font-pokova hover:text-primary transition-colors"
