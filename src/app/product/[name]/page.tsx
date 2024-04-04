@@ -1,4 +1,5 @@
 import { getProduct } from "actions/get-products";
+import Image from "next/image";
 import { redirect } from "next/navigation";
 
 export default async function Product({
@@ -6,17 +7,25 @@ export default async function Product({
 }: {
   params: { name: string };
 }) {
-  const product = params.name;
+  const productName = params.name;
 
-  const flower = await getProduct(product);
+  const product = await getProduct(productName);
 
-  if (!flower) {
-    redirect('/');
+  if (!product) {
+    redirect("/");
   }
 
   return (
     <main>
-      <h1>Product Page for {product}</h1>
+      <h1>{product.name}</h1>
+      <h3>${product.price}</h3>
+      <Image
+        src={product.imageUrl}
+        width={400}
+        height={500}
+        alt={product.name}
+      />
+      <p>{product.description}</p>
     </main>
   );
 }
