@@ -99,7 +99,7 @@ export default function Navbar() {
             />
           </button>
           <ul className="w-full mt-6 flex flex-col items-start gap-y-5">
-            <li>
+            <li onClick={() => setIsOpen(false)}>
               <Link
                 href="/"
                 className="text-2xl font-pokova hover:text-primary transition-colors"
@@ -107,7 +107,7 @@ export default function Navbar() {
                 Home
               </Link>
             </li>
-            <li>
+            <li onClick={() => setIsOpen(false)}>
               <Link
                 href="/shop"
                 className="text-2xl font-pokova hover:text-primary transition-colors"
@@ -115,7 +115,7 @@ export default function Navbar() {
                 Shop
               </Link>
             </li>
-            <li>
+            <li onClick={() => setIsOpen(false)}>
               <Link
                 href="/about"
                 className="text-2xl font-pokova hover:text-primary transition-colors"
