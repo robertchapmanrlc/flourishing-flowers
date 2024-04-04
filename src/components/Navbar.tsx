@@ -91,7 +91,7 @@ export default function Navbar() {
           <button type="button" onClick={() => setIsOpen(false)}>
             <span className="sr-only">Close main menu</span>
             <Image
-              src={"/X.svg"}
+              src={"/x.svg"}
               width={25}
               height={25}
               alt="X Icon"
