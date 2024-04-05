@@ -1,4 +1,8 @@
 
+export type ColorVariants = {
+    [key:string]: string
+}
+
 export interface Card {
     image_url: string;
     name: string;

@@ -5,7 +5,7 @@ import { useState } from "react";
 import { RadioGroup } from "@headlessui/react";
 
 import { cn } from "@/utilities/utils";
-import { Product } from "@/types/types";
+import { ColorVariants, Product } from "@/types/types";
 
 interface ProductDetailsProps {
   product: Product;
@@ -14,6 +14,15 @@ interface ProductDetailsProps {
 export default function ProductDetails({ product }: ProductDetailsProps) {
 
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
+
+  const colors: ColorVariants = {
+    'red': 'bg-red-700',
+    'yellow': 'bg-yellow-300',
+    'pink': 'bg-pink-300',
+    'blue': 'bg-blue-700',
+    'white': 'bg-white'
+  };
+
 
   return (
     <main className="w-full px-4 py-8 flex flex-col">
@@ -45,10 +54,9 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
                   </RadioGroup.Label>
                   <span
                     aria-hidden="true"
-                    className={cn(
-                      color.class,
-                      "h-8 w-8 rounded-full border border-black border-opacity-10"
-                    )}
+                    className={`${
+                      colors[color.name]
+                    } h-8 w-8 rounded-full border border-black border-opacity-10`}
                   />
                 </RadioGroup.Option>
               ))}
