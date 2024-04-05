@@ -1,3 +1,4 @@
+import ProductDetails from "@/components/product";
 import { getProduct } from "actions/get-products";
 import { redirect } from "next/navigation";
 
@@ -6,17 +7,15 @@ export default async function Product({
 }: {
   params: { name: string };
 }) {
-  const product = params.name;
+  const productName = params.name;
 
-  const flower = await getProduct(product);
+  const product = await getProduct(productName);
 
-  if (!flower) {
-    redirect('/');
+  if (!product) {
+    redirect("/");
   }
 
   return (
-    <main>
-      <h1>Product Page for {product}</h1>
-    </main>
+    <ProductDetails product={product}/>
   );
 }

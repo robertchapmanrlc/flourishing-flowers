@@ -29,7 +29,7 @@ export default async function Main() {
         <div className="w-full lg:px-10 grid grid-rows-2 grid-cols-2 lg:flex lg:justify-center gap-x-16">
           {products.map((product) => (
             <Link
-              href={`/product/${product.name}`}
+              href={`/product/${product.urlName}`}
               key={product.id}
               className="flex flex-col items-center justify-center"
             >
