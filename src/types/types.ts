@@ -36,8 +36,8 @@ export interface Product {
 export interface Order {
     name: string;
     category: string;
-    image_url: string;
-    price: string;
+    imageUrl: string;
+    price: number;
     color: string;
     quantity: number;
     product_id: number;
