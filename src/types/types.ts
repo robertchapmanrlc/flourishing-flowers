@@ -6,7 +6,6 @@ export type ColorVariants = {
 export interface Card {
     image_url: string;
     name: string;
-    category: string;
     price: string;
     product_id: number;
     colors: Color[];

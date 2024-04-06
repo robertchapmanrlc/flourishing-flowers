@@ -56,9 +56,6 @@ function ProductCard({ card }: ProductCardProps) {
           <Link to={`/product/${card.product_id}`}>
             <h3 className="font-lexend text-sm text-gray-700 hover:underline">{card.name}</h3>
           </Link>
-          <p className="font-lexend mt-1 text-sm text-gray-500">
-            {card.category}
-          </p>
         </div>
         <p className="font-lexend text-sm font-medium text-gray-900">
           ${card.price}

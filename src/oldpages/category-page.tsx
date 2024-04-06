@@ -74,21 +74,9 @@ function CategoryPage({ category }: CategoryPageProps) {
     { name: "Price: High to Low", href: "#", current: false },
   ]);
 
-  const reduceTypes = typeFilters.reduce((acc, curr) => acc || curr, false);
   const reduceColors = colorFilters.reduce((acc, curr) => acc || curr, false);
 
   const filteredCards = category.cards
-    .filter((card) => {
-      if (!reduceTypes) {
-        return true;
-      } else {
-        return (
-          (card.category === "Plant" && typeFilters[0]) ||
-          (card.category === "Arrangement" && typeFilters[1]) ||
-          (card.category === "Bouquet" && typeFilters[2])
-        );
-      }
-    })
     .filter((card) => {
       if (!reduceColors) {
         return true;
