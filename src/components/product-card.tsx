@@ -1,9 +1,9 @@
-import { useContext } from "react";
+// import { useContext } from "react";
 import { Plus } from "lucide-react";
 import { Link } from "react-router-dom";
-import toast from "react-hot-toast";
+// import toast from "react-hot-toast";
 
-import { ShopContext } from "../contexts/shop-context";
+// import { ShopContext } from "../contexts/shop-context";
 import { Card, Color } from "../types/types";
 
 interface ProductCardProps {
@@ -12,11 +12,11 @@ interface ProductCardProps {
 
 function ProductCard({ card }: ProductCardProps) {
 
-  const { addToCart } = useContext(ShopContext);
+  // const { addToCart } = useContext(ShopContext);
 
   const handleAddItem = () => {
-    toast.success('Item added to cart');
-    addToCart(card.product_id);
+    // toast.success('Item added to cart');
+    // addToCart(card.product_id);
   }
 
   let colors: Color[] = card.colors;
