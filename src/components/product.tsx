@@ -42,6 +42,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
         <div className="w-full md:max-w-[40%] flex flex-col gap-y-2 md:gap-y-5">
           <h1 className="font-pokova text-3xl md:text-4xl lg:text-5xl">{product.name}</h1>
           <h3 className="font-pokova text-xl md:text-2xl lg:text-3xl">${product.price}</h3>
+          <div className="w-full border-b-2" />
           <h3 className="font-pokova font-bold text-xl md:text-2xl lg:text-3xl">Quantity:</h3>
           <div className="w-32 flex flex-row gap-x-5">
             <button className="bg-primary rounded-md p-1" onClick={() => updateQuantity(-1)}>
@@ -84,6 +85,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
               ))}
             </div>
           </RadioGroup>
+          <button className="bg-primary rounded-md py-2 text-white">Add To Cart</button>
         </div>
       </div>
       <p className="font-pokova text-left md:text-lg lg:text-2xl">{product.description}</p>
