@@ -23,6 +23,12 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
     white: "bg-white",
   };
 
+  const updateQuantity = (num: number) => {
+    if ((quantity === 0 && num === -1) || (quantity === 8 && num === 1))
+      return;
+    setQuantity((prevQuantity) => prevQuantity + num);
+  }
+
   return (
     <main className="w-full px-4 md:px-8 lg:px-24 py-8 md:py-16 lg:py-24 flex flex-col gap-y-5 md:gap-y-10 lg:gap-y-16">
       <div className="w-full flex flex-col md:flex-row items-center justify-start md:items-start gap-y-5 md:gap-x-8 lg:gap-x-16">
@@ -38,11 +44,11 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
           <h3 className="font-pokova text-xl md:text-2xl lg:text-3xl">${product.price}</h3>
           <h3 className="font-pokova font-bold text-xl md:text-2xl lg:text-3xl">Quantity:</h3>
           <div className="w-32 flex flex-row gap-x-5">
-            <button className="bg-primary rounded-md p-1" onClick={() => setQuantity((quantity) => quantity - 1)}>
+            <button className="bg-primary rounded-md p-1" onClick={() => updateQuantity(-1)}>
               <Image src={'/minus.svg'} width={25} height={25} alt="minus"/>
             </button>
             <h4 className="font-h4okova text-lg md:text-xl lg:text-2xl">{quantity}</h4>
-            <button className="bg-primary rounded-md p-1" onClick={() => setQuantity((quantity) => quantity + 1)}>
+            <button className="bg-primary rounded-md p-1" onClick={() => updateQuantity(1)}>
               <Image src={'/plus.svg'} width={25} height={25} alt="plus"/>
             </button>
           </div>
