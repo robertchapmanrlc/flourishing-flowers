@@ -12,6 +12,7 @@ interface ProductDetailsProps {
 }
 
 export default function ProductDetails({ product }: ProductDetailsProps) {
+  const [quantity, setQuantity] = useState(0);
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
 
   const colors: ColorVariants = {
@@ -35,6 +36,16 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
         <div className="w-full md:max-w-[40%] flex flex-col gap-y-2 md:gap-y-5">
           <h1 className="font-pokova text-3xl md:text-4xl lg:text-5xl">{product.name}</h1>
           <h3 className="font-pokova text-xl md:text-2xl lg:text-3xl">${product.price}</h3>
+          <h3 className="font-pokova font-bold text-xl md:text-2xl lg:text-3xl">Quantity:</h3>
+          <div className="w-32 flex flex-row gap-x-5">
+            <button className="bg-primary rounded-md p-1" onClick={() => setQuantity((quantity) => quantity - 1)}>
+              <Image src={'/minus.svg'} width={25} height={25} alt="minus"/>
+            </button>
+            <h4 className="font-h4okova text-lg md:text-xl lg:text-2xl">{quantity}</h4>
+            <button className="bg-primary rounded-md p-1" onClick={() => setQuantity((quantity) => quantity + 1)}>
+              <Image src={'/plus.svg'} width={25} height={25} alt="plus"/>
+            </button>
+          </div>
           <h3 className="font-pokova font-bold text-xl md:text-2xl lg:text-3xl">Colors:</h3>
           <RadioGroup value={selectedColor} onChange={setSelectedColor}>
             <RadioGroup.Label className="sr-only">
