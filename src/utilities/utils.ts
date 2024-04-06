@@ -18,5 +18,5 @@ export function sortDates(a: Card, b: Card) {
 }
 
 export function sortProducts(a: Product, b: Product) {
-    return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+    return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
 }

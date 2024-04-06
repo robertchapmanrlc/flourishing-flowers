@@ -1,4 +1,8 @@
 
+export type ColorVariants = {
+    [key:string]: string
+}
+
 export interface Card {
     image_url: string;
     name: string;
@@ -16,27 +20,28 @@ export interface Category {
 }
 
 export interface Color {
+    id: number;
     name: string;
     class: string;
     selectedClass: string;
 }
 
 export interface Product {
+    id: number;
     name: string;
-    image_url: string;
-    price: string;
-    category: string;
-    product_id: number;
-    colors: Color[];
+    urlName: string;
     description: string;
-    created_at: string;
+    price: number;
+    imageUrl: string;
+    createdAt: Date;
+    colors: Color[];
 }
 
 export interface Order {
     name: string;
     category: string;
-    image_url: string;
-    price: string;
+    imageUrl: string;
+    price: number;
     color: string;
     quantity: number;
     product_id: number;
