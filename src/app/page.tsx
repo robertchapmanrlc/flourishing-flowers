@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { getAllProducts } from "actions/get-products";
-import Link from "next/link";
+import ProductCard from "@/components/product-card";
 
 export default async function Main() {
   const products = await getAllProducts();
@@ -28,26 +28,7 @@ export default async function Main() {
         <h3 className="font-pokova text-4xl">Best Sellers</h3>
         <div className="w-full lg:px-10 grid grid-rows-2 grid-cols-2 lg:flex lg:justify-center gap-x-16">
           {products.map((product) => (
-            <Link
-              href={`/product/${product.urlName}`}
-              key={product.id}
-              className="flex flex-col items-center justify-center"
-            >
-              <Image
-                src={product.imageUrl}
-                width={300}
-                height={375}
-                alt={product.name}
-              />
-              <div className="w-full px-5 flex flex-row justify-between items-center">
-                <h5 className="font-pokova text-sm sm:text-lg lg:text-xl">
-                  {product.name}
-                </h5>
-                <h5 className="font-pokova text-sm sm:text-lg lg:text-xl">
-                  ${product.price}
-                </h5>
-              </div>
-            </Link>
+            <ProductCard key={product.id}/>
           ))}
         </div>
         <div className="h-12">
