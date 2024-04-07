@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Category } from "../types/types";
 import ProductCard from "../components/product-card";
 import { ChevronDownIcon, Filter as FilterIcon, X } from "lucide-react";
-import { cn, sortDates, sortMax, sortMin } from "../utilities/utils";
+import { cn, sortMax, sortMin } from "../utilities/utils";
 import Filter from "../components/filter";
 
 interface CategoryPageProps {
@@ -74,21 +74,9 @@ function CategoryPage({ category }: CategoryPageProps) {
     { name: "Price: High to Low", href: "#", current: false },
   ]);
 
-  const reduceTypes = typeFilters.reduce((acc, curr) => acc || curr, false);
   const reduceColors = colorFilters.reduce((acc, curr) => acc || curr, false);
 
   const filteredCards = category.cards
-    .filter((card) => {
-      if (!reduceTypes) {
-        return true;
-      } else {
-        return (
-          (card.category === "Plant" && typeFilters[0]) ||
-          (card.category === "Arrangement" && typeFilters[1]) ||
-          (card.category === "Bouquet" && typeFilters[2])
-        );
-      }
-    })
     .filter((card) => {
       if (!reduceColors) {
         return true;
@@ -111,9 +99,7 @@ function CategoryPage({ category }: CategoryPageProps) {
     });
 
   let sortedCards = filteredCards;
-  if (options[0].current) {
-    sortedCards.sort(sortDates);
-  } else if (options[1].current) {
+  if (options[1].current) {
     sortedCards.sort(sortMin);
   } else if (options[2].current) {
     sortedCards.sort(sortMax);
