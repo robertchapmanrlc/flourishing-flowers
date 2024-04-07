@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Category } from "../types/types";
 import ProductCard from "../components/product-card";
 import { ChevronDownIcon, Filter as FilterIcon, X } from "lucide-react";
-import { cn, sortDates, sortMax, sortMin } from "../utilities/utils";
+import { cn, sortMax, sortMin } from "../utilities/utils";
 import Filter from "../components/filter";
 
 interface CategoryPageProps {
@@ -99,9 +99,7 @@ function CategoryPage({ category }: CategoryPageProps) {
     });
 
   let sortedCards = filteredCards;
-  if (options[0].current) {
-    sortedCards.sort(sortDates);
-  } else if (options[1].current) {
+  if (options[1].current) {
     sortedCards.sort(sortMin);
   } else if (options[2].current) {
     sortedCards.sort(sortMax);
