@@ -16,8 +16,8 @@ export default function ProductCard({ card }: ProductCardProps) {
   };
 
   return (
-    <div className="w-full cursor-pointer flex flex-col">
-      <Image src={card.image_url} width={300} height={375} alt={card.name} />
+    <div className="w-full cursor-pointer flex flex-col gap-y-2">
+      <Image src={card.image_url} width={300} height={375} alt={card.name} className="w-full" />
       <div className="w-full flex flew-row justify-between">
         <h3 className="font-pokova">{card.name}</h3>
         <h3 className="font-pokova">${card.price}</h3>
