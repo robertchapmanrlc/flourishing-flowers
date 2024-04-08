@@ -1,10 +1,9 @@
+import MobileFilterMenu from "@/components/mobile-filter-menu";
 import ProductCard from "@/components/product-card";
 import SortMenu from "@/components/sort-menu";
 import { getAllProducts } from "actions/get-products";
 
-
 export default async function Shop() {
-
   const products = await getAllProducts();
 
   return (
@@ -13,8 +12,9 @@ export default async function Shop() {
         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-pokova tracking-tight text-gray-900">
           Search For Flowers
         </h1>
-        <div className="flex items-center">
+        <div className="w-24 flex flex-row justify-between items-center">
           <SortMenu />
+          <MobileFilterMenu />
         </div>
       </div>
       <div className="w-full flex justify-center items-center">
