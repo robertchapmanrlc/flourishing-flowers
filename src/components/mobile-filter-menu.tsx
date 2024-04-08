@@ -3,10 +3,34 @@
 import { Dialog } from "@headlessui/react";
 import Image from "next/image";
 import { useState } from "react";
+import Filter from "./filter";
 
 export default function MobileFilterMenu() {
 
   const [isOpen, setIsOpen] = useState(false);
+
+  const filters = [
+    {
+      name: "Color",
+      options: [
+        { label: "Red", checked: false },
+        { label: "Blue", checked: false },
+        { label: "Yellow", checked: false },
+        { label: "Green", checked: false },
+        { label: "White", checked: false },
+        { label: "Pink", checked: false },
+      ],
+    },
+    {
+      name: "Occasion",
+      options: [
+        { label: "Birthdays", checked: false },
+        { label: "Weddings", checked: false },
+        { label: "Get Well", checked: false },
+        { label: "Housewarming", checked: false },
+      ],
+    },
+  ];
 
   return (
     <>
@@ -28,6 +52,9 @@ export default function MobileFilterMenu() {
               <Image src={"/x.svg"} width={30} height={30} alt="X Icon" />
             </button>
           </div>
+          {filters.map((filter, i) => ( 
+            <Filter key={i} filter={filter} />
+          ))}
         </Dialog.Panel>
       </Dialog>
     </>
