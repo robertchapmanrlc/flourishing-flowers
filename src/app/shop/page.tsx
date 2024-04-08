@@ -8,12 +8,14 @@ export default async function Shop() {
 
   return (
     <main className="w-full px-4 md:px-8 lg:px-12 flex flex-col justify-start items-center py-6">
-      <h1 className="w-full text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-pokova tracking-tight text-gray-900">
-        Search For Flowers
-      </h1>
-      <div className="w-full flex items-center">
-        <div className="hidden md:inline-block text-left">Menu</div>
-        <ul className="grid">
+      <div className="w-full py-6 flex-row border-b-2 border-gray-200">
+        <h1 className="w-full text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-pokova tracking-tight text-gray-900">
+          Search For Flowers
+        </h1>
+      </div>
+      <div className="w-full flex justify-center items-center">
+        <div className="hidden lg:flex w-40 text-left">Menu</div>
+        <ul className="grid grid-cols-2 gap-x-4 gap-y-4 sm:gap-x-6 sm:gap-y-6 md:gap-y-10 md:gap-x-10 lg:grid-cols-3 xl:grid-cols-4">
           {products.map((product) => (
             <ProductCard
               key={product.id}
