@@ -1,4 +1,5 @@
 import ProductCard from "@/components/product-card";
+import SortMenu from "@/components/sort-menu";
 import { getAllProducts } from "actions/get-products";
 
 
@@ -8,10 +9,13 @@ export default async function Shop() {
 
   return (
     <main className="w-full px-4 md:px-8 lg:px-12 flex flex-col justify-start items-center py-6">
-      <div className="w-full py-6 flex-row border-b-2 border-gray-200">
-        <h1 className="w-full text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-pokova tracking-tight text-gray-900">
+      <div className="w-full py-6 flex flex-row justify-between items-center border-b-2 border-gray-200">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-pokova tracking-tight text-gray-900">
           Search For Flowers
         </h1>
+        <div className="flex items-center">
+          <SortMenu />
+        </div>
       </div>
       <div className="w-full flex justify-center items-center">
         <div className="hidden lg:flex w-40 text-left">Menu</div>
