@@ -1,3 +1,5 @@
+"use client"
+
 import { FilterType } from "@/types/types";
 import { Disclosure } from "@headlessui/react";
 import Image from "next/image";
