@@ -1,0 +1,67 @@
+import Filter from "@/components/filter";
+import MobileFilterMenu from "@/components/mobile-filter-menu";
+import ProductCard from "@/components/product-card";
+import SortMenu from "@/components/sort-menu";
+import { getAllProducts } from "actions/get-products";
+
+export default async function Shop() {
+  const products = await getAllProducts();
+
+  const filters = [
+    {
+      name: "Color",
+      options: [
+        { label: "Red", checked: false },
+        { label: "Blue", checked: false },
+        { label: "Yellow", checked: false },
+        { label: "Green", checked: false },
+        { label: "White", checked: false },
+        { label: "Pink", checked: false },
+      ],
+    },
+    {
+      name: "Occasion",
+      options: [
+        { label: "Birthdays", checked: false },
+        { label: "Weddings", checked: false },
+        { label: "Get Well", checked: false },
+        { label: "Housewarming", checked: false },
+      ],
+    },
+  ];
+
+  return (
+    <main className="w-full py-6 md:py-12 lg:py-16 px-4 md:px-8 lg:px-12 flex flex-col gap-y-8 justify-start items-center">
+      <div className="w-full pb-6 flex flex-row justify-between items-center border-b-2 border-gray-200">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-pokova tracking-tight text-gray-900">
+          Search For Flowers
+        </h1>
+        <div className="w-24 flex flex-row justify-between items-center">
+          <SortMenu />
+          <MobileFilterMenu />
+        </div>
+      </div>
+      <div className="w-full flex justify-center items-start gap-x-12">
+        <div className="hidden lg:flex flex-col w-72 text-left">
+          {filters.map((filter, i) => (
+            <Filter key={i} filter={filter} />
+          ))}
+        </div>
+        <ul className="grid grid-cols-2 gap-x-4 gap-y-4 sm:gap-x-6 sm:gap-y-6 md:gap-y-10 md:gap-x-10 lg:grid-cols-3 xl:grid-cols-4">
+          {products.map((product) => (
+            <ProductCard
+              key={product.id}
+              card={{
+                name: product.name,
+                link: product.urlName,
+                price: product.price,
+                image_url: product.imageUrl,
+                colors: product.colors,
+              }}
+            />
+          ))}
+        </ul>
+      </div>
+    </main>
+  );
+}

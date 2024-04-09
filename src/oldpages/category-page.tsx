@@ -3,10 +3,10 @@ import { Dialog, Menu, Transition } from "@headlessui/react";
 import { motion } from "framer-motion";
 
 import { Category } from "../types/types";
-import ProductCard from "../components/product-card";
+// import ProductCard from "../components/product-card";
 import { ChevronDownIcon, Filter as FilterIcon, X } from "lucide-react";
-import { cn, sortMax, sortMin } from "../utilities/utils";
-import Filter from "../components/filter";
+import { cn } from "../utilities/utils";
+// import Filter from "../components/filter";
 
 interface CategoryPageProps {
   category: Category;
@@ -25,97 +25,97 @@ const container = {
   },
 };
 
-const item = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-  },
-};
+// const item = {
+//   hidden: { y: 20, opacity: 0 },
+//   visible: {
+//     y: 0,
+//     opacity: 1,
+//   },
+// };
 
-const filters = [
-  {
-    id: "color",
-    name: "Color",
-    options: [
-      { value: "red", label: "Red", checked: false },
-      { value: "blue", label: "Blue", checked: false },
-      { value: "yellow", label: "Yellow", checked: false },
-      { value: "green", label: "Green", checked: false },
-      { value: "white", label: "White", checked: false },
-      { value: "pink", label: "Pink", checked: false },
-    ],
-  },
-  {
-    id: "type",
-    name: "Type",
-    options: [
-      { value: "plants", label: "Plants", checked: false },
-      { value: "arrangements", label: "Arrangements", checked: false },
-      { value: "bouquets", label: "Bouquets", checked: false },
-    ],
-  },
-];
+// const filters = [
+//   {
+//     id: "color",
+//     name: "Color",
+//     options: [
+//       { value: "red", label: "Red", checked: false },
+//       { value: "blue", label: "Blue", checked: false },
+//       { value: "yellow", label: "Yellow", checked: false },
+//       { value: "green", label: "Green", checked: false },
+//       { value: "white", label: "White", checked: false },
+//       { value: "pink", label: "Pink", checked: false },
+//     ],
+//   },
+//   {
+//     id: "type",
+//     name: "Type",
+//     options: [
+//       { value: "plants", label: "Plants", checked: false },
+//       { value: "arrangements", label: "Arrangements", checked: false },
+//       { value: "bouquets", label: "Bouquets", checked: false },
+//     ],
+//   },
+// ];
 
 function CategoryPage({ category }: CategoryPageProps) {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-  const [typeFilters, setTypeFilters] = useState([false, false, false]);
-  const [colorFilters, setColorFilters] = useState([
-    false,
-    false,
-    false,
-    false,
-    false,
-    false
-  ]);
+  // const [typeFilters, setTypeFilters] = useState([false, false, false]);
+  // const [colorFilters, setColorFilters] = useState([
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false
+  // ]);
   const [options, setOptions] = useState([
     { name: "Newest", href: "#", current: true },
     { name: "Price: Low to High", href: "#", current: false },
     { name: "Price: High to Low", href: "#", current: false },
   ]);
 
-  const reduceColors = colorFilters.reduce((acc, curr) => acc || curr, false);
+  // const reduceColors = colorFilters.reduce((acc, curr) => acc || curr, false);
 
-  const filteredCards = category.cards
-    .filter((card) => {
-      if (!reduceColors) {
-        return true;
-      } else {
-        return (
-          (colorFilters[0] &&
-            card.colors.some((color) => color.name === "red")) ||
-          (colorFilters[1] &&
-            card.colors.some((color) => color.name === "blue")) ||
-          (colorFilters[2] &&
-            card.colors.some((color) => color.name === "yellow")) ||
-          (colorFilters[3] &&
-            card.colors.some((color) => color.name === "green")) ||
-          (colorFilters[4] &&
-            card.colors.some((color) => color.name === "white")) ||
-          (colorFilters[5] &&
-            card.colors.some((color) => color.name === "pink"))
-        );
-      }
-    });
+  // const filteredCards = category.cards
+  //   .filter((card) => {
+  //     if (!reduceColors) {
+  //       return true;
+  //     } else {
+  //       return (
+  //         (colorFilters[0] &&
+  //           card.colors.some((color) => color.name === "red")) ||
+  //         (colorFilters[1] &&
+  //           card.colors.some((color) => color.name === "blue")) ||
+  //         (colorFilters[2] &&
+  //           card.colors.some((color) => color.name === "yellow")) ||
+  //         (colorFilters[3] &&
+  //           card.colors.some((color) => color.name === "green")) ||
+  //         (colorFilters[4] &&
+  //           card.colors.some((color) => color.name === "white")) ||
+  //         (colorFilters[5] &&
+  //           card.colors.some((color) => color.name === "pink"))
+  //       );
+  //     }
+  //   });
 
-  let sortedCards = filteredCards;
-  if (options[1].current) {
-    sortedCards.sort(sortMin);
-  } else if (options[2].current) {
-    sortedCards.sort(sortMax);
-  }
+  // let sortedCards = filteredCards;
+  // if (options[1].current) {
+  //   sortedCards.sort(sortMin);
+  // } else if (options[2].current) {
+  //   sortedCards.sort(sortMax);
+  // }
 
-  const handleFilters = (num: number, name: string) => {
-    if (name === "Type") {
-      let types = [...typeFilters];
-      types[num] = !types[num];
-      setTypeFilters(types);
-    } else if (name === "Color") {
-      let colors = [...colorFilters];
-      colors[num] = !colors[num];
-      setColorFilters(colors);
-    }
-  };
+  // const handleFilters = (num: number, name: string) => {
+  //   if (name === "Type") {
+  //     let types = [...typeFilters];
+  //     types[num] = !types[num];
+  //     setTypeFilters(types);
+  //   } else if (name === "Color") {
+  //     let colors = [...colorFilters];
+  //     colors[num] = !colors[num];
+  //     setColorFilters(colors);
+  //   }
+  // };
 
   const changeActive = (name: string) => {
     let newOptions = [...options];
@@ -178,20 +178,6 @@ function CategoryPage({ category }: CategoryPageProps) {
                   initial="hidden"
                   animate="visible"
                 >
-                  {filters.map((filter, i) => (
-                    <motion.div variants={item}>
-                      <Filter
-                        key={filter.name}
-                        name={filter.name}
-                        id={filter.id}
-                        values={
-                          filter.name === "Type" ? typeFilters : colorFilters
-                        }
-                        options={filters[i].options}
-                        setFilter={handleFilters}
-                      />
-                    </motion.div>
-                  ))}
                 </motion.div>
               </Dialog.Panel>
             </Transition.Child>
@@ -257,19 +243,9 @@ function CategoryPage({ category }: CategoryPageProps) {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="hidden lg:block"
           >
-            {filters.map((filter, i) => (
-              <Filter
-                key={filter.name}
-                name={filter.name}
-                id={filter.id}
-                options={filters[i].options}
-                setFilter={handleFilters}
-                values={filter.name === "Type" ? typeFilters : colorFilters}
-              />
-            ))}
           </motion.div>
           <div className="col-span-3">
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3, delay: 0.6 }}
@@ -284,7 +260,7 @@ function CategoryPage({ category }: CategoryPageProps) {
                   No products found with the filters
                 </p>
               )}
-            </motion.div>
+            </motion.div> */}
           </div>
         </div>
       </div>
