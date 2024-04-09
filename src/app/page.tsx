@@ -1,10 +1,10 @@
 import Image from "next/image";
 
-import { getAllProducts } from "actions/get-products";
+import { getBestSellers } from "actions/get-products";
 import ProductCard from "@/components/product-card";
 
 export default async function Main() {
-  const products = await getAllProducts();
+  const products = await getBestSellers();
 
   return (
     <main className="w-full flex flex-col items-center">
