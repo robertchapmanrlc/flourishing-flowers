@@ -8,7 +8,7 @@ import { getAllProducts } from "actions/get-products";
 export default async function Shop({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined }}) {
   let products = await getAllProducts();
 
-  const selectedSorting = (searchParams?.sort || 'newest') as string;
+  const selectedSorting = (searchParams?.sort) as string;
 
   if (selectedSorting === "price-low-to-high") {
     products.sort(sortMin);
@@ -17,6 +17,17 @@ export default async function Shop({ searchParams }: { searchParams: { [key: str
   } else if (selectedSorting === "newest") {
     products.sort(sortProducts);
   }
+
+  const selectedColors = (searchParams?.color || '') as string;
+  const selectedOccasion = (searchParams?.occasion || '') as string;
+
+  const colors = selectedColors.split(',');
+  const occasions = selectedOccasion.split(',');
+  
+  if (selectedOccasion !== '')
+    products = products.filter((product) => occasions.includes(product.occasion.name.toLowerCase()));
+  if (selectedColors !== '')
+    products = products.filter((product) => colors.includes(product.colors[0].name));
 
   const filters = [
     {

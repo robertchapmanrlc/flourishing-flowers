@@ -26,7 +26,9 @@ function Filter({ filter }: FilterProps) {
 
     if (term) {
       params.set(type.toLowerCase(), filters.toString());
-    } else {
+    }
+    
+    if (filters.length === 0) {
       params.delete(type.toLowerCase());
     }
 

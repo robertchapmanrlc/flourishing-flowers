@@ -4,6 +4,7 @@ export async function getAllProducts() {
   const products = await database.product.findMany({
     include: {
       colors: true,
+      occasion: true
     },
   });
   return products;
