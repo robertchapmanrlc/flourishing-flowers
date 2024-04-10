@@ -34,7 +34,7 @@ export default async function Shop({
     );
   if (selectedColors !== "")
     products = products.filter((product) =>
-      colors.includes(product.colors[0].name)
+      product.colors.some((color) => colors.includes(color.name))
     );
 
   const filters = [
