@@ -2,10 +2,21 @@ import Filter from "@/components/filter";
 import MobileFilterMenu from "@/components/mobile-filter-menu";
 import ProductCard from "@/components/product-card";
 import SortMenu from "@/components/sort-menu";
+import { sortMax, sortMin, sortProducts } from "@/utilities/utils";
 import { getAllProducts } from "actions/get-products";
 
-export default async function Shop() {
-  const products = await getAllProducts();
+export default async function Shop({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined }}) {
+  let products = await getAllProducts();
+
+  const selectedSorting = (searchParams?.sort || 'Newest') as string;
+
+  if (selectedSorting === "Price: Low to High") {
+    products.sort(sortMin);
+  } else if (selectedSorting === "Price: High to Low") {
+    products.sort(sortMax);
+  } else if (selectedSorting === "Newest") {
+    products.sort(sortProducts);
+  }
 
   const filters = [
     {
