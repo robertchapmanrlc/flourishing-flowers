@@ -67,16 +67,17 @@ function Filter({ filter }: FilterProps) {
                 <div key={option.label} className="flex items-center">
                   <input
                     type="checkbox"
-                    id={`filter-${option.label}`}
-                    defaultValue={option.label}
+                    id={`filter-${option.urlLabel}`}
+                    defaultValue={option.urlLabel}
                     checked={params
                       .toString()
-                      .includes(option.label.toLowerCase())}
+                      .replace("+", " ")
+                      .includes(option.urlLabel)}
                     onChange={(e) => changeQuery(e.target.value, filter.name)}
                     className="h-4 w-4 rounded border-gray-300 accent-pink-300"
                   />
                   <label
-                    htmlFor={`${option.label}`}
+                    htmlFor={`${option.urlLabel}`}
                     className="font-lexend ml-3 text-sm text-gray-600"
                   >
                     {option.label}

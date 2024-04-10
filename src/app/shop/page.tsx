@@ -41,21 +41,21 @@ export default async function Shop({
     {
       name: "Color",
       options: [
-        { label: "Red", checked: false },
-        { label: "Blue", checked: false },
-        { label: "Yellow", checked: false },
-        { label: "Green", checked: false },
-        { label: "White", checked: false },
-        { label: "Pink", checked: false },
+        { label: "Red", urlLabel: 'red' },
+        { label: "Blue", urlLabel: 'blue' },
+        { label: "Yellow", urlLabel: 'yellow' },
+        { label: "Green", urlLabel: 'green' },
+        { label: "White", urlLabel: 'white' },
+        { label: "Pink", urlLabel: 'pink' },
       ],
     },
     {
       name: "Occasion",
       options: [
-        { label: "Birthdays", checked: false },
-        { label: "Weddings", checked: false },
-        { label: "Get Well", checked: false },
-        { label: "Housewarming", checked: false },
+        { label: "Birthdays", urlLabel: 'birthdays' },
+        { label: "Weddings", urlLabel: 'weddings' },
+        { label: "Get Well", urlLabel: 'get well' },
+        { label: "Housewarming", urlLabel: 'housewarming' },
       ],
     },
   ];

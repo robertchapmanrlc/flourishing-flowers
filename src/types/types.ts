@@ -6,7 +6,7 @@ export interface FilterType {
   name: string;
   options: {
     label: string;
-    checked: boolean;
+    urlLabel: string;
   }[];
 }
 
