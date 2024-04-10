@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { getBestSellers } from "actions/get-products";
 import ProductCard from "@/components/product-card";
+import Link from "next/link";
 
 export default async function Main() {
   const products = await getBestSellers();
@@ -19,9 +20,11 @@ export default async function Main() {
           <h5 className="text-center font-pokova text-xs sm:text-base lg:text-2xl text-black/50">
             Discover the most exquisite blooms for nearly every occasion.
           </h5>
-          <button className="mt-5 bg-primary py-1 px-2 sm:py-2 sm:px-4 rounded-md lg:rounded-lg text-white font-pokova text-xs sm:text-base hover:text-base sm:hover:text-lg lg:text-xl lg:hover:text-2xl transition-all">
-            Shop Now
-          </button>
+          <Link href={'/shop'}>
+            <button className="mt-5 bg-primary py-1 px-2 sm:py-2 sm:px-4 rounded-md lg:rounded-lg text-white font-pokova text-xs sm:text-base hover:text-base sm:hover:text-lg lg:text-xl lg:hover:text-2xl transition-all">
+              Shop Now
+            </button>
+          </Link>
         </div>
       </section>
       <section className="w-full py-10 flex flex-col items-center justify-center gap-y-10">
@@ -32,9 +35,11 @@ export default async function Main() {
           ))}
         </div>
         <div className="h-12">
-          <button className="bg-primary py-1 px-2 sm:py-2 sm:px-4 rounded-md lg:rounded-lg text-white font-pokova text-xs sm:text-base hover:text-base sm:hover:text-lg lg:text-xl lg:hover:text-2xl transition-all">
-            Shop all
-          </button>
+          <Link href={'/shop'}>
+            <button className="bg-primary py-1 px-2 sm:py-2 sm:px-4 rounded-md lg:rounded-lg text-white font-pokova text-xs sm:text-base hover:text-base sm:hover:text-lg lg:text-xl lg:hover:text-2xl transition-all">
+              Shop all
+            </button>
+          </Link>
         </div>
       </section>
       <section
@@ -48,9 +53,11 @@ export default async function Main() {
           <h5 className="text-center font-pokova text-base sm:text-xl lg:text-2xl text-black/50">
             Anniversaries can be special with these flowers.
           </h5>
-          <button className="mt-5 bg-primary py-1 px-2 sm:py-2 sm:px-4 rounded-md lg:rounded-lg text-white font-pokova text-xs sm:text-base hover:text-base sm:hover:text-lg lg:text-xl lg:hover:text-2xl transition-all">
-            Shop Now
-          </button>
+          <Link href={'/shop'}>
+            <button className="mt-5 bg-primary py-1 px-2 sm:py-2 sm:px-4 rounded-md lg:rounded-lg text-white font-pokova text-xs sm:text-base hover:text-base sm:hover:text-lg lg:text-xl lg:hover:text-2xl transition-all">
+              Shop Now
+            </button>
+          </Link>
         </div>
       </section>
       <section className="w-full py-10 flex flex-col items-center justify-center">
