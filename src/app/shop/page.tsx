@@ -68,7 +68,7 @@ export default async function Shop({
         </h1>
         <div className="w-24 flex flex-row justify-between items-center">
           <SortMenu />
-          <MobileFilterMenu />
+          <MobileFilterMenu filters={filters} />
         </div>
       </div>
       <div className="w-full flex justify-start items-start gap-x-12">
