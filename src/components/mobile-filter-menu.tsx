@@ -4,33 +4,15 @@ import { Dialog } from "@headlessui/react";
 import Image from "next/image";
 import { useState } from "react";
 import Filter from "./filter";
+import { FilterType } from "@/types/types";
 
-export default function MobileFilterMenu() {
+interface MobileFilterMenuProps {
+  filters: FilterType[];
+}
+
+export default function MobileFilterMenu({ filters }: MobileFilterMenuProps) {
 
   const [isOpen, setIsOpen] = useState(false);
-
-  const filters = [
-    {
-      name: "Color",
-      options: [
-        { label: "Red", checked: false },
-        { label: "Blue", checked: false },
-        { label: "Yellow", checked: false },
-        { label: "Green", checked: false },
-        { label: "White", checked: false },
-        { label: "Pink", checked: false },
-      ],
-    },
-    {
-      name: "Occasion",
-      options: [
-        { label: "Birthdays", checked: false },
-        { label: "Weddings", checked: false },
-        { label: "Get Well", checked: false },
-        { label: "Housewarming", checked: false },
-      ],
-    },
-  ];
 
   return (
     <>

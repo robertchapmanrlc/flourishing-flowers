@@ -28,14 +28,16 @@ export default function ProductCard({ card }: ProductCardProps) {
         <h3 className="font-pokova md:text-xl">{card.name}</h3>
         <h3 className="font-pokova md:text-xl">${card.price}</h3>
       </div>
-      {card.colors.map((color) => (
-        <div
-          key={color.id}
-          className={`w-4 h-4 rounded-full ${
-            colors[color.name]
-          } border border-black`}
-        />
-      ))}
+      <ul className="flex flex-row gap-x-2">
+        {card.colors.map((color) => (
+          <li
+            key={color.id}
+            className={`w-4 h-4 rounded-full ${
+              colors[color.name]
+            } border border-black`}
+          />
+        ))}
+      </ul>
     </Link>
   );
 }

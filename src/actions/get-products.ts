@@ -4,7 +4,18 @@ export async function getAllProducts() {
   const products = await database.product.findMany({
     include: {
       colors: true,
+      occasion: true
     },
+  });
+  return products;
+}
+
+export async function getBestSellers() {
+  const products = await database.product.findMany({
+    include: {
+      colors: true
+    },
+    take: 4
   });
   return products;
 }
