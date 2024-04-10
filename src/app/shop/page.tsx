@@ -5,10 +5,14 @@ import SortMenu from "@/components/sort-menu";
 import { sortMax, sortMin, sortProducts } from "@/utilities/utils";
 import { getAllProducts } from "actions/get-products";
 
-export default async function Shop({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined }}) {
+export default async function Shop({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
   let products = await getAllProducts();
 
-  const selectedSorting = (searchParams?.sort) as string;
+  const selectedSorting = searchParams?.sort as string;
 
   if (selectedSorting === "price-low-to-high") {
     products.sort(sortMin);
@@ -18,16 +22,20 @@ export default async function Shop({ searchParams }: { searchParams: { [key: str
     products.sort(sortProducts);
   }
 
-  const selectedColors = (searchParams?.color || '') as string;
-  const selectedOccasion = (searchParams?.occasion || '') as string;
+  const selectedColors = (searchParams?.color || "") as string;
+  const selectedOccasion = (searchParams?.occasion || "") as string;
 
-  const colors = selectedColors.split(',');
-  const occasions = selectedOccasion.split(',');
-  
-  if (selectedOccasion !== '')
-    products = products.filter((product) => occasions.includes(product.occasion.name.toLowerCase()));
-  if (selectedColors !== '')
-    products = products.filter((product) => colors.includes(product.colors[0].name));
+  const colors = selectedColors.split(",");
+  const occasions = selectedOccasion.split(",");
+
+  if (selectedOccasion !== "")
+    products = products.filter((product) =>
+      occasions.includes(product.occasion.name.toLowerCase())
+    );
+  if (selectedColors !== "")
+    products = products.filter((product) =>
+      colors.includes(product.colors[0].name)
+    );
 
   const filters = [
     {
@@ -63,26 +71,38 @@ export default async function Shop({ searchParams }: { searchParams: { [key: str
           <MobileFilterMenu />
         </div>
       </div>
-      <div className="w-full flex justify-center items-start gap-x-12">
+      <div className="w-full flex justify-start items-start gap-x-12">
         <div className="hidden lg:flex flex-col w-72 text-left">
           {filters.map((filter, i) => (
             <Filter key={i} filter={filter} />
           ))}
         </div>
-        <ul className="grid grid-cols-2 gap-x-4 gap-y-4 sm:gap-x-6 sm:gap-y-6 md:gap-y-10 md:gap-x-10 lg:grid-cols-3 xl:grid-cols-4">
-          {products.map((product) => (
-            <ProductCard
-              key={product.id}
-              card={{
-                name: product.name,
-                link: product.urlName,
-                price: product.price,
-                image_url: product.imageUrl,
-                colors: product.colors,
-              }}
-            />
-          ))}
-        </ul>
+        {products.length === 0 ? (
+          <>
+            <div className="w-full flex justify-center items-center">
+              <h4 className="font-pokova text-xl text-gray-600">
+                No flowers found
+              </h4>
+            </div>
+          </>
+        ) : (
+          <>
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-4 sm:gap-x-6 sm:gap-y-6 md:gap-y-10 md:gap-x-10 lg:grid-cols-3 xl:grid-cols-4">
+              {products.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  card={{
+                    name: product.name,
+                    link: product.urlName,
+                    price: product.price,
+                    image_url: product.imageUrl,
+                    colors: product.colors,
+                  }}
+                />
+              ))}
+            </ul>
+          </>
+        )}
       </div>
     </main>
   );
