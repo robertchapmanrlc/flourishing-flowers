@@ -95,7 +95,7 @@ export default async function Shop({
                     name: product.name,
                     link: product.urlName,
                     price: product.price,
-                    image_url: product.imageUrl,
+                    image_url: product.images[0].imageUrl,
                     colors: product.colors,
                   }}
                 />

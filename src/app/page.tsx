@@ -31,7 +31,7 @@ export default async function Main() {
         <h3 className="font-pokova text-4xl">Best Sellers</h3>
         <div className="w-full px-5 lg:px-12 grid grid-rows-2 grid-cols-2 lg:flex lg:justify-center gap-x-16 gap-y-12 lg:gap-y-0">
           {products.map((product) => (
-            <ProductCard key={product.id} card={{name: product.name, link: product.urlName, price: product.price, image_url: product.imageUrl, colors: product.colors}}/>
+            <ProductCard key={product.id} card={{name: product.name, link: product.urlName, price: product.price, image_url: product.images[0].imageUrl, colors: product.colors}}/>
           ))}
         </div>
         <div className="h-12">
