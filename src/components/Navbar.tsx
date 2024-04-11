@@ -20,7 +20,7 @@ export default function Navbar() {
 
   const onSubmit: SubmitHandler<SearchInputs> = (inputs: SearchInputs) => {
     setBarOpen(false);
-    router.push(`/shop?search=${inputs.query}`)
+    router.push(`/shop?search=${inputs.query.toLowerCase()}`)
   };
 
   return (
