@@ -22,12 +22,26 @@ export default async function Shop({
     products.sort(sortProducts);
   }
 
+  const search = (searchParams?.search || "") as string;
   const selectedColors = (searchParams?.color || "") as string;
   const selectedOccasion = (searchParams?.occasion || "") as string;
 
   const colors = selectedColors.split(",");
   const occasions = selectedOccasion.split(",");
-
+  
+  if (search !== "") {
+    products = products.filter((product) => {
+      return (
+        product.name.toLowerCase().includes(search.toLowerCase()) ||
+        search.toLowerCase().includes(product.name.toLowerCase()) ||
+        product.colors.some(
+          (color) =>
+            color.name.toLowerCase().includes(search.toLowerCase()) ||
+            search.toLowerCase().includes(color.name.toLowerCase())
+        )
+      );
+    });
+  }
   if (selectedOccasion !== "")
     products = products.filter((product) =>
       occasions.includes(product.occasion.name.toLowerCase())
@@ -41,21 +55,21 @@ export default async function Shop({
     {
       name: "Color",
       options: [
-        { label: "Red", urlLabel: 'red' },
-        { label: "Blue", urlLabel: 'blue' },
-        { label: "Yellow", urlLabel: 'yellow' },
-        { label: "Green", urlLabel: 'green' },
-        { label: "White", urlLabel: 'white' },
-        { label: "Pink", urlLabel: 'pink' },
+        { label: "Red", urlLabel: "red" },
+        { label: "Blue", urlLabel: "blue" },
+        { label: "Yellow", urlLabel: "yellow" },
+        { label: "Green", urlLabel: "green" },
+        { label: "White", urlLabel: "white" },
+        { label: "Pink", urlLabel: "pink" },
       ],
     },
     {
       name: "Occasion",
       options: [
-        { label: "Birthdays", urlLabel: 'birthdays' },
-        { label: "Weddings", urlLabel: 'weddings' },
-        { label: "Get Well", urlLabel: 'get well' },
-        { label: "Housewarming", urlLabel: 'housewarming' },
+        { label: "Birthdays", urlLabel: "birthdays" },
+        { label: "Weddings", urlLabel: "weddings" },
+        { label: "Get Well", urlLabel: "get well" },
+        { label: "Housewarming", urlLabel: "housewarming" },
       ],
     },
   ];
