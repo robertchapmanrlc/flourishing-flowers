@@ -29,12 +29,20 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
     setQuantity((prevQuantity) => prevQuantity + num);
   }
 
+  let imgs: string[] = [];
+
+  product.images.forEach((product) => imgs.push(product.imageUrl));
+
+  let index = imgs.findIndex((img) => img.includes(selectedColor.name));
+
+  const imageUrl = imgs[index];
+
   return (
     <main className="w-full px-4 md:px-8 lg:px-24 py-8 md:py-16 lg:py-24 flex flex-col gap-y-5 md:gap-y-10 lg:gap-y-16">
       <div className="w-full flex flex-col md:flex-row items-center justify-start md:items-start gap-y-5 md:gap-x-8 lg:gap-x-16">
         <Image
           className="border-2 rounded-md"
-          src={product.imageUrl}
+          src={imageUrl}
           width={500}
           height={625}
           alt={product.name}

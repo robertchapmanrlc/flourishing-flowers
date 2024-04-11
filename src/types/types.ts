@@ -37,9 +37,15 @@ export interface Product {
   urlName: string;
   description: string;
   price: number;
-  imageUrl: string;
+  images: Image[];
   createdAt: Date;
   colors: Color[];
+}
+
+export interface Image {
+  id: number;
+  imageUrl: string;
+  productId: number;
 }
 
 export interface Order {
