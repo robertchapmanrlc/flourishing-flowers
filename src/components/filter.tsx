@@ -1,49 +1,83 @@
+"use client";
+
+import { FilterType } from "@/types/types";
 import { Disclosure } from "@headlessui/react";
-import { MinusIcon, PlusIcon } from "lucide-react";
+import Image from "next/image";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 interface FilterProps {
-  id: string;
-  name: string;
-  values: boolean[];
-  options: {
-    value: string;
-    label: string;
-    checked: boolean;
-  }[];
-  setFilter: (num: number, name: string) => void;
+  filter: FilterType;
 }
 
-function Filter({ id, name, options, values, setFilter }: FilterProps) {
+function Filter({ filter }: FilterProps) {
+  const searchParams = useSearchParams();
+  const params = new URLSearchParams(searchParams);
+  const pathname = usePathname();
+  const { replace } = useRouter();
+
+  const changeQuery = (term: string, type: string) => {
+    let filters = params.get(type.toLowerCase())?.split(",") || [];
+    
+    if (filters.includes(term.toLowerCase()) === false || filters.length === 0) {
+      filters.push(term.toLowerCase());
+    } else {
+      filters = filters.filter((filter) => filter !== term.toLowerCase());
+    }
+
+    if (term) {
+      params.set(type.toLowerCase(), filters.toString());
+    }
+    
+    if (filters.length === 0) {
+      params.delete(type.toLowerCase());
+    }
+
+    replace(`${pathname}?${params.toString()}`);
+  };
+
   return (
-    <Disclosure as="div" className="border-t lg:border-t-0 lg:border-b border-gray-200 px-4 lg:px-4 py-6">
+    <Disclosure
+      as="div"
+      className="w-full border-t lg:border-t-0 lg:border-b border-gray-200 px-4 lg:px-4 py-6"
+    >
       {({ open }) => (
         <>
           <h3 className="-my-3 flow-root">
             <Disclosure.Button className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
-              <span className="font-lexend font-medium text-gray-900">{name}</span>
+              <span className="font-pokova text-2xl font-medium text-gray-900">
+                {filter.name}
+              </span>
               <span className="ml-6 flex items-center">
                 {open ? (
-                  <MinusIcon className="h-5 w-5" aria-hidden="true" />
+                  <Image
+                    src={"/minus.svg"}
+                    width={25}
+                    height={25}
+                    alt="minus"
+                  />
                 ) : (
-                  <PlusIcon className="h-5 w-5" aria-hidden="true" />
+                  <Image src={"/plus.svg"} width={25} height={25} alt="plus" />
                 )}
               </span>
             </Disclosure.Button>
           </h3>
           <Disclosure.Panel className="pt-6">
             <div className="space-y-4">
-              {options.map((option, i) => (
-                <div key={option.value} className="flex items-center">
+              {filter.options.map((option) => (
+                <div key={option.label} className="flex items-center">
                   <input
                     type="checkbox"
-                    id={`filter-${id}-${i}`}
-                    defaultValue={option.value}
-                    checked={values[i]}
+                    id={`filter-${option.urlLabel}`}
+                    defaultValue={option.urlLabel}
+                    checked={params
+                      .toString()
+                      .replace("+", " ")
+                      .includes(option.urlLabel)}
+                    onChange={(e) => changeQuery(e.target.value, filter.name)}
                     className="h-4 w-4 rounded border-gray-300 accent-pink-300"
-                    onChange={() => setFilter(i, name)}
                   />
                   <label
-                    htmlFor={`filter-${id}-${i}`}
+                    htmlFor={`${option.urlLabel}`}
                     className="font-lexend ml-3 text-sm text-gray-600"
                   >
                     {option.label}

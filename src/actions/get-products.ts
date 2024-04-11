@@ -1,18 +1,33 @@
 import { database } from "@/utilities/database";
 
 export async function getAllProducts() {
-  const products = await database.product.findMany();
+  const products = await database.product.findMany({
+    include: {
+      colors: true,
+      occasion: true
+    },
+  });
+  return products;
+}
+
+export async function getBestSellers() {
+  const products = await database.product.findMany({
+    include: {
+      colors: true
+    },
+    take: 4
+  });
   return products;
 }
 
 export async function getProduct(productName: string) {
   const product = await database.product.findFirst({
     where: {
-      urlName: productName
+      urlName: productName,
     },
     include: {
-      colors: true
-    }
+      colors: true,
+    },
   });
   return product;
 }
