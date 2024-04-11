@@ -22,6 +22,10 @@ export default async function Shop({
     products.sort(sortProducts);
   }
 
+  const search = searchParams?.search as string;
+
+  console.log(search);
+
   const selectedColors = (searchParams?.color || "") as string;
   const selectedOccasion = (searchParams?.occasion || "") as string;
 

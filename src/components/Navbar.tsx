@@ -4,20 +4,23 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
+import { useRouter } from "next/navigation";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 type SearchInputs = {
-  product: string;
+  query: string;
 }
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [barOpen, setBarOpen] = useState(false);
 
+  const router = useRouter();
   const { register, handleSubmit } = useForm<SearchInputs>();
 
   const onSubmit: SubmitHandler<SearchInputs> = (inputs: SearchInputs) => {
-    console.log(inputs.product);
+    setBarOpen(false);
+    router.push(`/shop?search=${inputs.query}`)
   };
 
   return (
@@ -147,11 +150,11 @@ export default function Navbar() {
       {barOpen && (
         <form onSubmit={handleSubmit(onSubmit)} className="absolute w-full flex justify-center items-center bg-white h-16 shadow-xl">
           <input
-            {...register('product', { required: true})}
+            {...register('query', { required: true})}
             autoFocus
             type="search"
             aria-label="Search for a product"
-            className="w-full h-full font-pokova text-2xl pl-5 outline-none"
+            className="w-full h-full font-pokova text-2xl px-5 outline-none"
             placeholder="Search..."
             onBlur={() => setBarOpen(false)}
           />
