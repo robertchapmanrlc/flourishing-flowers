@@ -25,6 +25,7 @@ export default function OrderList() {
             width={100}
             height={125}
             alt={orderItem.name}
+            className="border rounded-lg"
           />
           <div className="w-full min-h-28 px-5 flex flex-col md:flex-row justify-between md:justify-start items-center md:items-start">
             <div className="w-full md:w-1/2">
