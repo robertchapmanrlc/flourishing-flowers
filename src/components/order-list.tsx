@@ -1,15 +1,61 @@
-import { Order } from "@/types/types";
+'use client';
 
-interface OrderListProps {
-  orderItems: Order[];
-}
+import Image from "next/image";
 
-export default function OrderList({ orderItems }: OrderListProps) {
+import useCartService from "contexts/shop-context";
+
+export default function OrderList() {
+
+  const { orderItems } = useCartService();
+
   return (
-    <ul>
+    <ul className="w-full flex flex-col">
       {orderItems.length === 0 && (
-        <p className=" font-pokova text-xl text-gray-600/60">No orders in the cart.</p>
+        <p className=" font-pokova text-xl text-gray-600/60">
+          No orders in the cart.
+        </p>
       )}
+      {orderItems.map((orderItem) => (
+        <li key={orderItem.product_id} className="w-full flex items-start border-b-2 py-8 border-b-gray-600/20">
+          <Image
+            src={orderItem.imageUrl}
+            width={100}
+            height={125}
+            alt={orderItem.name}
+          />
+          <div className="w-full min-h-28 px-5 flex flex-col justify-between">
+            <div className="w-full">
+              <h5 className="font-pokova font-semibold text-base">
+                {orderItem.name}
+              </h5>
+              <h5 className="font-pokova text-gray-600/70 text-base">
+                {orderItem.color.charAt(0).toUpperCase() + orderItem.color.slice(1)}
+              </h5>
+              <h5 className="font-pokova font-semibold text-base">
+                ${orderItem.price}
+              </h5>
+            </div>
+            <select
+              name="quantity"
+              defaultValue={orderItem.quantity}
+              id="quantity"
+              className="w-10 p-1 border border-gray-900/20 rounded-md"
+            >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+            </select>
+          </div>
+          <button>
+            <Image src={'/x.svg'} width={30} height={30} alt="x" />
+          </button>
+        </li>
+      ))}
     </ul>
   );
 }
