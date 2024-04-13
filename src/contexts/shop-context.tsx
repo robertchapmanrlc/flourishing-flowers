@@ -24,14 +24,19 @@ export default function useCartService() {
       const totalPrice = calculatePrice(updatedOrderItems);
       cartStore.setState({ orderItems: updatedOrderItems, totalPrice });
     },
-    increase: (item: Order) => {
+    removeFromCart: (item: Order) => {
+      const updatedOrderItems = orderItems.filter((orderItem) => orderItem.created_at !== item.created_at);
+      const totalPrice = calculatePrice(updatedOrderItems);
+      cartStore.setState({ orderItems: updatedOrderItems, totalPrice });
+    },
+    changeQuantity: (item: Order, newQuantity: number) => {
       const product = orderItems.find(
-        (orderItem) => item.product_id === orderItem.product_id
+        (orderItem) => item.created_at === orderItem.created_at
       );
       const updatedOrderItems = product
         ? orderItems.map((orderItem: Order) =>
-            orderItem.product_id === item.product_id
-              ? { ...product, quantity: product.quantity + 1 }
+            orderItem.created_at === item.created_at
+              ? { ...product, quantity: newQuantity }
               : orderItem
           )
         : [...orderItems, { ...item }];
@@ -41,6 +46,12 @@ export default function useCartService() {
         totalPrice
       })
     },
+    clearCart: () => {
+      cartStore.setState({
+        orderItems: [],
+        totalPrice: 0
+      });
+    }
   };
 }
 
