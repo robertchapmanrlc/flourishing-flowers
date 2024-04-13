@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { useRouter } from "next/navigation";
 import { useForm, SubmitHandler } from "react-hook-form";
+import ShoppingCart from "./shopping-cart";
 
 type SearchInputs = {
   query: string;
@@ -68,14 +69,7 @@ export default function Navbar() {
               </button>
             </li>
             <li>
-              <Link href="/shopping-cart">
-                <Image
-                  src={"/bag-shopping.svg"}
-                  width={25}
-                  height={25}
-                  alt="Shopping Cart Icon"
-                />
-              </Link>
+              <ShoppingCart />
             </li>
             <li>
               <Link href="/account">
