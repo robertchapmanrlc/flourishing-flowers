@@ -1,7 +1,6 @@
 import { Card, ColorVariants } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
-import PlusButton from "./plus-button";
 
 interface ProductCardProps {
   card: Card;
@@ -18,10 +17,21 @@ export default function ProductCard({ card }: ProductCardProps) {
   };
 
   return (
-    <Link href={`/product/${card.link}`} className="group cursor-pointer flex flex-col gap-y-2">
+    <Link
+      href={`/product/${card.link}`}
+      className="group cursor-pointer flex flex-col gap-y-2"
+    >
       <div className="relative w-full flex justify-center">
-        <Image src={card.image_url} width={300} height={375} alt={card.name} className="group-hover:opacity-65 transition-opacity" />
-        <PlusButton />
+        <Image
+          src={card.image_url}
+          width={300}
+          height={375}
+          alt={card.name}
+          className="group-hover:opacity-65 transition-opacity"
+        />
+        <button className="absolute bg-primary rounded-full bottom-2 right-2 p-1 opacity-0 group-hover:opacity-100 hover:scale-125 transition-transform">
+          <Image src={`/plus.svg`} width={18} height={18} alt="plus" />
+        </button>
       </div>
       <div className="w-full flex flew-row justify-between">
         <h3 className="font-pokova md:text-xl">{card.name}</h3>
