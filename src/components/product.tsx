@@ -109,7 +109,17 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
               ))}
             </div>
           </RadioGroup>
-          <AddToCart />
+          <AddToCart
+            order={{
+              name: product.name,
+              quantity: quantity,
+              price: product.price,
+              product_id: product.id,
+              imageUrl: imageUrl,
+              color: selectedColor.name,
+              created_at: new Date(),
+            }}
+          />
         </div>
       </div>
       <p className="font-pokova text-left md:text-lg lg:text-2xl">

@@ -50,11 +50,10 @@ export interface Image {
 
 export interface Order {
   name: string;
-  category: string;
   imageUrl: string;
   price: number;
   color: string;
   quantity: number;
   product_id: number;
-  created_at: string;
+  created_at: Date;
 }
