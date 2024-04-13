@@ -1,14 +1,22 @@
-
+'use client'
 
 import Image from "next/image";
 
 import { Order } from "@/types/types";
+import useCartService from "contexts/shop-context";
 
 interface OrderItemProps {
   order: Order;
 }
 
-export default function OrderItem({ order } : OrderItemProps) {
+export default function OrderItem({ order }: OrderItemProps) {
+  
+  const { changeQuantity } = useCartService();
+
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    changeQuantity(order, Number(e.target.value));
+  };
+
   return (
     <li
       key={order.product_id}
@@ -39,6 +47,7 @@ export default function OrderItem({ order } : OrderItemProps) {
             defaultValue={order.quantity}
             id="quantity"
             className="w-10 p-1 border border-gray-900/20 rounded-md"
+            onChange={handleChange}
           >
             <option value="1">1</option>
             <option value="2">2</option>
