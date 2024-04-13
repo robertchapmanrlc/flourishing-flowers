@@ -13,7 +13,7 @@ interface ProductDetailsProps {
 }
 
 export default function ProductDetails({ product }: ProductDetailsProps) {
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
 
   const colors: ColorVariants = {
@@ -25,7 +25,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
   };
 
   const updateQuantity = (num: number) => {
-    if ((quantity === 0 && num === -1) || (quantity === 8 && num === 1)) return;
+    if ((quantity === 1 && num === -1) || (quantity === 8 && num === 1)) return;
     setQuantity((prevQuantity) => prevQuantity + num);
   };
 

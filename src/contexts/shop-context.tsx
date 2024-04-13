@@ -19,6 +19,11 @@ export default function useCartService() {
   return {
     orderItems,
     totalPrice,
+    addToCart: (item: Order) => {
+      const updatedOrderItems = [...orderItems, { ...item }];
+      const totalPrice = calculatePrice(updatedOrderItems);
+      cartStore.setState({ orderItems: updatedOrderItems, totalPrice });
+    },
     increase: (item: Order) => {
       const product = orderItems.find(
         (orderItem) => item.product_id === orderItem.product_id

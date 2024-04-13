@@ -8,10 +8,10 @@ interface AddToCartProps {
 }
 
 export default function AddToCart({ order }: AddToCartProps) {
-  const { increase } = useCartService();
+  const { addToCart } = useCartService();
 
   const addToCartHandler = (order: Order) => {
-    increase(order);
+    addToCart(order);
   };
 
   return (
