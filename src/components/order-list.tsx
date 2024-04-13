@@ -1,10 +1,9 @@
-'use client';
+"use client";
 
 import useCartService from "contexts/shop-context";
 import OrderItem from "./order-item";
 
 export default function OrderList() {
-
   const { orderItems } = useCartService();
 
   return (
@@ -14,8 +13,8 @@ export default function OrderList() {
           No orders in the cart.
         </p>
       )}
-      {orderItems.map((orderItem) => (
-        <OrderItem order={orderItem} />
+      {orderItems.map((orderItem, i) => (
+        <OrderItem key={i} order={orderItem} />
       ))}
     </ul>
   );

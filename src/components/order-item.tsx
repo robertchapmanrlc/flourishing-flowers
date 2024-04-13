@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Image from "next/image";
 
@@ -10,18 +10,18 @@ interface OrderItemProps {
 }
 
 export default function OrderItem({ order }: OrderItemProps) {
-  
-  const { changeQuantity } = useCartService();
+  const { changeQuantity, removeFromCart } = useCartService();
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     changeQuantity(order, Number(e.target.value));
   };
 
+  const handleRemove = () => {
+    removeFromCart(order);
+  };
+
   return (
-    <li
-      key={order.product_id}
-      className="w-full flex items-start border-b-2 py-8 border-b-gray-600/20"
-    >
+    <li className="w-full flex items-start border-b-2 py-8 border-b-gray-600/20">
       <Image
         src={order.imageUrl}
         width={100}
@@ -31,9 +31,7 @@ export default function OrderItem({ order }: OrderItemProps) {
       />
       <div className="w-full min-h-28 px-5 flex flex-col md:flex-row justify-between md:justify-start items-center md:items-start">
         <div className="w-full md:w-1/2">
-          <h5 className="font-pokova font-semibold text-base">
-            {order.name}
-          </h5>
+          <h5 className="font-pokova font-semibold text-base">{order.name}</h5>
           <h5 className="font-pokova text-gray-600/70 text-base">
             {order.color.charAt(0).toUpperCase() + order.color.slice(1)}
           </h5>
@@ -60,7 +58,7 @@ export default function OrderItem({ order }: OrderItemProps) {
           </select>
         </div>
       </div>
-      <button>
+      <button onClick={() => handleRemove()}>
         <Image src={"/x.svg"} width={30} height={30} alt="x" />
       </button>
     </li>

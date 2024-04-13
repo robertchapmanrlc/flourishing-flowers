@@ -24,6 +24,11 @@ export default function useCartService() {
       const totalPrice = calculatePrice(updatedOrderItems);
       cartStore.setState({ orderItems: updatedOrderItems, totalPrice });
     },
+    removeFromCart: (item: Order) => {
+      const updatedOrderItems = orderItems.filter((orderItem) => orderItem.created_at !== item.created_at);
+      const totalPrice = calculatePrice(updatedOrderItems);
+      cartStore.setState({ orderItems: updatedOrderItems, totalPrice });
+    },
     changeQuantity: (item: Order, newQuantity: number) => {
       const product = orderItems.find(
         (orderItem) => item.created_at === orderItem.created_at
