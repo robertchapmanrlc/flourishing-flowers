@@ -4,7 +4,11 @@ import useCartService from "contexts/shop-context";
 
 export default function CheckoutSection() {
 
-  const { totalPrice, orderItems } = useCartService();
+  const { totalPrice, orderItems, clearCart } = useCartService();
+
+  const handleCheckout = () => {
+    clearCart();
+  }
 
   return (
     <>
@@ -33,7 +37,7 @@ export default function CheckoutSection() {
             </h5>
             <h5 className="font-pokova text-lg">${totalPrice + 5 + 7}</h5>
           </div>
-          <button className="bg-primary py-2 text-white font-pokova text-xl rounded-lg">
+          <button className="bg-primary py-2 text-white font-pokova text-xl rounded-lg" onClick={() => handleCheckout()}>
             Checkout
           </button>
         </section>

@@ -46,6 +46,12 @@ export default function useCartService() {
         totalPrice
       })
     },
+    clearCart: () => {
+      cartStore.setState({
+        orderItems: [],
+        totalPrice: 0
+      });
+    }
   };
 }
 
