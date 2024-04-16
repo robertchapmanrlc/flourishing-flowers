@@ -22,7 +22,24 @@ import Footer from "@/components/footer";
 export const metadata: Metadata = {
   title: "Flourishing Flowers",
   description: "Shop for beautiful flowers for any occasion",
+  category: 'Flowers & Plants',
   authors: [{ name: "Robert", url: "https://robert-chapman.vercel.app" }],
+  generator: 'Next.js',
+  applicationName: 'Flourishing Flowers',
+  referrer: 'origin-when-cross-origin',
+  keywords: ['Flowers', 'Shopping', 'Bouquet', 'Rose'],
+  creator: 'Robert Chapman',
+  publisher: 'Robert Chapman',
+  formatDetection: {
+    address: false,
+    date: false,
+    email: false,
+    telephone: false,
+    url: false,
+  },
+  icons: {
+    icon: '/florist.png'
+  }
 };
 
 export default function RootLayout({
