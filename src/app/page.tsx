@@ -11,7 +11,7 @@ export default async function Main() {
     <main className="w-full flex flex-col items-center">
       <section
         className="w-full h-[600px] flex flex-col justify-center items-center bg-center bg-cover"
-        style={{ backgroundImage: `url(/Banner1.webp)` }}
+        style={{ backgroundImage: `url(/banners/Banner1.webp)` }}
       >
         <div className="h-[200px] relative flex flex-col items-center">
           <h2 className="font-pokova text-4xl sm:text-5xl lg:text-6xl">
@@ -53,7 +53,7 @@ export default async function Main() {
       </section>
       <section
         className="w-full h-[600px] flex items-center bg-center bg-cover"
-        style={{ backgroundImage: `url(/Banner2.webp)` }}
+        style={{ backgroundImage: `url(/banners/Banner2.webp)` }}
       >
         <div className="h-[150px] pl-8 md:pl-16 lg:pl-36 relative flex flex-col items-start">
           <h2 className="font-pokova text-4xl sm:text-5xl lg:text-6xl">

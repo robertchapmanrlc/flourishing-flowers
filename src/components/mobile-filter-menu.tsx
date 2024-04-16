@@ -17,7 +17,7 @@ export default function MobileFilterMenu({ filters }: MobileFilterMenuProps) {
   return (
     <>
       <button className="relative lg:hidden" onClick={() => setIsOpen(true)}>
-        <Image src={"/filter.svg"} width={20} height={20} alt="Filter" />
+        <Image src={"/icons/filter.svg"} width={20} height={20} alt="Filter" />
       </button>
       <Dialog
         as="div"
@@ -31,7 +31,7 @@ export default function MobileFilterMenu({ filters }: MobileFilterMenuProps) {
               Filters
             </h2>
             <button onClick={() => setIsOpen(false)}>
-              <Image src={"/x.svg"} width={30} height={30} alt="X Icon" />
+              <Image src={"/icons/x.svg"} width={30} height={30} alt="X Icon" />
             </button>
           </div>
           {filters.map((filter, i) => ( 

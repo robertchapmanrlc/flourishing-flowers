@@ -59,7 +59,7 @@ export default function OrderItem({ order }: OrderItemProps) {
         </div>
       </div>
       <button onClick={() => handleRemove()}>
-        <Image src={"/x.svg"} width={30} height={30} alt="x" />
+        <Image src={"/icons/x.svg"} width={30} height={30} alt="x" />
       </button>
     </li>
   );

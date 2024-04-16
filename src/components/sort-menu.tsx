@@ -26,7 +26,7 @@ export default function SortMenu() {
         <Menu.Button className="group inline-flex justify-center items-center font-pokova text-xl">
           Sort
           <Image
-            src={"/chevron-down.svg"}
+            src={"/icons/chevron-down.svg"}
             width={20}
             height={20}
             alt="chevron-down"

@@ -61,7 +61,7 @@ export default function Navbar() {
             <li>
               <button onClick={() => setBarOpen(!barOpen)}>
                 <Image
-                  src={"/magnifier.svg"}
+                  src={"/icons/magnifier.svg"}
                   width={25}
                   height={25}
                   alt="Magnifying glass"
@@ -75,7 +75,7 @@ export default function Navbar() {
               <button type="button" onClick={() => setIsOpen(true)}>
                 <span className="sr-only">Open main menu</span>
                 <Image
-                  src={"/menu.svg"}
+                  src={"/icons/menu.svg"}
                   width={25}
                   height={25}
                   alt="Menu Icon"
@@ -95,7 +95,7 @@ export default function Navbar() {
             <button type="button" onClick={() => setIsOpen(false)}>
               <span className="sr-only">Close main menu</span>
               <Image
-                src={"/x.svg"}
+                src={"/icons/x.svg"}
                 width={25}
                 height={25}
                 alt="X Icon"
