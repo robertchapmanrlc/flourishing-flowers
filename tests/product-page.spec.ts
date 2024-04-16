@@ -16,7 +16,7 @@ test('Product Details', async ({ page }) => {
 
 test("Product Details Quantity Action", async ({ page }) => {
   await page.goto("/product/daisy");
-  page.getByRole("button", { name: "plus" }).click();
-  page.getByRole("button", { name: "plus" }).click();
-  await expect(page.getByRole('main')).toContainText("2");
+  await page.getByRole("button", { name: "plus" }).click();
+  await page.getByRole("button", { name: "plus" }).click();
+  await expect(page.getByRole('main')).toContainText("3");
 });

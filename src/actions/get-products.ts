@@ -4,6 +4,8 @@ export async function getAllProducts() {
   const products = await database.product.findMany({
     include: {
       colors: true,
+      occasion: true,
+      images: true
     },
   });
   return products;
@@ -12,7 +14,8 @@ export async function getAllProducts() {
 export async function getBestSellers() {
   const products = await database.product.findMany({
     include: {
-      colors: true
+      colors: true,
+      images: true
     },
     take: 4
   });
@@ -26,6 +29,7 @@ export async function getProduct(productName: string) {
     },
     include: {
       colors: true,
+      images: true
     },
   });
   return product;

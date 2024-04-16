@@ -6,7 +6,7 @@ export interface FilterType {
   name: string;
   options: {
     label: string;
-    checked: boolean;
+    urlLabel: string;
   }[];
 }
 
@@ -37,18 +37,23 @@ export interface Product {
   urlName: string;
   description: string;
   price: number;
-  imageUrl: string;
+  images: Image[];
   createdAt: Date;
   colors: Color[];
 }
 
+export interface Image {
+  id: number;
+  imageUrl: string;
+  productId: number;
+}
+
 export interface Order {
   name: string;
-  category: string;
   imageUrl: string;
   price: number;
   color: string;
   quantity: number;
   product_id: number;
-  created_at: string;
+  created_at: Date;
 }

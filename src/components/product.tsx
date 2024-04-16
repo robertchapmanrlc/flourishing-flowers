@@ -6,13 +6,14 @@ import { RadioGroup } from "@headlessui/react";
 
 import { cn } from "@/utilities/utils";
 import { ColorVariants, Product } from "@/types/types";
+import AddToCart from "./addToCart";
 
 interface ProductDetailsProps {
   product: Product;
 }
 
 export default function ProductDetails({ product }: ProductDetailsProps) {
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
 
   const colors: ColorVariants = {
@@ -24,36 +25,59 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
   };
 
   const updateQuantity = (num: number) => {
-    if ((quantity === 0 && num === -1) || (quantity === 8 && num === 1))
-      return;
+    if ((quantity === 1 && num === -1) || (quantity === 8 && num === 1)) return;
     setQuantity((prevQuantity) => prevQuantity + num);
-  }
+  };
+
+  let imgs: string[] = [];
+
+  product.images.forEach((product) => imgs.push(product.imageUrl));
+
+  let index = imgs.findIndex((img) => img.includes(selectedColor.name));
+
+  const imageUrl = imgs[index];
 
   return (
     <main className="w-full px-4 md:px-8 lg:px-24 py-8 md:py-16 lg:py-24 flex flex-col gap-y-5 md:gap-y-10 lg:gap-y-16">
       <div className="w-full flex flex-col md:flex-row items-center justify-start md:items-start gap-y-5 md:gap-x-8 lg:gap-x-16">
         <Image
           className="border-2 rounded-md"
-          src={product.imageUrl}
+          src={imageUrl}
           width={500}
           height={625}
           alt={product.name}
         />
         <div className="w-full md:max-w-[40%] flex flex-col gap-y-5 md:gap-y-8">
-          <h1 className="font-pokova text-3xl md:text-4xl lg:text-5xl">{product.name}</h1>
-          <h3 className="font-pokova text-xl md:text-2xl lg:text-3xl">${product.price}</h3>
+          <h1 className="font-pokova text-3xl md:text-4xl lg:text-5xl">
+            {product.name}
+          </h1>
+          <h3 className="font-pokova text-xl md:text-2xl lg:text-3xl">
+            ${product.price}
+          </h3>
           <div className="w-full border-b-2" />
-          <h3 className="font-pokova font-bold text-xl md:text-2xl lg:text-3xl">Quantity:</h3>
+          <h3 className="font-pokova font-bold text-xl md:text-2xl lg:text-3xl">
+            Quantity:
+          </h3>
           <div className="w-32 flex flex-row gap-x-5">
-            <button className="bg-primary rounded-md p-1 hover:scale-125 transition-transform" onClick={() => updateQuantity(-1)}>
-              <Image src={'/minus.svg'} width={25} height={25} alt="minus"/>
+            <button
+              className="bg-primary rounded-md p-1 hover:scale-125 transition-transform"
+              onClick={() => updateQuantity(-1)}
+            >
+              <Image src={"/minus.svg"} width={25} height={25} alt="minus" />
             </button>
-            <h4 className="font-h4okova text-lg md:text-xl lg:text-2xl">{quantity}</h4>
-            <button className="bg-primary rounded-md p-1 hover:scale-125 transition-transform" onClick={() => updateQuantity(1)}>
-              <Image src={'/plus.svg'} width={25} height={25} alt="plus"/>
+            <h4 className="font-h4okova text-lg md:text-xl lg:text-2xl">
+              {quantity}
+            </h4>
+            <button
+              className="bg-primary rounded-md p-1 hover:scale-125 transition-transform"
+              onClick={() => updateQuantity(1)}
+            >
+              <Image src={"/plus.svg"} width={25} height={25} alt="plus" />
             </button>
           </div>
-          <h3 className="font-pokova font-bold text-xl md:text-2xl lg:text-3xl">Colors:</h3>
+          <h3 className="font-pokova font-bold text-xl md:text-2xl lg:text-3xl">
+            Colors:
+          </h3>
           <RadioGroup value={selectedColor} onChange={setSelectedColor}>
             <RadioGroup.Label className="sr-only">
               Choose a color
@@ -85,10 +109,22 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
               ))}
             </div>
           </RadioGroup>
-          <button className="bg-primary rounded-md py-2 font-pokova text-xl text-white hover:scale-105 transition-transform">Add To Cart</button>
+          <AddToCart
+            order={{
+              name: product.name,
+              quantity: quantity,
+              price: product.price,
+              product_id: product.id,
+              imageUrl: imageUrl,
+              color: selectedColor.name,
+              created_at: new Date(),
+            }}
+          />
         </div>
       </div>
-      <p className="font-pokova text-left md:text-lg lg:text-2xl">{product.description}</p>
+      <p className="font-pokova text-left md:text-lg lg:text-2xl">
+        {product.description}
+      </p>
     </main>
   );
 }
