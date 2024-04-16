@@ -22,7 +22,7 @@ export default function ShoppingCart() {
         alt="Shopping Cart Icon"
       />
       {mounted && orderItems.length != 0 && (
-        <h6 className="absolute w-5 h-5 top-[-10px] right-[-8px] bg-primary rounded-full flex justify-center items-center text-xs">
+        <h6 className="absolute w-5 h-5 top-[-10px] text-white right-[-8px] bg-primary rounded-full flex justify-center items-center text-xs">
           {orderItems.length}
         </h6>
       )}

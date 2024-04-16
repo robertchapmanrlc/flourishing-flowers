@@ -8,9 +8,6 @@ export default function Footer() {
         <h3 className="font-playball text-2xl sm:text-3xl md:text-4xl lg:text-6xl">
           Flourishing Flowers
         </h3>
-        <button className="bg-primary rounded-md px-3 py-1 font-pokova text-lg hover:scale-110 transition-all text-white">
-          Contact Us
-        </button>
       </div>
       <div className="w-full md:w-[50%] h-[75%] md:h-full flex flex-row items-center">
         <div className="hidden md:block w-1 h-[75%] bg-accent" />
