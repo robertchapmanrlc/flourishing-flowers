@@ -1,5 +1,6 @@
 "use client";
 
+import toast from "react-hot-toast";
 import { Order } from "@/types/types";
 import useCartService from "contexts/shop-context";
 
@@ -12,6 +13,7 @@ export default function AddToCart({ order }: AddToCartProps) {
 
   const addToCartHandler = (order: Order) => {
     addToCart(order);
+    toast.success("Item(s) added to cart");
   };
 
   return (

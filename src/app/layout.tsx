@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Playball, Podkova } from "next/font/google";
+import { ToastProvider } from "../../providers/toast-provider";
 
 const playball = Playball({
   subsets: ["latin"],
@@ -33,6 +34,7 @@ export default function RootLayout({
     <html lang="en" className={`${playball.variable} ${podkova.variable}`}>
       <body>
         <Navbar />
+        <ToastProvider />
         {children}
         <Footer />
       </body>
