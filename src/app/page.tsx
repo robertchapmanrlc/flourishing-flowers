@@ -20,8 +20,8 @@ export default async function Main() {
           <h5 className="text-center font-pokova text-xs sm:text-base lg:text-2xl text-black/50">
             Discover the most exquisite blooms for nearly every occasion.
           </h5>
-          <Link href={'/shop'}>
-            <button className="mt-5 bg-primary py-1 px-2 sm:py-2 sm:px-4 rounded-md lg:rounded-lg text-white font-pokova text-xs sm:text-base hover:text-base sm:hover:text-lg lg:text-xl lg:hover:text-2xl transition-all">
+          <Link href={"/shop"}>
+            <button className="mt-5 bg-primary py-1 px-2 sm:py-2 sm:px-4 rounded-md lg:rounded-lg text-white font-pokova text-xs sm:text-base md:text-lg hover:scale-110 transition-all">
               Shop Now
             </button>
           </Link>
@@ -31,12 +31,21 @@ export default async function Main() {
         <h3 className="font-pokova text-4xl">Best Sellers</h3>
         <div className="w-full px-5 lg:px-12 grid grid-rows-2 grid-cols-2 lg:flex lg:justify-center gap-x-16 gap-y-12 lg:gap-y-0">
           {products.map((product) => (
-            <ProductCard key={product.id} card={{name: product.name, link: product.urlName, price: product.price, image_url: product.images[0].imageUrl, colors: product.colors}}/>
+            <ProductCard
+              key={product.id}
+              card={{
+                name: product.name,
+                link: product.urlName,
+                price: product.price,
+                image_url: product.images[0].imageUrl,
+                colors: product.colors,
+              }}
+            />
           ))}
         </div>
         <div className="h-12">
-          <Link href={'/shop'}>
-            <button className="bg-primary py-1 px-2 sm:py-2 sm:px-4 rounded-md lg:rounded-lg text-white font-pokova text-xs sm:text-base hover:text-base sm:hover:text-lg lg:text-xl lg:hover:text-2xl transition-all">
+          <Link href={"/shop"}>
+            <button className="bg-primary py-1 px-2 sm:py-2 sm:px-4 rounded-md lg:rounded-lg text-white font-pokova text-xs sm:text-base md:text-lg lg:text-xl hover:scale-110 transition-all">
               Shop all
             </button>
           </Link>
@@ -53,8 +62,8 @@ export default async function Main() {
           <h5 className="text-center font-pokova text-base sm:text-xl lg:text-2xl text-black/50">
             Anniversaries can be special with these flowers.
           </h5>
-          <Link href={'/shop'}>
-            <button className="mt-5 bg-primary py-1 px-2 sm:py-2 sm:px-4 rounded-md lg:rounded-lg text-white font-pokova text-xs sm:text-base hover:text-base sm:hover:text-lg lg:text-xl lg:hover:text-2xl transition-all">
+          <Link href={"/shop"}>
+            <button className="mt-5 bg-primary py-1 px-2 sm:py-2 sm:px-4 rounded-md lg:rounded-lg text-white font-pokova text-xs sm:text-base md:text-lg hover:scale-110 transition-all">
               Shop Now
             </button>
           </Link>
@@ -66,13 +75,16 @@ export default async function Main() {
             Shop by Occasion
           </h3>
           <Link href={`/shop`}>
-            <button className="bg-primary py-1 px-2 sm:py-2 sm:px-4 rounded-md lg:rounded-lg text-white font-pokova text-xs sm:text-base hover:text-base sm:hover:text-lg lg:text-xl lg:hover:text-2xl transition-all">
+            <button className="bg-primary py-1 px-2 sm:py-2 sm:px-4 rounded-md lg:rounded-lg text-white font-pokova text-xs sm:text-base hover:scale-110 lg:text-xl transition-all">
               Browse all occasions
             </button>
           </Link>
         </div>
         <div className="w-full grid grid-rows-2 grid-cols-2 lg:flex lg:justify-center lg:gap-x-12">
-          <Link href={`/shop?occasion=birthdays`} className="flex flex-col items-center">
+          <Link
+            href={`/shop?occasion=birthdays`}
+            className="flex flex-col items-center"
+          >
             <Image
               src="https://i.ibb.co/PFG0FvX/pink-daisy-plant.webp"
               alt="Pink Daisy Plant"
@@ -81,7 +93,10 @@ export default async function Main() {
             />
             <h5 className="font-pokova text-2xl">Birthdays</h5>
           </Link>
-          <Link href={`/shop?occasion=weddings`} className="flex flex-col items-center">
+          <Link
+            href={`/shop?occasion=weddings`}
+            className="flex flex-col items-center"
+          >
             <Image
               src="https://i.ibb.co/s59dGm3/white-orchid-bouquet.webp"
               alt="Red Rose Bouquet"
@@ -90,7 +105,10 @@ export default async function Main() {
             />
             <h5 className="font-pokova text-2xl">Weddings</h5>
           </Link>
-          <Link href={`/shop?occasion=get+well`} className="flex flex-col items-center">
+          <Link
+            href={`/shop?occasion=get+well`}
+            className="flex flex-col items-center"
+          >
             <Image
               src="https://i.ibb.co/StyPXsn/yellow-rose-plant.webp"
               alt="Yellow Rose Plant"
@@ -99,7 +117,10 @@ export default async function Main() {
             />
             <h5 className="font-pokova text-2xl">Get Well</h5>
           </Link>
-          <Link href={`/shop?occasion=housewarming`} className="flex flex-col items-center">
+          <Link
+            href={`/shop?occasion=housewarming`}
+            className="flex flex-col items-center"
+          >
             <Image
               src="https://i.ibb.co/y5DSXTG/yellow-tulip-arrangement.webp"
               alt="Pink Rose Plant"
