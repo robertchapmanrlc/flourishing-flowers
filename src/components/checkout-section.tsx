@@ -1,5 +1,6 @@
 "use client";
 
+import toast from "react-hot-toast";
 import useCartService from "contexts/shop-context";
 
 export default function CheckoutSection() {
@@ -8,6 +9,7 @@ export default function CheckoutSection() {
 
   const handleCheckout = () => {
     clearCart();
+    toast.success('Completed purchase');
   }
 
   return (
