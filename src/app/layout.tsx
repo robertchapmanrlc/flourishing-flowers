@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Playball, Podkova } from "next/font/google";
 import { ToastProvider } from "../../providers/toast-provider";
 
@@ -18,6 +18,13 @@ const podkova = Podkova({
 import "./index.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/footer";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false
+};
 
 export const metadata: Metadata = {
   title: "Flourishing Flowers",
@@ -39,7 +46,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: '/florist.png'
-  }
+  },
 };
 
 export default function RootLayout({
