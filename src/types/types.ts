@@ -1,44 +1,59 @@
+export type ColorVariants = {
+  [key: string]: string;
+};
+
+export interface FilterType {
+  name: string;
+  options: {
+    label: string;
+    urlLabel: string;
+  }[];
+}
 
 export interface Card {
-    image_url: string;
-    name: string;
-    category: string;
-    price: string;
-    product_id: number;
-    colors: Color[];
-    created_at: string;
+  name: string;
+  link: string;
+  price: number;
+  image_url: string;
+  colors: Color[];
 }
 
 export interface Category {
-    route: string;
-    label: string;
-    cards: Card[];
+  route: string;
+  label: string;
+  cards: Card[];
 }
 
 export interface Color {
-    name: string;
-    class: string;
-    selectedClass: string;
+  id: number;
+  name: string;
+  class: string;
+  selectedClass: string;
 }
 
 export interface Product {
-    name: string;
-    image_url: string;
-    price: string;
-    category: string;
-    product_id: number;
-    colors: Color[];
-    description: string;
-    created_at: string;
+  id: number;
+  name: string;
+  urlName: string;
+  description: string;
+  price: number;
+  images: Image[];
+  createdAt: Date;
+  colors: Color[];
+}
+
+export interface Image {
+  id: number;
+  imageUrl: string;
+  productId: number;
 }
 
 export interface Order {
-    name: string;
-    category: string;
-    image_url: string;
-    price: string;
-    color: string;
-    quantity: number;
-    product_id: number;
-    created_at: string;
+  name: string;
+  imageUrl: string;
+  price: number;
+  color: string;
+  quantity: number;
+  product_id: number;
+  created_at: Date;
 }
