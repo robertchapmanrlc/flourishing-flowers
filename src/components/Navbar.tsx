@@ -57,7 +57,7 @@ export default function Navbar() {
               </Link>
             </li>
           </ul>
-          <ul className="w-40 md:w-28 flex justify-between">
+          <ul className="w-28 md:w-16 flex justify-between">
             <li>
               <button onClick={() => setBarOpen(!barOpen)}>
                 <Image
@@ -70,16 +70,6 @@ export default function Navbar() {
             </li>
             <li>
               <ShoppingCart />
-            </li>
-            <li>
-              <Link href="/account">
-                <Image
-                  src={"/user.svg"}
-                  width={25}
-                  height={25}
-                  alt="User Icon"
-                />
-              </Link>
             </li>
             <li className="md:hidden">
               <button type="button" onClick={() => setIsOpen(true)}>

@@ -1,5 +1,6 @@
 "use client";
 
+import toast from "react-hot-toast";
 import useCartService from "contexts/shop-context";
 
 export default function CheckoutSection() {
@@ -8,6 +9,7 @@ export default function CheckoutSection() {
 
   const handleCheckout = () => {
     clearCart();
+    toast.success('Completed purchase');
   }
 
   return (
@@ -37,7 +39,10 @@ export default function CheckoutSection() {
             </h5>
             <h5 className="font-pokova text-lg">${totalPrice + 5 + 7}</h5>
           </div>
-          <button className="bg-primary py-2 text-white font-pokova text-xl rounded-lg" onClick={() => handleCheckout()}>
+          <button
+            className="bg-primary hover:bg-[#DB63C5] active:bg-[#DB63C5] active:scale-105 py-2 text-white font-pokova text-xl rounded-lg transition-transform"
+            onClick={() => handleCheckout()}
+          >
             Checkout
           </button>
         </section>

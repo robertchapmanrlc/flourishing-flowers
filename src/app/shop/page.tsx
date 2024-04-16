@@ -75,7 +75,7 @@ export default async function Shop({
   ];
 
   return (
-    <main className="w-full py-6 md:py-12 lg:py-16 px-4 md:px-8 lg:px-12 flex flex-col gap-y-8 justify-start items-center">
+    <main className="w-full min-h-screen py-6 md:py-12 lg:py-16 px-4 md:px-8 lg:px-12 flex flex-col gap-y-8 justify-start items-center">
       <div className="w-full pb-6 flex flex-row justify-between items-center border-b-2 border-gray-200">
         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-pokova tracking-tight text-gray-900">
           Search For Flowers
