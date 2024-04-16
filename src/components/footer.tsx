@@ -24,15 +24,15 @@ export default function Footer() {
         </div>
         <div className="hidden md:block w-1 h-[75%] bg-accent" />
         <div className="w-full md:w-[50%] md:h-full md:pl-10 flex flex-col items-start justify-between md:justify-center gap-y-4 md:gap-y-10">
-          <Image src={"/twitterx.svg"} width={35} height={35} alt="X Icon" />
+          <Image src={"/icons/twitterx.svg"} width={35} height={35} alt="X Icon" />
           <Image
-            src={"/youtube.svg"}
+            src={"/icons/youtube.svg"}
             width={35}
             height={35}
             alt="YouTube Icon"
           />
           <Image
-            src={"/instagram.svg"}
+            src={"/icons/instagram.svg"}
             width={35}
             height={35}
             alt="Instagram Icon"

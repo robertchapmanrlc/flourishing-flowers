@@ -63,7 +63,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
               className="bg-primary rounded-md p-1 hover:scale-125 transition-transform"
               onClick={() => updateQuantity(-1)}
             >
-              <Image src={"/minus.svg"} width={25} height={25} alt="minus" />
+              <Image src={"/icons/minus.svg"} width={25} height={25} alt="minus" />
             </button>
             <h4 className="font-h4okova text-lg md:text-xl lg:text-2xl">
               {quantity}
@@ -72,7 +72,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
               className="bg-primary rounded-md p-1 hover:scale-125 transition-transform"
               onClick={() => updateQuantity(1)}
             >
-              <Image src={"/plus.svg"} width={25} height={25} alt="plus" />
+              <Image src={"/icons/plus.svg"} width={25} height={25} alt="plus" />
             </button>
           </div>
           <h3 className="font-pokova font-bold text-xl md:text-2xl lg:text-3xl">

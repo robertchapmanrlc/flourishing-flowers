@@ -50,13 +50,13 @@ function Filter({ filter }: FilterProps) {
               <span className="ml-6 flex items-center">
                 {open ? (
                   <Image
-                    src={"/minus.svg"}
+                    src={"/icons/minus.svg"}
                     width={25}
                     height={25}
                     alt="minus"
                   />
                 ) : (
-                  <Image src={"/plus.svg"} width={25} height={25} alt="plus" />
+                  <Image src={"/icons/plus.svg"} width={25} height={25} alt="plus" />
                 )}
               </span>
             </Disclosure.Button>

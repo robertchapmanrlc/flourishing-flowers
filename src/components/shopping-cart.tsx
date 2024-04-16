@@ -16,7 +16,7 @@ export default function ShoppingCart() {
   return (
     <Link href="/shopping-cart" className="relative">
       <Image
-        src={"/bag-shopping.svg"}
+        src={"/icons/bag-shopping.svg"}
         width={25}
         height={25}
         alt="Shopping Cart Icon"
