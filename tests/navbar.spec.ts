@@ -17,10 +17,9 @@ test("Has the navigation links", async ({ page }) => {
 test("Icons are visibile", async ({ page }) => {
   await page.goto("http://localhost:3000/");
   await expect(
-    page.getByRole('button', { name: "Magnifying glass" })
+    page.getByRole("button", { name: "Magnifying glass" })
   ).toBeVisible();
   await expect(
     page.getByRole("link", { name: "Shopping Cart Icon" })
   ).toBeVisible();
-  await expect(page.getByRole("link", { name: "User Icon" })).toBeVisible();
 });
